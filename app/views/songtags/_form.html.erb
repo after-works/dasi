@@ -1,0 +1,30 @@
+<%= form_for(@songtag) do |f| %>
+  <% if @songtag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@songtag.errors.count, "error") %> prohibited this songtag from being saved:</h2>
+
+      <ul>
+      <% @songtag.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  	제목:
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+  	설명 : <%= text_field(:info, :content)%>
+  </div>
+  <div class="field">
+	원곡 가수<%=text_field(:info, :original_singer) %>
+  </div>
+  <div class="field">
+	원곡 youtube_id<%=text_field(:info, :youtube_id) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

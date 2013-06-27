@@ -1,0 +1,23 @@
+<p id="notice">
+	<%= notice %>
+</p>
+
+<h3><%= @songtag.title %></h3>
+
+<% @songs.each do | song | %>
+<div>
+	<% if is_original_song? @songtag , song%>
+		원곡가수 <%= song.singer %>
+	<% else %>
+		<%= song.singer%>
+	<% end %>
+
+	<br>
+	<iframe width="560" height="315" src="//www.youtube.com/embed/<%= song.youtube_id%>" frameborder="0" allowfullscreen></iframe>
+	<br>
+</div>
+
+<% end %>
+
+<%= link_to 'Edit', edit_songtag_path(@songtag) %> |
+<%= link_to 'Back', songtags_path %> |

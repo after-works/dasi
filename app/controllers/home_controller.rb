@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def index
-    @debug = session[:remember_token]
+    # @hot_issue
+    # @recomends
+    # @ranking
+    # @reandom
   end
 end
