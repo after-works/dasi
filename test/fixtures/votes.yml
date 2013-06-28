@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  uid: 1
+  songtag_id: 1
+  song_id: 1
+
+two:
+  uid: 1
+  songtag_id: 1
+  song_id: 1

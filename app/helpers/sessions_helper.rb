@@ -17,4 +17,15 @@ module SessionsHelper
     end
     return false
   end
+  
+  def user_only
+    if current_user.nil?
+      user_access_deny
+      return
+    end
+  end
+  
+  def user_access_deny
+    redirect_to '/userdeny'
+  end
 end

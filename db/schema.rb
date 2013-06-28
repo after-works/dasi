@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627124045) do
+ActiveRecord::Schema.define(:version => 20130628122357) do
 
   create_table "songs", :force => true do |t|
     t.integer  "tag_id"
@@ -42,5 +42,13 @@ ActiveRecord::Schema.define(:version => 20130627124045) do
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "votes", :force => true do |t|
+    t.integer  "uid"
+    t.integer  "songtag_id"
+    t.integer  "song_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
