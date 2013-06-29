@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130628122357) do
+ActiveRecord::Schema.define(:version => 20130629033508) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "uid"
+    t.integer  "songtag_id"
+    t.text     "context"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "parent_cmt_id"
+  end
+
+  create_table "recomment_relations", :force => true do |t|
+    t.integer  "parent_cmt_id"
+    t.integer  "child_cmt_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "songs", :force => true do |t|
     t.integer  "tag_id"

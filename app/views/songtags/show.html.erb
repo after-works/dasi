@@ -19,5 +19,32 @@
 
 <% end %>
 
-<%= link_to 'Edit', edit_songtag_path(@songtag) %> |
-<%= link_to 'Back', songtags_path %> |
+<div>
+	<%= form_for @comment_form do |f| %>
+		<%= f.text_field( :context)%>
+		<%= f.hidden_field :songtag_id, :value=>@songtag.id%>
+		<%= f.hidden_field :uid, :value=>current_user.id%>
+		<%= f.button %>
+	<% end %>
+	
+	<% @comments.each do |cmt|%>
+		<%= cmt.user.name%>:
+		<%= cmt.context%><br>
+		
+		<% cmt.re_comments.each do |re|%>
+				- 
+				<%= re.user.name%>:
+				<%= re.context%>
+				<br>
+		<% end %>
+		
+		<%= form_for @comment_form do |f| %>
+		<%= f.text_field( :context)%>
+		<%= f.hidden_field :songtag_id, :value=>@songtag.id%>
+		<%= f.hidden_field :uid, :value=>current_user.id%>
+		<%= f.hidden_field :parent_cmt_id, :value=> cmt.id%>
+		<%= f.button "Create Re Comment"%>
+		
+	<% end %>
+	<% end %>
+</div>

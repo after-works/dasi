@@ -3,6 +3,8 @@ class SongtagsController < ApplicationController
   def show
     @songtag = Songtag.find(params[:id])
     @songs = @songtag.songs
+    @comments = Comment.parent_comments @songtag
+    @comment_form = Comment.new
   end
 
   def new

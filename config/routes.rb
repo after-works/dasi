@@ -18,4 +18,7 @@ Dasi::Application.routes.draw do
   
   #for votes
   resources :votes, only: [:create, :destroy]
+  
+  #for comment
+  resource :comments, only: [:create] #추후 update, destroy 구현. ajax로  해야할 것 같으므로 패스함
 end

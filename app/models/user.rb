@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :votes, foreign_key: "uid", dependent: :destroy
   
+  has_many :comments, foreign_key: "uid", dependent: :destroy
+  belongs_to :comment
+  
   before_save :create_remember_token
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
