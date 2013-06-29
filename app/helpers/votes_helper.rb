@@ -8,6 +8,10 @@ module VotesHelper
   end
 
   def voted? (song)
+    if !signed_in?
+      return false
+    end
+    
     users = voted_users(song)
     flag = false
     

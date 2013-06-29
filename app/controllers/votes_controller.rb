@@ -7,7 +7,7 @@ class VotesController < ApplicationController
 
     if voted?(@songtag)
       redirect_to @songtag
-    return
+      return
     end
 
     @vote = Vote.new

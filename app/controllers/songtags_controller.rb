@@ -5,6 +5,7 @@ class SongtagsController < ApplicationController
     @songs = @songtag.songs
     @comments = Comment.parent_comments @songtag
     @comment_form = Comment.new
+    @comment_log = CommentLog.new
   end
 
   def new
