@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130629042826) do
+ActiveRecord::Schema.define(:version => 20130701105048) do
 
   create_table "comment_logs", :force => true do |t|
     t.integer  "uid"
@@ -30,17 +30,9 @@ ActiveRecord::Schema.define(:version => 20130629042826) do
     t.integer  "parent_cmt_id"
   end
 
-  create_table "recomment_relations", :force => true do |t|
-    t.integer  "parent_cmt_id"
-    t.integer  "child_cmt_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "songs", :force => true do |t|
     t.integer  "tag_id"
-    t.string   "singer"
-    t.text     "content"
+    t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "youtube_id"
@@ -51,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130629042826) do
     t.integer  "original_song_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.text     "content"
   end
 
   create_table "users", :force => true do |t|

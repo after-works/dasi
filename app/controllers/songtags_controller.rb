@@ -8,14 +8,6 @@ class SongtagsController < ApplicationController
     @comment_log = CommentLog.new
   end
 
-  def new
-    @songtag = Songtag.new
-  end
-
-  def edit
-    @songtag = Songtag.find(params[:id])
-  end
-
   def create
     @songtag = Songtag.new(params[:songtag])
 
@@ -31,22 +23,5 @@ class SongtagsController < ApplicationController
 
     @origin_song.update_attributes(:tag_id=>@songtag.id)
 
-  end
-
-  def update
-    @songtag = Songtag.find(params[:id])
-
-    if @songtag.update_attributes(params[:songtag])
-      format.html { redirect_to @songtag, notice: 'Songtag was successfully updated.' }
-      format.json { head :no_content }
-    else
-      format.html { render action: "edit" }
-      format.json { render json: @songtag.errors, status: :unprocessable_entity }
-    end
-  end
-
-  def destroy
-    @songtag = Songtag.find(params[:id])
-    @songtag.destroy
   end
 end
