@@ -24,7 +24,8 @@ gem 'jquery-rails'
 
 #####for facebook authentication
 gem 'omniauth-facebook', "1.4.0"
-
+#####for facebook graph api
+gem 'fb_graph'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
