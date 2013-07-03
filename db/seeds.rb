@@ -7,6 +7,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create({name:"test1", uid: "701616426"})
+User.create({name:"test2", uid: "752317883"})
+User.create({name:"test3", uid: "1013059472"})
+
+
 song = Song.new({title:"이멋 이건 꼭 해얗!", youtube_id:"tqJfCPcu0As"})
 song.save
 
