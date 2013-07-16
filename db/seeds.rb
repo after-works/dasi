@@ -20,3 +20,12 @@ songtag.save
 
 song.tag_id = songtag.id
 song.save
+
+song = Song.new({title:"이멋 이건 꼭 해얗!", youtube_id:"tqJfCPcu0As", tag_id:songtag.id})
+song.save
+song = Song.new({title:"이멋 이건 꼭 해얗!", youtube_id:"tqJfCPcu0As", tag_id:songtag.id})
+song.save
+song = Song.new({title:"이멋 이건 꼭 해얗!", youtube_id:"tqJfCPcu0As", tag_id:songtag.id})
+song.save
+song = Song.new({title:"이멋 이건 꼭 해얗!", youtube_id:"tqJfCPcu0As", tag_id:songtag.id})
+song.save
