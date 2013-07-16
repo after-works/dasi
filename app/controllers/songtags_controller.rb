@@ -5,7 +5,7 @@ class SongtagsController < ApplicationController
     @songs = @songtag.songs
     @comments = Comment.parent_comments @songtag
     @comment_form = Comment.new
-    @comment_log = CommentLog.new
+    @comment_log = CommentLog.new 
   end
 
   def create
@@ -23,5 +23,19 @@ class SongtagsController < ApplicationController
 
     @origin_song.update_attributes(:tag_id=>@songtag.id)
 
+  end
+  
+  def show_song
+    @current_song = Song.find_by_id params[:id]
+    
+    if current_song.nil?
+      
+    end
+    
+    @songtag = current_song.songtag
+    @songs = @songtag.songs
+    @comments = Comment.parent_comments @songtag
+    @comment_form = Comment.new
+    @comment_log = CommentLog.new
   end
 end
