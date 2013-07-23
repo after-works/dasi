@@ -2,104 +2,27 @@
 	<%= notice %>
 </p>
 
-<h3><%= @songtag.title %></h3>
-투표 여부 : <%= voted?(@songtag)%>
-
-<hr>
-<div style="float: left">
-	<% @songs.each do | song | %>
-	<div>
-		<% if is_original_song? @songtag , song%>
-		몰라 썅
-		<% else %>
-		<%= song.title%>
-		<% end %>
-
-		<%= render 'songs/show', :song=>song %>
-	</div>
-
-	<% end %>
-
-</div>
-
-<hr>
-
 <div>
-	<% if signed_in? %>
-	<%= form_for @comment_form do |f| %>
-	<%= f.text_field( :context)%>
-	<%= f.hidden_field :songtag_id, :value=>@songtag.id%>
-	<%= f.hidden_field :uid, :value=>current_user.id%>
-	<%= f.button %>
-	<% end %>
-	<% else %>
-	댓글 로그인 필요
-	<% end %>
-	<% @comments.each do |cmt|%>
-	<%= cmt.user.name%>:
-	<%= cmt.context%> |
-
-	좋 : <%= like(cmt).count%> 싫 : <%= dislike(cmt).count%>
-	내가 누른것 :
-	<% if !my_status_choice(cmt).nil?%>
-	<%= my_status_choice(cmt).status %>
-	<%= link_to '취소', comment_logs_path(my_status_choice(cmt)), method: :delete %>
-	<%end %>
-
-	<%= form_for @comment_log do |f| %>
-	<%= f.hidden_field :comment_id, :value=>cmt.id%>
-	<%= f.hidden_field :uid, :value=>current_user.id%>
-	<%= f.hidden_field :status, :value=>1%>
-	<%= hidden_field_tag :songtag_id, @songtag.id%>
-	<%= f.button "좋아요"%>
-	<% end %>
-	<%= form_for @comment_log do |f| %>
-	<%= f.hidden_field :comment_id, :value=>cmt.id%>
-	<%= f.hidden_field :uid, :value=>current_user.id%>
-	<%= f.hidden_field :status, :value=>-1%>
-	<%= hidden_field_tag :songtag_id, @songtag.id%>
-	<%= f.button "싫어요"%>
-	<% end %>
-	<br>
-	<% cmt.re_comments.each do |re|%>
-	-
-	<%= re.user.name%>:
-	<%= re.context%> |
-	좋 : <%= like(re).count%> 싫 : <%= dislike(re).count%>
-	내가 누른것 :
-	<% if !my_status_choice(re).nil?%>
-	<%= my_status_choice(re).status %>
-	<%= link_to '취소', comment_logs_path(my_status_choice(re)), method: :delete %>
-	<%end %>
-
-	<%= form_for @comment_log do |f| %>
-	<%= f.hidden_field :comment_id, :value=>re.id%>
-	<%= f.hidden_field :uid, :value=>current_user.id%>
-	<%= f.hidden_field :status, :value=>1%>
-	<%= hidden_field_tag :songtag_id, @songtag.id%>
-	<%= f.button "좋아요"%>
-	<% end %>
-	<%= form_for @comment_log do |f| %>
-	<%= f.hidden_field :comment_id, :value=>re.id%>
-	<%= f.hidden_field :uid, :value=>current_user.id%>
-	<%= f.hidden_field :status, :value=>-1%>
-	<%= hidden_field_tag :songtag_id, @songtag.id%>
-	<%= f.button "싫어요"%>
-	<% end %>
-	<br>
-	<% end %>
-
-	<% if signed_in? %>
-	<%= form_for @comment_form do |f| %>
-	<%= f.text_field( :context)%>
-	<%= f.hidden_field :songtag_id, :value=>@songtag.id%>
-	<%= f.hidden_field :uid, :value=>current_user.id%>
-	<%= f.hidden_field :parent_cmt_id, :value=> cmt.id%>
-	<%= f.button "Create Re Comment"%>
-	<% end %>
-	<% else %>
-	댓글 로그인 필요
-	<% end %>
-	<hr>
-	<% end %>
+	<div><!--left col-->
+		<div><!--video-->
+			<%= render 'songs/show', :song=>@current_song %>
+		</div>
+		<div><!--rank list |||| enable scroll-->
+			<%= render 'ranks/detail_rank_list', :songs => @songs%>
+		</div>
+	</div>
+	<div><!--right col |||| enable scroll-->
+		<div><!--title-->
+			<%= @songtag.title %>
+		</div>
+		<div><!--best cmt-->
+			
+		</div>
+		<div><!-- cmt enter form-->
+			
+		</div>
+		<div><!-- cmts... -->
+			
+		</div>
+	</div>
 </div>

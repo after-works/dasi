@@ -1,18 +1,3 @@
 <div>
 	<iframe width="560" height="315" src="//www.youtube.com/embed/<%= song.youtube_id%>" frameborder="0" allowfullscreen></iframe>
-
-	<%= form_for :vote, :html=>{:class=>'form-inline', :id=>"song-#{song.id}-vote-form", :'data-type'=>'json'}, :url=>votes_path do |f|%>
-	<%= f.hidden_field :song_id, :value=>song.id%>
-	<%= f.button "투표"%>
-	<% end %>
-
-	투표수 : <%= song.votes.count%>
-
-	투표인 :
-	<% voted_users(song).each do |u| %>
-	<%= u.name %>
-	<% end %>
-
-	투표 여부 :
-	<%= voted?(song) %>
 </div>

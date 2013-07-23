@@ -15,6 +15,7 @@ Dasi::Application.routes.draw do
 
   #for songtags
   resources :songtags, only: [:show, :create]
+  get 'songtags/:id/:songtag_id' => 'songtags#show'
   get 'songs/show/:id' => 'songtags#show_song'
 
   #for enrolling songs to songtag
