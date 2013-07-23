@@ -1,0 +1,32 @@
+<div>
+	<div><!-- first row-->
+		<div><!-- name -->
+			<%= comment.user.name %>
+		</div>
+		<div><!-- date time-->
+			<%= comment.created_at%>
+		</div>
+		<div><!-- btn -->
+			<div><!-- like -->
+				<%= cmt_likes(comment).count %>
+			</div>
+			<div><!-- dislike-->
+				<%= cmt_dislikes(comment).count %>
+			</div>
+			<div><!-- re-cmt num -->
+				<%= comment.re_comments.count %>
+			</div>
+		</div>
+	</div>
+	<div><!-- content -->
+		<%= comment.context %>
+	</div>
+	<div><!-- mouse over-->
+		
+	</div>
+</div>
+<% if has_recmt? comment%>
+<div>
+	<%= render 'comments/show_detail_re_cmt', :re_cmt=>comment%>
+</div>
+<% end %>

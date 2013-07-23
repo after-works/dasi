@@ -11,6 +11,6 @@ class Comment < ActiveRecord::Base
 
   has_many :comment_logs, foreign_key: "comment_id"  
   def self.parent_comments (songtag)
-    songtag.comments.find(:all, :conditions=>"parent_cmt_id is null")
+    songtag.comments.find(:all, :conditions=>"parent_cmt_id is null", :order=>'created_at DESC')
   end
 end

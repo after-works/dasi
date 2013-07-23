@@ -3,17 +3,16 @@ class SongtagsController < ApplicationController
     @songtag = Songtag.find(params[:id])
 
     # vote에 따라 소팅 필요
-    @songs = @songtag.songs
+    @songs = sort_songs @songtag.songs
 
     # 날자순으로 소팅
     @comments = Comment.parent_comments @songtag
-
+    
     @comment_form = Comment.new
     @comment_log = CommentLog.new
 
     @current_song = @songs[0]
 
-    @dbg = []    
     if !params[:songtag_id].nil?
       @songs.each do |s|
         if s.id == params[:songtag_id].to_i
@@ -52,5 +51,11 @@ class SongtagsController < ApplicationController
     @comments = Comment.parent_comments @songtag
     @comment_form = Comment.new
     @comment_log = CommentLog.new
+  end
+  
+  private
+  
+  def sort_songs(songs)
+    songs.sort_by{|song| -song.votes.count}
   end
 end

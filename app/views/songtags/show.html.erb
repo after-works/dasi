@@ -1,28 +1,36 @@
-<p id="notice">
-	<%= notice %>
-</p>
-
 <div>
-	<div><!--left col-->
-		<div><!--video-->
+	<div>
+		<!--left col-->
+		<div>
+			<!--video-->
 			<%= render 'songs/show', :song=>@current_song %>
 		</div>
-		<div><!--rank list |||| enable scroll-->
+		<div>
+			<!--rank list |||| enable scroll-->
 			<%= render 'ranks/detail_rank_list', :songs => @songs%>
 		</div>
 	</div>
-	<div><!--right col |||| enable scroll-->
-		<div><!--title-->
+	<div>
+		<!--right col |||| enable scroll-->
+		<div>
+			<!--title-->
 			<%= @songtag.title %>
 		</div>
-		<div><!--best cmt-->
-			
+		<div>
+			<!--best cmt-->
+
 		</div>
-		<div><!-- cmt enter form-->
-			
+		<div>
+			<!-- cmt enter form-->
+			<%= render 'comments/detail_cmt_form', :comment_form=>@comment_form%>
 		</div>
-		<div><!-- cmts... -->
-			
+		<div>
+			<!-- cmts... -->
+			<% @comments.each do | comment | %>
+			<div>
+				<%= render 'comments/show_detail_cmt', :comment=>comment%>
+			</div>
+			<% end %>
 		</div>
 	</div>
 </div>

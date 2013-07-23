@@ -1,9 +1,9 @@
 module CommentLogsHelper
-  def like (cmt)
+  def cmt_likes (cmt)
     cmt.comment_logs.find(:all, :conditions=>"status = 1")
   end
 
-  def dislike (cmt)
+  def cmt_dislikes (cmt)
     cmt.comment_logs.find(:all, :conditions=>"status = -1")
   end
 
