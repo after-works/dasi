@@ -1,20 +1,7 @@
 <h1>songtags</h1>
 
-<table>
-	<thead>
-		<tr>
-			<td>original_song_id</td>
-			<td>original_song_youtube_id</td>
-			<td>title</td>
-		</tr>	
-	</thead>
-	<tbody>
-		<%= @songtags.each do |songtag|%>
-		<tr>
-			<td><%= songtag.original_song_id%></td>
-			<!-- New algorithm(finding song using song_id) is needed -->
-			<td><%= (Song.find_by_id params[:id]).youtube_id%></td>
-			<td><%= songtag.title%></td>
-		</tr>
-	</tbody>
-</table>
+<div>
+	<% @songtags.each do |songtag| %>
+		<%= render partial: "songtags/listelem_songtag", locals: {songtag: songtag} %>
+	<% end %>
+</div>

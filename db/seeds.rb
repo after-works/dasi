@@ -15,7 +15,7 @@ User.create({name:"test3", uid: "1013059472"})
 song = Song.new({title:"이멋 이건 꼭 해얗!", youtube_id:"tqJfCPcu0As"})
 song.save
 
-songtag = Songtag.new({title:"올해 게임 기대작", original_song_id:song.id})
+songtag = Songtag.new({title:"올해 게임 기대작", original_song_id:song.id, author:"sxkng"})
 songtag.save
 
 song.tag_id = songtag.id

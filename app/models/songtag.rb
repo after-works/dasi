@@ -1,5 +1,5 @@
 class Songtag < ActiveRecord::Base
-  attr_accessible :content, :original_song_id, :title
+  attr_accessible :content, :original_song_id, :title, :author
 
   has_many :songs, foreign_key: "tag_id", dependent: :destroy
   belongs_to :song

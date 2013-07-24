@@ -1,0 +1,14 @@
+<div>
+	<p><%= songtag.title %></p>
+	<p><%= songtag.author%>/<%= songtag.created_at %></p>
+	<div><img src="http://img.youtube.com/vi/VIDEO_ID/<%= (Song.find_by_id songtag.original_song_id).youtube_id%>.jpg"></div>
+	<div>
+		<table>
+			<% songtag.songs.each do |song| %>
+				<tr>
+					<td><%= song.title %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
