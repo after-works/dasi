@@ -39,6 +39,10 @@ class SongtagsController < ApplicationController
 
   end
 
+  def index
+    @songtags = Songtag.all
+  end
+
   def show_song
     @current_song = Song.find_by_id params[:id]
 
