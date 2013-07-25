@@ -1,14 +1,15 @@
 <div>
-	<p><%= songtag.title %></p>
+	<h3><%= songtag.title %></h3>
 	<p><%= songtag.author%>/<%= songtag.created_at %></p>
 	<div><img src="http://img.youtube.com/vi/<%= (Song.find_by_id songtag.original_song_id).youtube_id %>/1.jpg"></div>
 	<div>
-		<table>
-			<% songtag.songs.each do |song| %>
-				<tr>
-					<td><%= song.title %></td>
-				</tr>
+		<div>
+			<% original_song = songs.find_by_id(songtag.original_song_id) %>
+			<%=  original_song.title %>
+			<% (songs-[original_song]).each do |song| %>
+				<div><img src="http://img.youtube.com/vi/<%= song.youtube_id %>/1.jpg"><%= song.title %></div>
 			<% end %>
-		</table>
+		</div>
 	</div>
 </div>
+<hr>
