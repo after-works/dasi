@@ -1,6 +1,11 @@
-<% if current_user %>
-Signed in as <strong><%= current_user.name %></strong>!
-<%= link_to "Sign out", signout_path, id: "sign_out" %>
-<% else %>
-<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-<% end %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+		<a class="brand" href="/">Catalist</a>
+		<ul class="nav">
+			<li><a href="/songtags">카탈리스트</a></li>
+		</ul>    
+		<div class="pull-right">
+			<strong><%= current_user.name %></strong>
+		</div>
+  </div>
+</div>
