@@ -13,6 +13,8 @@ class SongtagsController < ApplicationController
 
     @current_song = @songs[0]
 
+    @song_form = Song.new
+    
     if !params[:songtag_id].nil?
       @songs.each do |s|
         if s.id == params[:songtag_id].to_i

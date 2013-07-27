@@ -6,11 +6,22 @@ class VotesController < ApplicationController
     @user = current_user
 
     if voted?(@songtag)
-      redirect_to @songtag
-      return
+      old_vote = Vote.find(:all, :conditions=>"uid=#{@user.id} and songtag_id=#{@songtag.id}")
+      
+      logger.debug old_vote
+      
+      if !old_vote.nil?
+        old_vote.each do |v|
+          v.destroy
+        end
+      end
+      
+      # redirect_to @songtag
+      # return
     end
 
     @vote = Vote.new
+    
     @vote.uid = @user.id
     @vote.song_id = @song.id
     @vote.songtag_id = @songtag.id
