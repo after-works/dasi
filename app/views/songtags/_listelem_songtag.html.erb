@@ -1,13 +1,12 @@
 <div>
 	<h3><%= songtag.title %></h3>
 	<p><%= songtag.author%>/<%= songtag.created_at %></p>
-	<div><img src='<%= youtube_thumb(Song.find_by_id(songtag.original_song_id)) %>' /></div>
+	<div><img src='<%= youtube_thumb(songs[0]) %>' /></div>
 	<div>
 		<div>
-			<% original_song = songs.find_by_id(songtag.original_song_id) %>
-			<%=  original_song.title %>
-			<% (songs-[original_song]).each do |song| %>
-				<div><img src="http://img.youtube.com/vi/<%= song.youtube_id %>/1.jpg"><%= song.title %></div>
+			<%=  songs[0].title %>
+			<% (songs[1..-1]).each do |song| %>
+				<div><img src='<%= youtube_thumb(song) %> '/><%= song.title %></div>
 			<% end %>
 		</div>
 	</div>

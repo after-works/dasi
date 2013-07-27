@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724110101) do
+ActiveRecord::Schema.define(:version => 20130727071543) do
 
   create_table "comment_logs", :force => true do |t|
     t.integer  "uid"
@@ -47,9 +47,8 @@ ActiveRecord::Schema.define(:version => 20130724110101) do
 
   create_table "songtags", :force => true do |t|
     t.string   "title"
-    t.integer  "original_song_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.text     "content"
     t.string   "author"
   end
