@@ -9,16 +9,20 @@ module VotesHelper
 
   def voted? (song)
     if !signed_in?
-      return false
+    return false
     end
-    
+
     users = voted_users(song)
     flag = false
-    
+
     users.each do | u |
       flag = u.id == current_user.id
     end
-    
+
     flag
+  end
+
+  def render_vote_form(song)
+    render(partial: 'votes/form', locals: {song: song})
   end
 end
