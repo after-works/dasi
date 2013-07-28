@@ -1,4 +1,6 @@
 class SongtagsController < ApplicationController
+  before_filter :user_only
+  
   def show
     @songtag = Songtag.find(params[:id])
 

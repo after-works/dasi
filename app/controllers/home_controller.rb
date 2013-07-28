@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_filter :user_only
+  
   def index
     if signed_in?
       # @hot_issue

@@ -22,11 +22,11 @@
 		<%= comment.context %>
 	</div>
 	<div><!-- mouse over-->
-		
+		<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>comment, :cur_songtag_id => cur_songtag_id%>
 	</div>
 </div>
 <% if has_recmt? comment%>
 <div>
-	<%= render 'comments/show_detail_re_cmt', :re_cmt=>comment.re_comments%>
+	<%= render 'comments/show_detail_re_cmt', :re_cmts=>comment.re_comments, :parent_cmt=>comment, :comment_form=>comment_form, :comment_log_form=>comment_log_form, :cur_songtag_id => cur_songtag_id%>
 </div>
 <% end %>

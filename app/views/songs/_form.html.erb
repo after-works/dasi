@@ -9,6 +9,7 @@
   </div>
   
   <%= f.hidden_field :tag_id, :value=>songtag.id%>
+  <%= f.hidden_field :uid, :value=>current_user.id%>
   
   <div class="actions">
     <%= f.submit %>

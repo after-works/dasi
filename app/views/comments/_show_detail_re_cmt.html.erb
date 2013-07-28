@@ -1,27 +1,31 @@
+<% re_cmts.each do |cmt| %>
+re-cmt--------------------------------------------<br>
 <div>
 	<div><!-- first row-->
 		<div><!-- name -->
-			
+			<%= cmt.user.name %>
 		</div>
 		<div><!-- date time-->
-			
+			<%= cmt.created_at %>
 		</div>
 		<div><!-- btn -->
 			<div><!-- like -->
-				
+				<%= cmt_likes(cmt).count%>
 			</div>
 			<div><!-- dislike-->
-				
-			</div>
-			<div><!-- re-cmt num -->
-				
+				<%= cmt_dislikes(cmt).count%>
 			</div>
 		</div>
 	</div>
 	<div><!-- content -->
-		
+		<%= cmt.context %>
 	</div>
 	<div><!-- mouse over-->
-		
+		<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>cmt, :cur_songtag_id => cur_songtag_id%>
 	</div>
+</div>
+<% end %>
+<!-- form -->
+<div>
+	<%= render 'comments/detail_re_cmt_form', :parent_cmt=>parent_cmt , :comment_form => comment_form%>
 </div>

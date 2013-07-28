@@ -15,6 +15,7 @@ module CommentLogsHelper
     users.uniq
   end
 
+  #(좋아요, 싫어요)를 눌렀냐?
   def status? ( cmt )
     if !signed_in?
     return false
@@ -44,4 +45,21 @@ module CommentLogsHelper
     return nil
   end
   
+  #좋아요 log인가
+  def done_like? ( log )
+    if log.nil?
+      return false
+    end
+    
+    log.status == 1
+  end
+  
+  # 싫어요 log인가
+  def done_dislike? ( log )
+    if log.nil?
+      return false
+    end
+    
+    log.status == -1
+  end
 end

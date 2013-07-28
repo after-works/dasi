@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+  before_filter :user_only
+  
   def create
     @song = Song.new(params[:song])
 

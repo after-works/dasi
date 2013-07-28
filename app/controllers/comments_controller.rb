@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :user_only
+  
   def create
     @songtag = Songtag.find(params[:comment][:songtag_id])
     

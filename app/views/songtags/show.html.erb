@@ -22,13 +22,13 @@
 		</div>
 		<div>
 			<!-- cmt enter form-->
-			<%= render 'comments/detail_cmt_form', :comment_form=>@comment_form%>
+			<%= render 'comments/detail_cmt_form', :comment_form=>@comment_form %>
 		</div>
 		<div>
 			<!-- cmts... -->
 			<% @comments.each do | comment | %>
 			<div>
-				<%= render 'comments/show_detail_cmt', :comment=>comment%>
+				<%= render 'comments/show_detail_cmt', :comment=>comment, :comment_form=>@comment_form, :comment_log_form=> @comment_log, :cur_songtag_id => @songtag.id%>
 			</div>
 			<% end %>
 		</div>

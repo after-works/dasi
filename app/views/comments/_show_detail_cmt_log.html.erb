@@ -1,0 +1,36 @@
+<!-- <%= comment%>-->
+<!--<%= comment_log_form%>-->
+
+<% log = my_status_choice(comment) %>
+
+<div><!--좋아요 btn-->
+	<% if done_like? (log) %>
+		<%= link_to '좋아요 취소', comment_logs_path(log), method: :delete %>
+	<% else %>
+		<%= form_for comment_log_form do |f| %>
+			<%= f.hidden_field :comment_id, :value=>comment.id%>
+			<%= f.hidden_field :uid, :value=>current_user.id%>
+			<%= f.hidden_field :status, :value=>1%>
+			<%= hidden_field_tag :songtag_id, cur_songtag_id%>
+			<%= f.button "좋아요"%>
+		<% end %>
+	<% end %>
+</div>
+
+<div><!--좋아요 btn-->
+	<% if done_dislike? (log) %>
+		<%= link_to '싫어요 취소', comment_logs_path(log), method: :delete %>
+	<% else %>
+		<%= form_for comment_log_form do |f| %>
+			<%= f.hidden_field :comment_id, :value=>comment.id%>
+			<%= f.hidden_field :uid, :value=>current_user.id%>
+			<%= f.hidden_field :status, :value=>-1%>
+			<%= hidden_field_tag :songtag_id, cur_songtag_id%>
+			<%= f.button "싫어요"%>
+		<% end %>
+	<% end %>
+</div>
+
+<div><!-- re-cmt btn -->
+	
+</div>
