@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_accessible :name, :uid
+  
   has_many :votes, foreign_key: "uid", dependent: :destroy
   
   has_many :comments, foreign_key: "uid", dependent: :destroy
@@ -9,9 +11,12 @@ class User < ActiveRecord::Base
   
   has_many :friends_rel, foreign_key: "a_uid", class_name: "FriendsRelation", dependent: :destroy
   has_many :friends, through: :friends_rel
-  before_save :create_remember_token
   
-  attr_accessible :name, :uid
+  has_many :songs, foreign_key: "uid", dependent: :destroy
+  belongs_to :song
+  
+  
+  before_save :create_remember_token
   
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

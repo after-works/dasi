@@ -7,5 +7,6 @@ class Song < ActiveRecord::Base
   belongs_to :vote
   has_many :votes, foreign_key: "song_id"
   
-  has_one :author, foreign_key: "id", primary_key: "uid"
+  belongs_to :user
+  has_one :user, foreign_key: "id", primary_key:"uid"
 end
