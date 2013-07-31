@@ -1,6 +1,6 @@
 <div>
 	<h3><%= songtag.title %></h3>
-	<p><%= songtag.author%>/<%= songtag.created_at %></p>
+	<p><%= get_user_with_uid(songtag.uid).name %>/<%= songtag.created_at %></p>
 	<div><img src='<%= youtube_thumb(songs[0]) %>' /></div>
 	<div>
 		<div>

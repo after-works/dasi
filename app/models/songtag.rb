@@ -1,5 +1,5 @@
 class Songtag < ActiveRecord::Base
-  attr_accessible :content, :title, :author
+  attr_accessible :content, :title, :uid
 
   has_many :songs, foreign_key: "tag_id", dependent: :destroy
   belongs_to :song
@@ -9,5 +9,8 @@ class Songtag < ActiveRecord::Base
   
   has_many :comments, foreign_key: "songtag_id", dependent: :destroy
   belongs_to :comment
+  
+  belongs_to :user
+  has_one :user, foreign_key: "id", primary_key: "uid"
   
 end
