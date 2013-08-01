@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731145235) do
+ActiveRecord::Schema.define(:version => 20130801115458) do
 
   create_table "comment_logs", :force => true do |t|
     t.integer  "uid"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(:version => 20130731145235) do
     t.datetime "updated_at",    :null => false
     t.integer  "parent_cmt_id"
   end
+
+  create_table "feedbacks", :force => true do |t|
+    t.integer  "uid"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "feedbacks", ["uid"], :name => "index_feedbacks_on_uid_id"
 
   create_table "friends_relations", :force => true do |t|
     t.integer  "a_uid"

@@ -25,9 +25,11 @@ Dasi::Application.routes.draw do
   #for votes
   resources :votes, only: [:create, :destroy]
 
-  #for comment
+  #for comments
   resource :comments, only: [:create] #추후 update, destroy 구현. ajax로  해야할 것 같으므로 패스함
 
   resource :comment_logs, only: [:create, :destroy] #like, dislike create, destroy, 이하 다른 작업은 필요해 보이지 않음.
   
+  #for feedbacks
+  resources :feedbacks, only: [:create]
 end
