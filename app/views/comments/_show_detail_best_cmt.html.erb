@@ -1,0 +1,32 @@
+<% if comments.length == 0 %>
+<% elsif comments.length == 1 %>
+<% else %>
+	<% comments.each do |cmt| %>
+		<div class="detail-best-cmt-elem">
+			<div class="detail-best-cmt-elem-img" style="float:left;">
+				이미지
+			</div>
+			<div class="detail-best-cmt-elem-right">
+				<div>
+					<div class="detail-best-cmt-elem-title">
+						<big><%= cmt.user.name%></big> | <small><%=convert_time(cmt.created_at)%></small>
+					</div>
+					<div class="detail-best-cmt-elem-status">
+						i1 <%= cmt_likes(cmt).count%>
+						i2 <%= cmt_dislikes(cmt).count%>
+						i3 <%= cmt.re_comments.count%>
+					</div>
+				</div>
+				
+				<div class="detail-best-cmt-elem-context">
+					<%= cmt.context%>
+				</div>
+			</div>
+			<div class="detail-best-cmt-elem-over" >
+					over
+			</div>
+		</div>
+	<% end %>
+<% end %>
+
+

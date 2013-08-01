@@ -1,3 +1,106 @@
 // Place all the styles related to the songtags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$leftColWidth : 440px;
+
+$marginInside : 20px;
+
+$videoFramHeight : 248px;
+$videoInfoHeight : 52px;
+$videoBottomMargin : 30px;
+
+$rankColHeight : 500px;
+$rankElemHeight : 75px;
+$scrollWidth : 30px;
+
+$rankElemMargin : 15px;
+$rankElemInnerMargin : 5px;
+$cmtPadding : 15px;
+
+$colHeight : $videoFramHeight + $videoInfoHeight + $videoBottomMargin + $rankColHeight;
+$rightColWidth: 1100px - $leftColWidth - $marginInside - 2*$cmtPadding;
+$textBackColor : white;
+
+$cmtWidth : $rightColWidth - 2*$cmtPadding;
+
+.detail-left-col {
+  width : $leftColWidth;
+  height : $colHeight;
+  margin-right : $marginInside;
+  float:left;
+}
+
+.detail-video {
+  margin-bottom : $videoBottomMargin;
+  background-color : $textBackColor;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+  
+  iframe {
+    width : $leftColWidth;
+    height : $videoFramHeight;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .detail-video-info{
+    height : $videoInfoHeight;
+    
+    big {//song title
+     font-size : 20px; 
+    }
+    
+    small {//song writer
+      font-size : 10px;
+    }
+  }
+}
+
+.detail-rank {
+  height : $rankColHeight;
+  background-color : $textBackColor;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.detail-rank-elem {
+  width : $leftColWidth  - 2*$rankElemMargin ;
+  height : $rankElemHeight;
+  margin : $rankElemMargin;
+  background-color : #e6e7e8;
+  
+  .detail-rank-elem-thumb {
+    width : 125px;
+    height : $rankElemHeight;
+    float : left;
+    
+    img {
+      width : 100%;
+      height : 100%;
+    }
+  }
+  
+  .detail-rank-elem-vote {
+    float : left;
+    width : 25px;
+    height : 25px; 
+    vertical-align : center;
+    margin-left : $rankElemInnerMargin;
+  }
+  
+  .detail-rank-elem-name {
+    
+    float : left;
+    width : $leftColWidth  - 2*$rankElemMargin - 125px - 25px - 45px - 3*$rankElemInnerMargin;
+    height : $rankElemHeight;
+    margin-right : $rankElemInnerMargin;
+    margin-left : $rankElemInnerMargin;
+  }
+  
+  .detail-rank-elem-ranks {
+    width : 45px;
+  }
+  
+  .detaion-rank-elem-vote-num {
+    width : 45px;
+  }
+}

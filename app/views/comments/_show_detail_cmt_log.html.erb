@@ -3,9 +3,9 @@
 
 <% log = my_status_choice(comment) %>
 
-<div><!--좋아요 btn-->
+<div>
 	<% if done_like? (log) %>
-		<%= link_to '좋아요 취소', comment_logs_path(log), method: :delete %>
+		<a href="/comment_logs.<%=log.id%>" data-method="delete" rel="nofollow"><button>좋아요 취소</button></a>
 	<% else %>
 		<%= form_for comment_log_form do |f| %>
 			<%= f.hidden_field :comment_id, :value=>comment.id%>
@@ -17,9 +17,9 @@
 	<% end %>
 </div>
 
-<div><!--좋아요 btn-->
+<div>
 	<% if done_dislike? (log) %>
-		<%= link_to '싫어요 취소', comment_logs_path(log), method: :delete %>
+		<a href="/comment_logs.<%=log.id%>" data-method="delete" rel="nofollow"><button>좋아요 취소</button></a>
 	<% else %>
 		<%= form_for comment_log_form do |f| %>
 			<%= f.hidden_field :comment_id, :value=>comment.id%>

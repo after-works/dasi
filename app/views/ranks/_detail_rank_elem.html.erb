@@ -1,20 +1,20 @@
-<div>
+<div class="detail-rank-elem-thumb">
 	<!-- thumbnail -->
 	<img src='<%= youtube_thumb(song) %>'/>
 </div>
-<div>
+<div class="detail-rank-elem-vote">
 	<!-- vote btn -->
 	<%= render_vote_form(song) %>
 
 </div>
-<div>
+<div class="detail-rank-elem-name">
 	<%= song.title %>
 </div>
-<div>
-	<div>
+<div style="float:left;">
+	<div class="detail-rank-elem-ranks">
 		<!-- rank image-->
 	</div>
-	<div>
+	<div class="detail-rank-elem-vote-num">
 		<!-- vote num-->
 		<%= song.votes.count%>
 	</div>

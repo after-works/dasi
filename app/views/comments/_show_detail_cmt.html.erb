@@ -1,27 +1,20 @@
-<div>
-	<div><!-- first row-->
-		<div><!-- name -->
-			<%= comment.user.name %>
+<div class="detail-cmt-elem">
+	<div class="detail-cmt-elem-first-row">
+		<div class="detail-cmt-elem-title">
+			<big><%= comment.user.name %></big> | <small><%= convert_time(comment.created_at)%></small>
 		</div>
-		<div><!-- date time-->
-			<%= comment.created_at%>
+		<div class="detail-cmt-elem-status">
+				i1 <%= cmt_likes(comment).count %>
+				i2 <%= cmt_dislikes(comment).count %>
+				i3 <%= comment.re_comments.count %>
 		</div>
-		<div><!-- btn -->
-			<div><!-- like -->
-				<%= cmt_likes(comment).count %>
-			</div>
-			<div><!-- dislike-->
-				<%= cmt_dislikes(comment).count %>
-			</div>
-			<div><!-- re-cmt num -->
-				<%= comment.re_comments.count %>
-			</div>
-		</div>
-	</div>
-	<div><!-- content -->
+	</div><!--detail-cmt-first-row-->
+	
+	<div class="detail-cmt-elem-context">
 		<%= comment.context %>
 	</div>
-	<div><!-- mouse over-->
+	
+	<div class="detail-cmt-elem-over">
 		<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>comment, :cur_songtag_id => cur_songtag_id%>
 	</div>
 </div>
