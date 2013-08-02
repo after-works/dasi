@@ -4,23 +4,31 @@
 
 @import "songtags";
 
+$scrollWidth : 30px;
+
 $indent : 60px;
-$overWidth : 120px;
-$rightColWidth : $rightColWidth - 30px;
+$overWidth : 200px;
+$overHeight : 25px;
+$rightColWidth : $rightColWidth - $scrollWidth;
+
+$titleHeight : 25px;
+
+$bestCmtBasicTitleHeight : 20px;
+$bestCmtBasicContentHeight : 50px;
+
+$cmtLogHeight : 25px;
 
 .detail-comment {
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
   width : $rightColWidth;
-  height : $colHeight + 5px - 2*$cmtPadding;
+  height : $colHeight + 5px - 2*$cmtPadding;//5px은 그냥 작음;
   background-color : $textBackColor;
   padding : $cmtPadding;
 }
 
-
-
 .detail-title {
   height:50px;
-  width : $rightColWidth;
+  width : $rightColWidth - $scrollWidth;
   background-color : #f9ec31;
   
   .img {
@@ -38,48 +46,54 @@ $rightColWidth : $rightColWidth - 30px;
 }
 
 .detail-best-cmt-elem {
-  width : $rightColWidth;
-  min-height : $indent + 15px;//75px
+  width : $rightColWidth - $scrollWidth;
+  height: 100%;
   background-color : rgb(254, 252, 224);
   
-  margin-bottom : 10px;
+  position: relative;
+
+  margin-bottom: 20px;
+
   .img {
     width : $indent;
-    height : $indent;
     float : left;
   }
   
   .right {
-    width : $rightColWidth - $indent;
+    width : $rightColWidth - $indent - $scrollWidth;
     min-height : $indent;
-    float : left;
-    
+    margin-left: $indent;
+    padding-bottom: $cmtLogHeight;
+
     .title {
-      width : $rightColWidth - $indent - $overWidth - 30px;
-      height : 20px;
-      float:left;
-      big {
-        
-      }
-      small {
-        
-      }
+      width : $rightColWidth - $scrollWidth - $overWidth - $indent;
+      height : $bestCmtBasicTitleHeight;
+      float : left;
     } 
+
     .status {
       width : $overWidth;
-      height : 20px;
-      float:left;
+      height : $bestCmtBasicTitleHeight;
+      margin-left: $rightColWidth - $scrollWidth - $overWidth - $indent;
     }
     
     .context {
-      width : $rightColWidth - $indent;
+      top: $bestCmtBasicTitleHeight;
+      width : $rightColWidth - $indent - $scrollWidth;
+      min-height: $indent - $bestCmtBasicTitleHeight;
+
+
+      word-wrap:break-word;
     }
   }
   
   .over {
-    visibility : hidden;
+    position: absolute;
+    bottom: 0px;
+    right:0px;
     float:right;
-    margin-right : 12px + $overWidth;
+    height:$cmtLogHeight;
+    visibility : hidden;
   }
 }
 
@@ -90,7 +104,7 @@ $rightColWidth : $rightColWidth - 30px;
 
 .detail_cmt_form {
   input[type=text]{
-    width : 490px;
+    width : $rightColWidth - $scrollWidth - 35px - 17px;//17은 인풋과 버튼 사이
     margin-bottom : 0px;
   }
   input[type=button]{
@@ -100,31 +114,46 @@ $rightColWidth : $rightColWidth - 30px;
 }
 
 
-
 .detail-cmt-elem {
-  width : $rightColWidth;
-  
+  width : $rightColWidth - $scrollWidth;
+  min-height: 75px;
+  position: relative;
+  padding-bottom: $cmtLogHeight;
+
   .first-row {
-    width : $rightColWidth;
+    width : $rightColWidth - $scrollWidth;
     height : 25px;
-    
+
     .title {
-      width : $rightColWidth - $overWidth;
+      width : $rightColWidth - $overWidth - $scrollWidth;
+      height : 25px;
       float:left;
     }
     
     .status {
       width : $overWidth;
+      height : 25px;
       float:left;
     }
   }
   
   .context {
-    width : $rightColWidth;
+    width : $rightColWidth - $scrollWidth;
+    min-height: 25px;
+
+    -moz-hyphens:auto;
+    -ms-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens:auto;
+    word-wrap:break-word;
   }
   
   .over {
-    width : $rightColWidth;
+    position: absolute;
+    height:$cmtLogHeight;
+    bottom: 0px;
+    right:0px;
+    float:right;
     visibility : hidden;
   }
 }
@@ -135,4 +164,11 @@ $rightColWidth : $rightColWidth - 30px;
 
 .detail-cmt-elem:hover { 
   background-color : rgb(238, 248, 249)
+}
+
+.detail-cmt-log {
+  .log-btn {
+    float : left;
+    height : 25px;  
+  }
 }

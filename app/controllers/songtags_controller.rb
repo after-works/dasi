@@ -15,6 +15,9 @@ class SongtagsController < ApplicationController
                              group("comments.id").
                              order("accum DESC").
                              limit(2)
+                             
+    logger.debug @best_comments
+
     @comment_form = Comment.new
     @comment_log = CommentLog.new
 
