@@ -3,26 +3,26 @@
 <% else %>
 	<% comments.each do |cmt| %>
 		<div class="detail-best-cmt-elem">
-			<div class="detail-best-cmt-elem-img" style="float:left;">
+			<div class="img" style="float:left;">
 				이미지
 			</div>
-			<div class="detail-best-cmt-elem-right">
+			<div class="right">
 				<div>
-					<div class="detail-best-cmt-elem-title">
+					<div class="title">
 						<big><%= cmt.user.name%></big> | <small><%=convert_time(cmt.created_at)%></small>
 					</div>
-					<div class="detail-best-cmt-elem-status">
+					<div class="status">
 						i1 <%= cmt_likes(cmt).count%>
 						i2 <%= cmt_dislikes(cmt).count%>
 						i3 <%= cmt.re_comments.count%>
 					</div>
 				</div>
 				
-				<div class="detail-best-cmt-elem-context">
+				<div class="context">
 					<%= cmt.context%>
 				</div>
 			</div>
-			<div class="detail-best-cmt-elem-over" >
+			<div class="over" >
 					over
 			</div>
 		</div>

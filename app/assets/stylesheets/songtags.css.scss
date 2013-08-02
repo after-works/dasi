@@ -43,7 +43,7 @@ $cmtWidth : $rightColWidth - 2*$cmtPadding;
     margin: 0px;
   }
   
-  .detail-video-info{
+  .info{
     height : $videoInfoHeight;
     
     big {//song title
@@ -68,7 +68,7 @@ $cmtWidth : $rightColWidth - 2*$cmtPadding;
   margin : $rankElemMargin;
   background-color : #e6e7e8;
   
-  .detail-rank-elem-thumb {
+  .thumb {
     width : 125px;
     height : $rankElemHeight;
     float : left;
@@ -79,7 +79,7 @@ $cmtWidth : $rightColWidth - 2*$cmtPadding;
     }
   }
   
-  .detail-rank-elem-vote {
+  .vote {
     float : left;
     width : 25px;
     height : 25px; 
@@ -87,7 +87,7 @@ $cmtWidth : $rightColWidth - 2*$cmtPadding;
     margin-left : $rankElemInnerMargin;
   }
   
-  .detail-rank-elem-name {
+  .name {
     
     float : left;
     width : $leftColWidth  - 2*$rankElemMargin - 125px - 25px - 45px - 3*$rankElemInnerMargin;
@@ -96,11 +96,11 @@ $cmtWidth : $rightColWidth - 2*$cmtPadding;
     margin-left : $rankElemInnerMargin;
   }
   
-  .detail-rank-elem-ranks {
+  .ranks {
     width : 45px;
   }
   
-  .detaion-rank-elem-vote-num {
+  .voting-num {
     width : 45px;
   }
 }

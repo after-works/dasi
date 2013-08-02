@@ -7,6 +7,7 @@
 $indent : 60px;
 $overWidth : 120px;
 $rightColWidth : $rightColWidth - 30px;
+
 .detail-comment {
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
   width : $rightColWidth;
@@ -22,13 +23,13 @@ $rightColWidth : $rightColWidth - 30px;
   width : $rightColWidth;
   background-color : #f9ec31;
   
-  .detail-title-img {
+  .img {
     width : $indent;
     height : 50px;
     float:left;
   }
   
-  .detail-title-text {
+  .text {
     width : $rightColWidth - $indent; 
     big {
       font-size : 20px;
@@ -42,18 +43,18 @@ $rightColWidth : $rightColWidth - 30px;
   background-color : rgb(254, 252, 224);
   
   margin-bottom : 10px;
-  .detail-best-cmt-elem-img {
+  .img {
     width : $indent;
     height : $indent;
     float : left;
   }
   
-  .detail-best-cmt-elem-right {
+  .right {
     width : $rightColWidth - $indent;
     min-height : $indent;
     float : left;
     
-    .detail-best-cmt-elem-title {
+    .title {
       width : $rightColWidth - $indent - $overWidth - 30px;
       height : 20px;
       float:left;
@@ -64,25 +65,25 @@ $rightColWidth : $rightColWidth - 30px;
         
       }
     } 
-    .detail-best-cmt-elem-status {
+    .status {
       width : $overWidth;
       height : 20px;
       float:left;
     }
     
-    .detail-best-cmt-elem-context {
+    .context {
       width : $rightColWidth - $indent;
     }
   }
   
-  .detail-best-cmt-elem-over {
+  .over {
     visibility : hidden;
     float:right;
     margin-right : 12px + $overWidth;
   }
 }
 
-.detail-best-cmt-elem:hover  .detail-best-cmt-elem-over {
+.detail-best-cmt-elem:hover  .over {
   visibility : visible;
 }
 
@@ -103,32 +104,32 @@ $rightColWidth : $rightColWidth - 30px;
 .detail-cmt-elem {
   width : $rightColWidth;
   
-  .detail-cmt-elem-first-row {
+  .first-row {
     width : $rightColWidth;
     height : 25px;
     
-    .detail-cmt-elem-title {
+    .title {
       width : $rightColWidth - $overWidth;
       float:left;
     }
     
-    .detail-cmt-elem-status {
+    .status {
       width : $overWidth;
       float:left;
     }
   }
   
-  .detail-cmt-elem-context {
+  .context {
     width : $rightColWidth;
   }
   
-  .detail-cmt-elem-over {
+  .over {
     width : $rightColWidth;
     visibility : hidden;
   }
 }
 
-.detail-cmt-elem:hover .detail-cmt-elem-over {
+.detail-cmt-elem:hover .over {
   visibility : visible;
 }
 
