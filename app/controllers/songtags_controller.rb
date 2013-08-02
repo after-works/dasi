@@ -10,7 +10,15 @@ class SongtagsController < ApplicationController
 
     # 날자순으로 소팅
     @comments = Comment.parent_comments @songtag
-    
+    @best_comments = Comment.joins(:comment_logs).
+                             select("comments.* , sum(status) as accum").
+                             where("comments.songtag_id=#{@songtag.id} and comment_logs.status=1").
+                             group("comments.id").
+                             order("accum DESC").
+                             limit(2)
+                             
+    logger.debug @best_comments
+
     @comment_form = Comment.new
     @comment_log = CommentLog.new
 

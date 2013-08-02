@@ -11,9 +11,11 @@
 			<%= render 'layouts/header' %>
 		</div>
 
-		<hr>
-
-		<%= yield %>
+		<div id="doc">
+			<div class="container">
+				<%= yield %>
+			</div>
+		</div>
 
 		<%= debug(params) if Rails.env.development? %>
 

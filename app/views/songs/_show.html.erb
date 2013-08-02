@@ -1,3 +1,6 @@
-<div>
-	<iframe width="560" height="315" src="//www.youtube.com/embed/<%= song.youtube_id%>" frameborder="0" allowfullscreen></iframe>
+<iframe src="//www.youtube.com/embed/<%= song.youtube_id%>" frameborder="0" allowfullscreen></iframe>
+
+<div class="info">
+	<big><%= song.title%></big><br>
+	<small><%= song.user%></small>
 </div>

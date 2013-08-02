@@ -1,3 +1,255 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "songtags";
+
+$scrollWidth : 30px;
+
+$indent : 60px;
+$overWidth : 200px;
+$overHeight : 25px;
+$rightColWidth : $rightColWidth - $scrollWidth;
+
+$titleHeight : 25px;
+
+$bestCmtBasicTitleHeight : 20px;
+$bestCmtBasicContentHeight : 50px;
+
+$cmtBasicTitleHeight : 25px;
+$cmtBasicContentHeight : 25px;
+$cmtLogHeight : 25px;
+
+.detail-comment {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+  width : $rightColWidth;
+  height : $colHeight + 5px - 2*$cmtPadding;//5px은 그냥 작음;
+  background-color : $textBackColor;
+  padding : $cmtPadding;
+}
+
+.detail-title {
+  height:50px;
+  width : $rightColWidth - $scrollWidth;
+  background-color : #f9ec31;
+  margin-bottom : 20px;
+  .img {
+    width : $indent;
+    height : 50px;
+    float:left;
+  }
+  
+  .text {
+    width : $rightColWidth - $indent; 
+    big {
+      font-size : 20px;
+    }
+  }
+}
+
+.detail-best-cmt-notice {
+  height : $indent;
+  width: $rightColWidth - $scrollWidth;
+  margin-bottom: 20px;
+}
+
+.detail-best-cmt-elem {
+  width : $rightColWidth - $scrollWidth;
+  height: 100%;
+  
+  position: relative;
+
+  margin-bottom: 20px;
+
+  .img {
+    width : $indent;
+    float : left;
+  }
+  
+  .right {
+    width : $rightColWidth - $indent - $scrollWidth;
+    min-height : $indent;
+    margin-left: $indent;
+    padding-bottom: $cmtLogHeight;
+
+    background-color : rgb(254, 252, 224);
+    
+    .title {
+      //width : $rightColWidth - $scrollWidth - $overWidth - $indent;
+      height : $bestCmtBasicTitleHeight;
+      float : left;
+    } 
+
+    .status {
+      //width : $overWidth;
+      height : $bestCmtBasicTitleHeight;
+      margin-right: $indent;
+      float : right;
+    }
+    
+    .context {
+      width : $rightColWidth - $indent - $scrollWidth;
+      min-height: $indent - $bestCmtBasicTitleHeight;
+      
+      padding-top: 25px;
+      word-wrap:break-word;
+    }
+  }
+  
+  .over {
+    position: absolute;
+    bottom: 0px;
+    right:0px;
+    float:right;
+    height:$cmtLogHeight;
+    visibility : hidden;
+  }
+}
+
+.detail-best-cmt-elem:hover  .over {
+  visibility : visible;
+}
+
+
+.detail_cmt_form {
+  input[type=text]{
+    width : $rightColWidth - $scrollWidth - 35px - 17px;//17은 인풋과 버튼 사이
+    margin-bottom : 0px;
+  }
+  input[type=button]{
+    width : 35px;
+    height : 35px;
+  }
+}
+
+
+.detail-cmt-elem {
+  width : $rightColWidth - $scrollWidth;
+  min-height: $cmtBasicTitleHeight + $cmtBasicContentHeight + $cmtLogHeight;
+  position: relative;
+  padding-bottom: $cmtLogHeight;
+
+  .first-row {
+    width : $rightColWidth - $scrollWidth;
+    height : $cmtBasicTitleHeight;
+
+    .title {
+      width : $rightColWidth - $overWidth - $scrollWidth;
+      height : $cmtBasicTitleHeight;
+      float:left;
+    }
+    
+    .status {
+      //width : $overWidth;
+      height : $cmtBasicTitleHeight;
+      float:right;
+    }
+  }
+  
+  .context {
+    width : $rightColWidth - $scrollWidth;
+    min-height: $cmtBasicContentHeight;
+
+    -moz-hyphens:auto;
+    -ms-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens:auto;
+    word-wrap:break-word;
+  }
+  
+  .over {
+    position: absolute;
+    height:$cmtLogHeight;
+    //width : $overWidth;
+    bottom: 0px;
+    right:0px;
+    float:right;
+    visibility : hidden;
+  }
+}
+
+.detail-cmt-elem:hover .over {
+  visibility : visible;
+}
+
+.detail-cmt-elem:hover { 
+  background-color : rgb(238, 248, 249)
+}
+
+.detail-cmt-log {
+  .log-btn {
+    float : left;
+    height : 25px;  
+  }
+}
+
+.detail-re-cmt-elem {
+  width : $rightColWidth - $scrollWidth - $indent;
+  margin-left: $indent;
+  padding-bottom: $cmtLogHeight;
+
+  .first-row{
+    width : $rightColWidth - $scrollWidth - $indent;
+    height : $cmtBasicTitleHeight;
+    
+    .title {
+      width : $rightColWidth - $overWidth - $scrollWidth - $indent;
+      height : $cmtBasicTitleHeight;
+      float:left;
+    }
+    
+    .status {
+      //width : $overWidth;
+      height : $cmtBasicTitleHeight;
+      float:right;
+    }
+  }
+
+
+  .context {
+    width : $rightColWidth - $scrollWidth - $indent;
+    min-height: $cmtBasicContentHeight;
+
+    -moz-hyphens:auto;
+    -ms-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens:auto;
+    word-wrap:break-word;
+  }
+
+  .over {
+    height:$cmtLogHeight;
+    //width : $overWidth;
+    bottom: 0px;
+    right:0px;
+    float:right;
+    visibility : hidden;
+  }
+}
+
+.detail-re-cmt-elem:hover .over {
+  visibility : visible;
+}
+
+.detail-re-cmt-elem:hover { 
+  background-color : rgb(238, 248, 249)
+}
+
+.detail-re-cmt-form {
+  display : none;
+  input[type=text]{
+    width : $rightColWidth - $scrollWidth - 35px - 17px - $indent;//17은 인풋과 버튼 사이
+    margin-left: $indent;
+    margin-bottom : 0px;
+  }
+  input[type=button]{
+    width : 35px;
+    height : 35px;
+  }
+}
+
+.detail-hr hr{
+  border-style:dotted;
+  border-color:#808080; 
+  height:1px;
+}

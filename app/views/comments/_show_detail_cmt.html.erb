@@ -1,32 +1,29 @@
-<div>
-	<div><!-- first row-->
-		<div><!-- name -->
-			<%= comment.user.name %>
+<div class="detail-cmt-elem">
+	<div class="first-row">
+		<div class="title">
+			<big><%= comment.user.name %></big> | <small><%= convert_time(comment.created_at)%></small>
 		</div>
-		<div><!-- date time-->
-			<%= comment.created_at%>
+		<div class="status">
+				i1 <%= cmt_likes(comment).count %>
+				i2 <%= cmt_dislikes(comment).count %>
+				i3 <%= comment.re_comments.count %>
 		</div>
-		<div><!-- btn -->
-			<div><!-- like -->
-				<%= cmt_likes(comment).count %>
-			</div>
-			<div><!-- dislike-->
-				<%= cmt_dislikes(comment).count %>
-			</div>
-			<div><!-- re-cmt num -->
-				<%= comment.re_comments.count %>
-			</div>
-		</div>
-	</div>
-	<div><!-- content -->
+	</div><!--detail-cmt-first-row-->
+
+	<div class="context">
 		<%= comment.context %>
 	</div>
-	<div><!-- mouse over-->
-		<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>comment, :cur_songtag_id => cur_songtag_id%>
+	
+	<div class="over">
+		<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>comment, :cur_songtag_id => cur_songtag_id, :is_recmt=>false%>
 	</div>
+	
 </div>
-<% if has_recmt? comment%>
+
 <div>
-	<%= render 'comments/show_detail_re_cmt', :re_cmts=>comment.re_comments, :parent_cmt=>comment, :comment_form=>comment_form, :comment_log_form=>comment_log_form, :cur_songtag_id => cur_songtag_id%>
+	<%= render 'comments/show_detail_re_cmt', :re_cmts=>comment.re_comments, :comment_log_form=>comment_log_form, :cur_songtag_id => cur_songtag_id%>
 </div>
-<% end %>
+
+<div class="detail-re-cmt-form" id="detail-re-cmt-form-<%=comment.id%>">
+	<%= render 'comments/detail_re_cmt_form', :parent_cmt=>comment , :comment_form => comment_form%>
+</div>
