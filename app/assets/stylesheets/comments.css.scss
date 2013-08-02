@@ -16,6 +16,8 @@ $titleHeight : 25px;
 $bestCmtBasicTitleHeight : 20px;
 $bestCmtBasicContentHeight : 50px;
 
+$cmtBasicTitleHeight : 25px;
+$cmtBasicContentHeight : 25px;
 $cmtLogHeight : 25px;
 
 .detail-comment {
@@ -45,6 +47,11 @@ $cmtLogHeight : 25px;
   }
 }
 
+.detail-best-cmt-notice {
+  height : $indent;
+  width: $rightColWidth - $scrollWidth;
+  margin-bottom: 20px;
+}
 .detail-best-cmt-elem {
   width : $rightColWidth - $scrollWidth;
   height: 100%;
@@ -116,30 +123,30 @@ $cmtLogHeight : 25px;
 
 .detail-cmt-elem {
   width : $rightColWidth - $scrollWidth;
-  min-height: 75px;
+  min-height: $cmtBasicTitleHeight + $cmtBasicContentHeight + $cmtLogHeight;
   position: relative;
   padding-bottom: $cmtLogHeight;
 
   .first-row {
     width : $rightColWidth - $scrollWidth;
-    height : 25px;
+    height : $cmtBasicTitleHeight;
 
     .title {
       width : $rightColWidth - $overWidth - $scrollWidth;
-      height : 25px;
+      height : $cmtBasicTitleHeight;
       float:left;
     }
     
     .status {
       width : $overWidth;
-      height : 25px;
+      height : $cmtBasicTitleHeight;
       float:left;
     }
   }
   
   .context {
     width : $rightColWidth - $scrollWidth;
-    min-height: 25px;
+    min-height: $cmtBasicContentHeight;
 
     -moz-hyphens:auto;
     -ms-hyphens:auto;
@@ -170,5 +177,68 @@ $cmtLogHeight : 25px;
   .log-btn {
     float : left;
     height : 25px;  
+  }
+}
+
+.detail-re-cmt-elem {
+  width : $rightColWidth - $scrollWidth - $indent;
+  margin-left: $indent;
+  padding-bottom: $cmtLogHeight;
+
+  .first-row{
+    width : $rightColWidth - $scrollWidth - $indent;
+    height : $cmtBasicTitleHeight;
+    
+    .title {
+      width : $rightColWidth - $overWidth - $scrollWidth - $indent;
+      height : $cmtBasicTitleHeight;
+      float:left;
+    }
+    
+    .status {
+      width : $overWidth;
+      height : $cmtBasicTitleHeight;
+      float:left;
+    }
+  }
+
+
+  .context {
+    width : $rightColWidth - $scrollWidth - $indent;
+    min-height: $cmtBasicContentHeight;
+
+    -moz-hyphens:auto;
+    -ms-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens:auto;
+    word-wrap:break-word;
+  }
+
+  .over {
+    height:$cmtLogHeight;
+    bottom: 0px;
+    right:0px;
+    float:right;
+    visibility : hidden;
+  }
+}
+
+.detail-re-cmt-elem:hover .over {
+  visibility : visible;
+}
+
+.detail-re-cmt-elem:hover { 
+  background-color : rgb(238, 248, 249)
+}
+
+.detail-re-cmt-form {
+  input[type=text]{
+    width : $rightColWidth - $scrollWidth - 35px - 17px - $indent;//17은 인풋과 버튼 사이
+    margin-left: $indent;
+    margin-bottom : 0px;
+  }
+  input[type=button]{
+    width : 35px;
+    height : 35px;
   }
 }

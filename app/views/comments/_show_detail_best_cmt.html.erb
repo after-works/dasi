@@ -1,12 +1,12 @@
 <% if comments.length == 0 %>
-
-<% elsif comments.length == 1 %>
-
+	<div class="detail-best-cmt-notice">
+		도전해라 이미지. 550 X 60
+	</div>
 <% else %>
 	<% comments.each do |cmt| %>
 		<div class="detail-best-cmt-elem">
 			<div class="img">
-				이미지
+				이미지 60X60
 			</div>
 			<div class="right">
 				<div>
@@ -27,6 +27,11 @@
 			<div class="over" >
 					over
 			</div>
+		</div>
+	<% end %>
+	<% if comments.length == 1 %>
+		<div class="detail-best-cmt-notice">
+			도전해라 이미지. 550 X 60
 		</div>
 	<% end %>
 <% end %>
