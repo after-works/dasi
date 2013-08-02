@@ -12,11 +12,8 @@
 
 #
 /public/assets
-solr/*
-/solr/data
-/solr/data/development/index
-/solr/data/development/index/segments.gen
 *.pid
+/db/schema.rb
 
 # Users' pictures
 /public/system/users/faces
