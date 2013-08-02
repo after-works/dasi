@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :uid
+  attr_accessible :name, :fb_uid
   
   has_many :votes, foreign_key: "uid", dependent: :destroy
   
@@ -15,23 +15,26 @@ class User < ActiveRecord::Base
   has_many :songs, foreign_key: "uid", dependent: :destroy
   belongs_to :song
   
+  has_many :songtags, foreign_key: "uid", dependent: :destroy
+  belongs_to :songtag
+  
   
   before_save :create_remember_token
   
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+    where(auth.slice(:provider, :fb_uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
-      user.uid = auth.uid
+      user.fb_uid = auth.uid
       user.name = auth.info.name
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
       
-      fb_user = FbGraph::User.fetch user.uid, :access_token=>user.oauth_token
+      fb_user = FbGraph::User.fetch user.fb_uid, :access_token=>user.oauth_token
       friends = fb_user.friends
       
       friends.each do |f|
-        u = User.find_by_uid f.identifier
+        u = User.find_by_fb_uid f.identifier
         if u
           r1 = FriendsRelation.new
           r2 = FriendsRelation.new

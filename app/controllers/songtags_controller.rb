@@ -1,11 +1,12 @@
 class SongtagsController < ApplicationController
   before_filter :user_only
+  include SongsHelper
   
   def show
     @songtag = Songtag.find(params[:id])
 
     # vote에 따라 소팅 필요
-    @songs = sort_songs @songtag.songs
+    @songs = sort_songs(@songtag.songs)
 
     # 날자순으로 소팅
     @comments = Comment.parent_comments @songtag
@@ -25,15 +26,16 @@ class SongtagsController < ApplicationController
 
     @song_form = Song.new
     
-    if !params[:songtag_id].nil?
+    if !params[:song_id].nil?
       @songs.each do |s|
-        if s.id == params[:songtag_id].to_i
+        if s.id == params[:song_id].to_i
           @current_song = s
         end
       end
     end
   end
 
+  #need to edit
   def create
     @songtag = Songtag.new(params[:songtag])
 
@@ -69,9 +71,4 @@ class SongtagsController < ApplicationController
     @comment_log = CommentLog.new
   end
   
-  private
-  
-  def sort_songs(songs)
-    songs.sort_by{|song| -song.votes.count}
-  end
 end

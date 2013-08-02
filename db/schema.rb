@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130728064126) do
+=======
+ActiveRecord::Schema.define(:version => 20130801115458) do
+>>>>>>> e12f6791fc0164fb98a8190db56a57eda1c5fd69
 
   create_table "comment_logs", :force => true do |t|
     t.integer  "uid"
@@ -30,6 +34,18 @@ ActiveRecord::Schema.define(:version => 20130728064126) do
     t.integer  "parent_cmt_id"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "feedbacks", :force => true do |t|
+    t.integer  "uid"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "feedbacks", ["uid"], :name => "index_feedbacks_on_uid_id"
+
+>>>>>>> e12f6791fc0164fb98a8190db56a57eda1c5fd69
   create_table "friends_relations", :force => true do |t|
     t.integer  "a_uid"
     t.integer  "b_uid"
@@ -48,15 +64,26 @@ ActiveRecord::Schema.define(:version => 20130728064126) do
 
   create_table "songtags", :force => true do |t|
     t.string   "title"
+<<<<<<< HEAD
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.text     "content"
     t.string   "author"
+=======
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.text     "content"
+    t.integer  "uid",        :limit => 255
+>>>>>>> e12f6791fc0164fb98a8190db56a57eda1c5fd69
   end
 
   create_table "users", :force => true do |t|
     t.string   "provider"
+<<<<<<< HEAD
     t.string   "uid"
+=======
+    t.string   "fb_uid"
+>>>>>>> e12f6791fc0164fb98a8190db56a57eda1c5fd69
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
