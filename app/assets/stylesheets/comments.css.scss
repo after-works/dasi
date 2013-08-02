@@ -32,7 +32,7 @@ $cmtLogHeight : 25px;
   height:50px;
   width : $rightColWidth - $scrollWidth;
   background-color : #f9ec31;
-  
+  margin-bottom : 20px;
   .img {
     width : $indent;
     height : 50px;
@@ -52,10 +52,10 @@ $cmtLogHeight : 25px;
   width: $rightColWidth - $scrollWidth;
   margin-bottom: 20px;
 }
+
 .detail-best-cmt-elem {
   width : $rightColWidth - $scrollWidth;
   height: 100%;
-  background-color : rgb(254, 252, 224);
   
   position: relative;
 
@@ -72,24 +72,26 @@ $cmtLogHeight : 25px;
     margin-left: $indent;
     padding-bottom: $cmtLogHeight;
 
+    background-color : rgb(254, 252, 224);
+    
     .title {
-      width : $rightColWidth - $scrollWidth - $overWidth - $indent;
+      //width : $rightColWidth - $scrollWidth - $overWidth - $indent;
       height : $bestCmtBasicTitleHeight;
       float : left;
     } 
 
     .status {
-      width : $overWidth;
+      //width : $overWidth;
       height : $bestCmtBasicTitleHeight;
-      margin-left: $rightColWidth - $scrollWidth - $overWidth - $indent;
+      margin-right: $indent;
+      float : right;
     }
     
     .context {
-      top: $bestCmtBasicTitleHeight;
       width : $rightColWidth - $indent - $scrollWidth;
       min-height: $indent - $bestCmtBasicTitleHeight;
-
-
+      
+      padding-top: 25px;
       word-wrap:break-word;
     }
   }
@@ -138,9 +140,9 @@ $cmtLogHeight : 25px;
     }
     
     .status {
-      width : $overWidth;
+      //width : $overWidth;
       height : $cmtBasicTitleHeight;
-      float:left;
+      float:right;
     }
   }
   
@@ -158,6 +160,7 @@ $cmtLogHeight : 25px;
   .over {
     position: absolute;
     height:$cmtLogHeight;
+    //width : $overWidth;
     bottom: 0px;
     right:0px;
     float:right;
@@ -196,9 +199,9 @@ $cmtLogHeight : 25px;
     }
     
     .status {
-      width : $overWidth;
+      //width : $overWidth;
       height : $cmtBasicTitleHeight;
-      float:left;
+      float:right;
     }
   }
 
@@ -216,6 +219,7 @@ $cmtLogHeight : 25px;
 
   .over {
     height:$cmtLogHeight;
+    //width : $overWidth;
     bottom: 0px;
     right:0px;
     float:right;
@@ -232,6 +236,7 @@ $cmtLogHeight : 25px;
 }
 
 .detail-re-cmt-form {
+  display : none;
   input[type=text]{
     width : $rightColWidth - $scrollWidth - 35px - 17px - $indent;//17은 인풋과 버튼 사이
     margin-left: $indent;
@@ -241,4 +246,10 @@ $cmtLogHeight : 25px;
     width : 35px;
     height : 35px;
   }
+}
+
+.detail-hr hr{
+  border-style:dotted;
+  border-color:#808080; 
+  height:1px;
 }

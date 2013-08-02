@@ -1,4 +1,5 @@
 <div>
+	<button class="detail-add-song-sticker" onclick="javascript:show_add_song()">add song</button>
 	<div class="detail-left-col">
 		<!--left col-->
 		<div class="detail-video">
@@ -31,7 +32,7 @@
 			<!-- cmt enter form-->
 			<%= render 'comments/detail_cmt_form', :comment_form=>@comment_form %>
 		</div>
-		<div>
+		<div style="margin-bottom: 50px;">
 			<!-- cmts... -->
 			<% @comments.each do | comment | %>
 			<div>
@@ -42,7 +43,7 @@
 	</div>
 </div>
 
-<div>
+<div id="add-song-modal" style="display:none;">
 	<!-- new song modal view -->
 	<%= render 'songs/form', :song=>@song_form, :songtag=>@songtag%>
 </div>

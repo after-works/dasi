@@ -24,6 +24,10 @@ $textBackColor : white;
 
 $cmtWidth : $rightColWidth - 2*$cmtPadding;
 
+$addSongStickerWidth : 50px;
+$addSongStickerHeight : 50px;
+$addSongStickerTopMargin : 700px;
+
 .detail-left-col {
   width : $leftColWidth;
   height : $colHeight;
@@ -103,4 +107,12 @@ $cmtWidth : $rightColWidth - 2*$cmtPadding;
   .voting-num {
     width : 45px;
   }
+}
+
+.detail-add-song-sticker {
+  position: absolute;
+  width : $addSongStickerWidth;
+  height : $addSongStickerHeight;
+  margin-left : - $addSongStickerWidth;
+  margin-top : $addSongStickerTopMargin;
 }

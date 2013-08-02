@@ -1,7 +1,7 @@
 <% if voted?(song) %>
 	<%= image_tag "voted.png"%>
 <% else %>
-	<%= form_for :vote, :html=>{:class=>'form-inline', :id=>"song-#{song.id}-vote-form", :'data-type'=>'json'}, :url=>votes_path do |f|%>
+	<%= form_for :vote, :retmote=>true , :html=>{:class=>'form-inline', :id=>"song-#{song.id}-vote-form", :'data-type'=>'json'}, :url=>votes_path do |f|%>
 		<%= f.hidden_field :song_id, :value=>song.id%>
 		<%= image_submit_tag "to_vote.png"%>
 	<% end %>

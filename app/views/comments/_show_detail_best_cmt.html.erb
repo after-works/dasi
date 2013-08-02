@@ -1,3 +1,4 @@
+<% hr_flag = true%>
 <% if comments.length == 0 %>
 	<div class="detail-best-cmt-notice">
 		도전해라 이미지. 550 X 60
@@ -9,15 +10,13 @@
 				이미지 60X60
 			</div>
 			<div class="right">
-				<div>
-					<div class="title">
-						<big><%= cmt.user.name%></big> | <small><%=convert_time(cmt.created_at)%></small>
-					</div>
-					<div class="status">
-						i1 <%= cmt_likes(cmt).count%>
-						i2 <%= cmt_dislikes(cmt).count%>
-						i3 <%= cmt.re_comments.count%>
-					</div>
+				<div class="title">
+					<big><%= cmt.user.name%></big> | <small><%=convert_time(cmt.created_at)%></small>
+				</div>
+				<div class="status">
+					i1 <%= cmt_likes(cmt).count%>
+					i2 <%= cmt_dislikes(cmt).count%>
+					i3 <%= cmt.re_comments.count%>
 				</div>
 
 				<div class="context">
@@ -28,7 +27,15 @@
 					over
 			</div>
 		</div>
+			
+		<% if hr_flag %>
+			<div class="detail-hr">
+				<hr>
+			</div>
+			<% hr_flag = false%>
+		<% end %>
 	<% end %>
+	
 	<% if comments.length == 1 %>
 		<div class="detail-best-cmt-notice">
 			도전해라 이미지. 550 X 60

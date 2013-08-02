@@ -9,3 +9,7 @@ $(window).load(function() {
 		mouseWheelPixels: 500
 	});
 })
+
+function show_add_song () {
+	alert('test')
+}

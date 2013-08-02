@@ -15,7 +15,7 @@
 	</div>
 	
 	<div class="over">
-		<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>comment, :cur_songtag_id => cur_songtag_id%>
+		<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>comment, :cur_songtag_id => cur_songtag_id, :is_recmt=>false%>
 	</div>
 	
 </div>
@@ -24,6 +24,6 @@
 	<%= render 'comments/show_detail_re_cmt', :re_cmts=>comment.re_comments, :comment_log_form=>comment_log_form, :cur_songtag_id => cur_songtag_id%>
 </div>
 
-<div class="detail-re-cmt-form">
+<div class="detail-re-cmt-form" id="detail-re-cmt-form-<%=comment.id%>">
 	<%= render 'comments/detail_re_cmt_form', :parent_cmt=>comment , :comment_form => comment_form%>
 </div>

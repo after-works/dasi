@@ -32,8 +32,9 @@
 			<% end %>
 		<% end %>
 	</div>
+	<% if !is_recmt %>
+		<div class="log-btn">
+			<button class="dislike_btn" name="button" onclick="javascript:show_recmt_form(<%=comment.id%>)">댓글달기</button>
+		</div>
+	<% end %>
 </div>
-
-<!--<div><!-- re-cmt btn
-	
-</div>-->
