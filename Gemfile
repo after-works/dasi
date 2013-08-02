@@ -6,6 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'mysql2'
 
 
 # Gems used only for assets and not required
@@ -27,6 +28,12 @@ gem 'jquery-rails'
 gem 'omniauth-facebook', "1.4.0"
 #####for facebook graph api
 gem 'fb_graph'
+
+#####searching in autocomplete
+#gem 'rails_autocomplete'
+
+####Search engine
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

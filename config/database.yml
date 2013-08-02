@@ -23,3 +23,13 @@ production:
   database: db/production.sqlite3
   pool: 5
   timeout: 5000
+
+hyeon:
+  adapter: mysql2
+  encoding: utf8
+  database: catalist
+  pool: 5
+  username: root
+  password:
+  host: 127.0.0.1
+  port: 3306
