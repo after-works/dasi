@@ -1,6 +1,7 @@
 class SongtagsController < ApplicationController
   before_filter :user_only
   include SongsHelper
+  include SongtagsHelper
   
   def show
     @songtag = Songtag.find(params[:id])
@@ -57,7 +58,16 @@ class SongtagsController < ApplicationController
   end
 
   def index
-    @songtags = Songtag.all
+    if !params[:category].nil?
+      @category = params[:category]
+      if params[:category] == "0"
+        @songtags = fetch_popular_songtags()
+      elsif params[:category] == "1"
+        @songtags = fetch_new_songtags()
+      end
+    else
+      @songtags = Songtag.all
+    end
   end
 
   def show_song
