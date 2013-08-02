@@ -1,36 +1,40 @@
-<!-- <%= comment%>-->
-<!--<%= comment_log_form%>-->
-
 <% log = my_status_choice(comment) %>
 
-<div><!--좋아요 btn-->
-	<% if done_like? (log) %>
-		<%= link_to '좋아요 취소', comment_logs_path(log), method: :delete %>
-	<% else %>
-		<%= form_for comment_log_form do |f| %>
-			<%= f.hidden_field :comment_id, :value=>comment.id%>
-			<%= f.hidden_field :uid, :value=>current_user.id%>
-			<%= f.hidden_field :status, :value=>1%>
-			<%= hidden_field_tag :songtag_id, cur_songtag_id%>
-			<%= f.button "좋아요"%>
+<div class="detail-cmt-log">
+	<div class="log-btn">
+		<% if done_like? (log) %>
+			<a href="/comment_logs.<%=log.id%>" data-method="delete" rel="nofollow">
+				<button>좋아요 취소</button>
+			</a>
+		<% else %>
+			<%= form_for comment_log_form do |f| %>
+				<%= f.hidden_field :comment_id, :value=>comment.id%>
+				<%= f.hidden_field :uid, :value=>current_user.id%>
+				<%= f.hidden_field :status, :value=>1%>
+				<%= hidden_field_tag :songtag_id, cur_songtag_id%>
+				<%= f.button "좋아요" , :class=>'like_btn'%>
+			<% end %>
 		<% end %>
-	<% end %>
-</div>
+	</div>
 
-<div><!--좋아요 btn-->
-	<% if done_dislike? (log) %>
-		<%= link_to '싫어요 취소', comment_logs_path(log), method: :delete %>
-	<% else %>
-		<%= form_for comment_log_form do |f| %>
-			<%= f.hidden_field :comment_id, :value=>comment.id%>
-			<%= f.hidden_field :uid, :value=>current_user.id%>
-			<%= f.hidden_field :status, :value=>-1%>
-			<%= hidden_field_tag :songtag_id, cur_songtag_id%>
-			<%= f.button "싫어요"%>
+	<div class="log-btn">
+		<% if done_dislike? (log) %>
+			<a href="/comment_logs.<%=log.id%>" data-method="delete" rel="nofollow">
+				<button>좋아요 취소</button>
+			</a>
+		<% else %>
+			<%= form_for comment_log_form do |f| %>
+				<%= f.hidden_field :comment_id, :value=>comment.id%>
+				<%= f.hidden_field :uid, :value=>current_user.id%>
+				<%= f.hidden_field :status, :value=>-1%>
+				<%= hidden_field_tag :songtag_id, cur_songtag_id%>
+				<%= f.button "싫어요" , :class=>'dislike_btn'%>
+			<% end %>
 		<% end %>
+	</div>
+	<% if !is_recmt %>
+		<div class="log-btn">
+			<button class="dislike_btn" name="button" onclick="javascript:show_recmt_form(<%=comment.id%>)">댓글달기</button>
+		</div>
 	<% end %>
-</div>
-
-<div><!-- re-cmt btn -->
-	
 </div>

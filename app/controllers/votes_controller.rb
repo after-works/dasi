@@ -28,7 +28,11 @@ class VotesController < ApplicationController
 
     @vote.save
 
-    redirect_to @songtag
+    #redirect_to @songtag
+    
+    respond_to do |format|
+      format.json { render :json=>@songtag}
+    end
   end
 
   def destroy

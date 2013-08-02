@@ -1,5 +1,8 @@
 <% songs.each do |song|%>
-<div>
+<div class="detail-rank-elem">
 	<%= render 'ranks/detail_rank_elem', :song=>song%>
 </div>
 <% end %>
+
+<button class="detail-rank-elem" onclick="javascript:show_add_song()">410 x 75 추가 이미지</button>
+
