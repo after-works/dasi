@@ -32,4 +32,7 @@ Dasi::Application.routes.draw do
   
   #for feedbacks
   resources :feedbacks, only: [:create]
+  
+  #for search
+  get 'search' => 'search#index'
 end

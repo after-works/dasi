@@ -1,0 +1,3 @@
+<% @songtags.each do |songtag| %>
+	<%= render partial: "songtags/listelem_songtag", locals: {songtag: songtag, songs:sort_songs(songtag.songs)} %>
+<% end %>

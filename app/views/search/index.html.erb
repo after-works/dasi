@@ -1,0 +1,7 @@
+<div class="container">
+	<% if @songtags.empty? %>
+		<h1>No results!</h1>
+	<% else %>
+		<%= render(partial: 'search/search_result', locals: {songtags: @songtags}) %>
+	<% end %>
+</div>
