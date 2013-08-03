@@ -7,7 +7,9 @@ $navbarHeight : 44px;
 
 body {
   background-color : #f1f1f2;
+  font-family:'Malgun Gothic';
 }
+
 .navbar-inner {
   background-image: none;
   border-top : 0px !important;
@@ -28,4 +30,8 @@ body {
 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
   background : #36c1d7
   
+}
+
+div{
+  vertical-align:middle;
 }

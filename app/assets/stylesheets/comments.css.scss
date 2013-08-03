@@ -15,13 +15,15 @@ $titleHeight : 25px;
 
 $bestCmtBasicTitleHeight : 20px;
 $bestCmtBasicContentHeight : 50px;
+$commentPadding : 10px;
 
 $cmtBasicTitleHeight : 25px;
 $cmtBasicContentHeight : 25px;
 $cmtLogHeight : 25px;
 
+$titleHeight : 50px;
 .detail-comment {
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow : 0 3px 10px 0 rgba(0, 0, 0, 0.5);
   width : $rightColWidth;
   height : $colHeight + 5px - 2*$cmtPadding;//5px은 그냥 작음;
   background-color : $textBackColor;
@@ -29,7 +31,8 @@ $cmtLogHeight : 25px;
 }
 
 .detail-title {
-  height:50px;
+  height:$titleHeight;
+  line-height:$titleHeight;
   width : $rightColWidth - $scrollWidth;
   background-color : #f9ec31;
   margin-bottom : 20px;
@@ -66,8 +69,9 @@ $cmtLogHeight : 25px;
     float : left;
   }
   
-  .right {
-    width : $rightColWidth - $indent - $scrollWidth;
+  .right {  
+    padding : $commentPadding;
+    width : $rightColWidth - $indent - $scrollWidth - 2*$commentPadding;
     min-height : $indent;
     margin-left: $indent;
     padding-bottom: $cmtLogHeight;
@@ -83,12 +87,12 @@ $cmtLogHeight : 25px;
     .status {
       //width : $overWidth;
       height : $bestCmtBasicTitleHeight;
-      margin-right: $indent;
+      //margin-right: $indent;
       float : right;
     }
     
     .context {
-      width : $rightColWidth - $indent - $scrollWidth;
+      width : $rightColWidth - $indent - $scrollWidth - 2*$commentPadding;
       min-height: $indent - $bestCmtBasicTitleHeight;
       
       padding-top: 25px;
@@ -113,7 +117,7 @@ $cmtLogHeight : 25px;
 
 .detail_cmt_form {
   input[type=text]{
-    width : $rightColWidth - $scrollWidth - 35px - 17px;//17은 인풋과 버튼 사이
+    width : $rightColWidth - $scrollWidth - 35px - 18px;//17은 인풋과 버튼 사이
     margin-bottom : 0px;
   }
   input[type=button]{
@@ -124,17 +128,18 @@ $cmtLogHeight : 25px;
 
 
 .detail-cmt-elem {
-  width : $rightColWidth - $scrollWidth;
+  padding : $commentPadding;
+  width : $rightColWidth - $scrollWidth - 2*$commentPadding;
   min-height: $cmtBasicTitleHeight + $cmtBasicContentHeight + $cmtLogHeight;
   position: relative;
   padding-bottom: $cmtLogHeight;
 
   .first-row {
-    width : $rightColWidth - $scrollWidth;
+    width : $rightColWidth - $scrollWidth - 2*$commentPadding;
     height : $cmtBasicTitleHeight;
 
     .title {
-      width : $rightColWidth - $overWidth - $scrollWidth;
+      width : $rightColWidth - $overWidth - $scrollWidth - 2*$commentPadding;
       height : $cmtBasicTitleHeight;
       float:left;
     }
@@ -147,13 +152,8 @@ $cmtLogHeight : 25px;
   }
   
   .context {
-    width : $rightColWidth - $scrollWidth;
+    width : $rightColWidth - $scrollWidth - 2*$commentPadding;
     min-height: $cmtBasicContentHeight;
-
-    -moz-hyphens:auto;
-    -ms-hyphens:auto;
-    -webkit-hyphens:auto;
-    hyphens:auto;
     word-wrap:break-word;
   }
   
@@ -238,7 +238,7 @@ $cmtLogHeight : 25px;
 .detail-re-cmt-form {
   display : none;
   input[type=text]{
-    width : $rightColWidth - $scrollWidth - 35px - 17px - $indent;//17은 인풋과 버튼 사이
+    width : $rightColWidth - $scrollWidth - 35px - 18px - $indent;//17은 인풋과 버튼 사이
     margin-left: $indent;
     margin-bottom : 0px;
   }

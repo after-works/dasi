@@ -1,12 +1,13 @@
 <div>
-	<button class="detail-add-song-sticker" onclick="javascript:show_add_song()">add song</button>
+	<%= image_submit_tag "add_left_88x58.png", :class=>"detail-add-song-sticker", :onclick=>"javascript:show_add_song()"%>
+
 	<div class="detail-left-col">
 		<!--left col-->
 		<div class="detail-video">
 			<!--video-->
 			<%= render 'songs/show', :song=>@current_song %>
 		</div>
-		<div class="detail-rank">
+		<div class="detail-rank" id="detail-rank">
 			<!--rank list |||| enable scroll-->
 			<%= render 'ranks/detail_rank_list', :songs => @songs%>
 		</div>

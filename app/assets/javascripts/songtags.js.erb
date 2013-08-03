@@ -1,0 +1,24 @@
+<% environment.context_class.instance_eval { include SongsHelper } %>
+
+
+$(window).load(function() {
+	$(".detail-rank").mCustomScrollbar({
+		theme : "light",
+		mouseWheelPixels: 500
+	});
+
+	$(".detail-comment").mCustomScrollbar({
+		theme : "light",
+		mouseWheelPixels: 500
+	});
+})
+
+function show_add_song () {
+	alert('test')
+}
+
+function change_song (yid, title, user_name , date) {
+	$("#detail-song-video").html ( "<iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/"+yid+"\" frameborder=\"0\" allowfullscreen></iframe>" );
+	$("#detail-song-info").html ("<big>"+title+"</big><small>"+user_name  + " | " + date  + "</small>")
+		
+}

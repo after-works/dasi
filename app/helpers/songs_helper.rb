@@ -7,6 +7,7 @@ module SongsHelper
     "http://img.youtube.com/vi/#{song.youtube_id}/0.jpg"
   end
   
+  
   def sort_songs(songs)
     songs.sort_by{|song| -song.votes.count}
   end

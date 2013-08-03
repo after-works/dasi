@@ -1,0 +1,6 @@
+$("#detail-rank").html("<%= escape_javascript ( render 'ranks/detail_rank_list', :songs => @songs )%>")
+
+$(".detail-rank").mCustomScrollbar({
+	theme : "light",
+	mouseWheelPixels: 500
+});

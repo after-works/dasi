@@ -24,8 +24,8 @@ $textBackColor : white;
 
 $cmtWidth : $rightColWidth - 2*$cmtPadding;
 
-$addSongStickerWidth : 50px;
-$addSongStickerHeight : 50px;
+$addSongStickerWidth : 88px;
+$addSongStickerHeight : 58px;
 $addSongStickerTopMargin : 700px;
 
 .detail-left-col {
@@ -38,7 +38,7 @@ $addSongStickerTopMargin : 700px;
 .detail-video {
   margin-bottom : $videoBottomMargin;
   background-color : $textBackColor;
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
   
   iframe {
     width : $leftColWidth;
@@ -49,12 +49,26 @@ $addSongStickerTopMargin : 700px;
   
   .info{
     height : $videoInfoHeight;
-    
+    display: table-cell;
+     
     big {//song title
-     font-size : 20px; 
+      margin-left : 20px;
+      margin-right : 10px;
+      font-size : 20px;
+      width : $leftColWidth - 200px;
+      
+      display : block;
+      float : left;
+      height : 20px;
+      
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     
     small {//song writer
+      display : block;
+      float:left;
       font-size : 10px;
     }
   }
@@ -67,13 +81,13 @@ $addSongStickerTopMargin : 700px;
 }
 
 .detail-rank-elem {
-  width : $leftColWidth  - 2*$rankElemMargin ;
+  width : $leftColWidth  - 2*$rankElemMargin;
   height : $rankElemHeight;
   margin : $rankElemMargin;
   background-color : #e6e7e8;
   
   .thumb {
-    width : 125px;
+    width : 100px;
     height : $rankElemHeight;
     float : left;
     
@@ -86,18 +100,29 @@ $addSongStickerTopMargin : 700px;
   .vote {
     float : left;
     width : 25px;
-    height : 25px; 
-    vertical-align : center;
+    margin-top : 26px;
     margin-left : $rankElemInnerMargin;
   }
   
   .name {
-    
-    float : left;
+    line-height : $rankElemHeight;
     width : $leftColWidth  - 2*$rankElemMargin - 125px - 25px - 45px - 3*$rankElemInnerMargin;
     height : $rankElemHeight;
     margin-right : $rankElemInnerMargin;
     margin-left : $rankElemInnerMargin;
+    
+    float : left;
+    
+    display : block;
+    
+    -moz-hyphens:auto;
+    -ms-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens:auto;
+    word-wrap:break-word;
+    
+    overflow: hidden;      
+    text-overflow: ellipsis;
   }
   
   .ranks {
