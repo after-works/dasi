@@ -1,22 +1,18 @@
-<% re_cmts.each do |cmt| %>
 <div class="detail-re-cmt-elem">
 	<div class="first-row">
 		<div class="title">
-			<big><%= cmt.user.name %></big>
-			<small><%= convert_time(cmt.created_at) %></small>
+			<big><%= re_cmt.user.name %></big>
+			<small><%= convert_time(re_cmt.created_at) %></small>
 		</div>
 		<div class="status">
-			i1 <%= cmt_likes(cmt).count%>
-			i2 <%= cmt_dislikes(cmt).count%>
-			i3 <%= cmt.re_comments.count%>
+			i1 <%= cmt_likes(re_cmt).count%>
+			i2 <%= cmt_dislikes(re_cmt).count%>
 		</div>
 	</div><!-- first-row -->
 	<div class="context"><!-- content -->
-		<%= cmt.context %>
+		<%= re_cmt.context %>
 	</div>
 	<div class="over"><!-- mouse over-->
-		<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>cmt, :cur_songtag_id => cur_songtag_id, :is_recmt=>true%>
+		<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>re_cmt, :cur_songtag_id => cur_songtag_id, :is_recmt=>true%>
 	</div>
 </div>
-<% end %>
-<!-- form -->

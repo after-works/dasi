@@ -20,8 +20,10 @@
 	
 </div>
 
-<div>
-	<%= render 'comments/show_detail_re_cmt', :re_cmts=>comment.re_comments, :comment_log_form=>comment_log_form, :cur_songtag_id => cur_songtag_id%>
+<div id="re-cmt-elem-<%=comment.id%>">
+	<% comment.re_comments.each do |re_cmt| %>
+		<%= render 'comments/show_detail_re_cmt', :re_cmt=>re_cmt, :comment_log_form=>comment_log_form, :cur_songtag_id => cur_songtag_id%>
+	<% end %>
 </div>
 
 <div class="detail-re-cmt-form" id="detail-re-cmt-form-<%=comment.id%>">

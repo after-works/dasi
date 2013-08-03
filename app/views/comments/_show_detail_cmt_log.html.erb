@@ -3,7 +3,7 @@
 <div class="detail-cmt-log" id="detail-cmt-log-<%=comment.id%>">
 	<div class="log-btn">
 		<% if done_like? (log) %>
-			<%= link_to "<button>좋아요 취소</button>".html_safe, comment_logs_path(log), :method => :delete, :remote=> true%>
+			<%= link_to "<button>좋아요 취소</button>".html_safe, comment_logs_path(log), :remote=> true, :method => :delete %> 
 		<% else %>
 			<%= form_for comment_log_form , remote: true do |f| %>
 				<%= f.hidden_field :comment_id, :value=>comment.id%>
@@ -17,7 +17,7 @@
 
 	<div class="log-btn">
 		<% if done_dislike? (log) %>
-			<%= link_to "<button>싫어요취소</button>".html_safe, comment_logs_path(log), :method => :delete, :remote=> true %>
+			<%= link_to "<button>싫어요취소</button>".html_safe, comment_logs_path(log), :remote=> true ,:method => :delete %>
 		<% else %>
 			<%= form_for comment_log_form , remote: true  do |f| %>
 				<%= f.hidden_field :comment_id, :value=>comment.id%>
@@ -30,7 +30,7 @@
 	</div>
 	<% if !is_recmt %>
 		<div class="log-btn">
-			<button class="dislike_btn" name="button" onclick="javascript:show_recmt_form(<%=comment.id%>)">댓글달기</button>
+			<button class="dislike_btn" name="button" onclick="javascript:show_recmt_form(<%=comment.id%>)">댓글달기</button>
 		</div>
 	<% end %>
 </div>

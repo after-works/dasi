@@ -9,7 +9,7 @@
 		</div>
 		<div class="detail-rank" id="detail-rank">
 			<!--rank list |||| enable scroll-->
-			<%= render 'ranks/detail_rank_list', :songs => @songs%>
+			<%= render 'ranks/detail_rank_list', :songs => @songs, :cur_song=> @current_song%>
 		</div>
 	</div>
 	<div style="float:left;" class="detail-comment">
@@ -18,7 +18,7 @@
 			<!--title-->
 			<div class="detail-title">
 				<div class="img">
-					이미지 60 X 50
+					<%= image_tag "favorite_on_27x27.png"%>
 				</div>
 				<div class="text">
 					<big><%= @songtag.title %></big>
@@ -27,13 +27,13 @@
 		</div>
 		<div>
 			<!--best cmt-->
-			<%= render 'comments/show_detail_best_cmt', :comments=>@best_comments%>
+			<%= render 'comments/show_detail_best_cmt', :comments=>@best_comments, :comment_log_form=>@comment_log%>
 		</div>
 		<div class="detail_cmt_form">
 			<!-- cmt enter form-->
 			<%= render 'comments/detail_cmt_form', :comment_form=>@comment_form %>
 		</div>
-		<div style="margin-bottom: 50px;">
+		<div style="margin-bottom: 50px;" id="cmt-div">
 			<!-- cmts... -->
 			<% @comments.each do | comment | %>
 			<div>

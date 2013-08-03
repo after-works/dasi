@@ -1,9 +1,15 @@
-<% songs.each do |song|%>
-<div class="detail-rank-elem">
-	<%= render 'ranks/detail_rank_elem', :song=>song%>
+<% songs.each_with_index do |song, index|%>
+<div class="detail-rank-elem" id="rank-elem-<%= song.id %>">
+	<%= render 'ranks/detail_rank_elem', :song=>song, :rank=>index+1%>
 </div>
 <% end %>
 
-<div style="vertical-align: middle; width:410px; height:75px; margin:15px; background-color: #e6e7e8">
-	<%= image_submit_tag "add_right_138x35.png", :onclick=>"javascript:show_add_song()", :style=>"width:138px; height:35px; margin-top:20px; margin-left:128px"%>
+<div class="detail-add-song-elem">
+	<%= image_submit_tag "add_right_138x35.png", :onclick=>"javascript:show_add_song()", :style=>"width:138px; height:35px; margin-top:20px; margin-left:86px"%>
 </div>
+
+<script>
+	<% if !cur_song.nil? %>
+		select_rank_elem (<%= cur_song.id%>)
+	<% end %>
+</script>

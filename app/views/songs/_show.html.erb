@@ -4,5 +4,10 @@
 
 
 <div class="info" id="detail-song-info">
-	<big><%= song.title%></big><small><%= song.user.name%> | <%=convert_time(song.created_at)%></small>
+	<div class="title">
+		<%= song.title%>
+	</div>
+	<div class="small">
+		<%= song.user.name%> | <%=convert_time(song.created_at)%>
+	</div>
 </div>

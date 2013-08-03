@@ -8,7 +8,16 @@ class CommentsController < ApplicationController
     
     @comment.save
     
-    redirect_to @songtag
+    @comment_form = Comment.new
+    
+    @comment_log = CommentLog.new
+    
+    @is_recmt = !@comment.parent_cmt_id.nil?
+    
+    respond_to do |format|
+      format.js
+    end
+     
   end
   
   def update

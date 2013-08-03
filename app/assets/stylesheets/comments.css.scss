@@ -11,21 +11,25 @@ $overWidth : 200px;
 $overHeight : 25px;
 $rightColWidth : $rightColWidth - $scrollWidth;
 
-$titleHeight : 25px;
-
 $bestCmtBasicTitleHeight : 20px;
 $bestCmtBasicContentHeight : 50px;
 $commentPadding : 10px;
 
 $cmtBasicTitleHeight : 25px;
 $cmtBasicContentHeight : 25px;
+$cmtBasicReContentHeight : $cmtBasicContentHeight - 5px;
 $cmtLogHeight : 25px;
 
-$titleHeight : 50px;
+$cmtMargin : 10px;
+
+$titleHeight : 30px;
+
+$cmtFontSize : 12px;
+
 .detail-comment {
   box-shadow : 0 3px 10px 0 rgba(0, 0, 0, 0.5);
   width : $rightColWidth;
-  height : $colHeight + 5px - 2*$cmtPadding;//5px은 그냥 작음;
+  height : $colHeight + $cmtMargin - 2*$cmtPadding;//5px은 그냥 작음;
   background-color : $textBackColor;
   padding : $cmtPadding;
 }
@@ -35,17 +39,17 @@ $titleHeight : 50px;
   line-height:$titleHeight;
   width : $rightColWidth - $scrollWidth;
   background-color : #f9ec31;
-  margin-bottom : 20px;
+  margin-bottom : $cmtMargin;
   .img {
     width : $indent;
-    height : 50px;
+    height : $titleHeight;
     float:left;
   }
   
   .text {
     width : $rightColWidth - $indent; 
     big {
-      font-size : 20px;
+      font-size : 15px;
     }
   }
 }
@@ -62,11 +66,13 @@ $titleHeight : 50px;
   
   position: relative;
 
-  margin-bottom: 20px;
+  margin-bottom: $cmtMargin;
 
   .img {
     width : $indent;
     float : left;
+    height : 60px;
+    //padding : $commentPadding;
   }
   
   .right {  
@@ -74,21 +80,23 @@ $titleHeight : 50px;
     width : $rightColWidth - $indent - $scrollWidth - 2*$commentPadding;
     min-height : $indent;
     margin-left: $indent;
-    padding-bottom: $cmtLogHeight;
+    //padding-bottom: $cmtLogHeight;
 
-    background-color : rgb(254, 252, 224);
+    background-color : #fefce0;
     
     .title {
       //width : $rightColWidth - $scrollWidth - $overWidth - $indent;
       height : $bestCmtBasicTitleHeight;
-      float : left;
+      float : left;  
+      font-size : $cmtFontSize;
     } 
 
     .status {
       //width : $overWidth;
       height : $bestCmtBasicTitleHeight;
       //margin-right: $indent;
-      float : right;
+      float : right;  
+      font-size : $cmtFontSize;
     }
     
     .context {
@@ -97,6 +105,7 @@ $titleHeight : 50px;
       
       padding-top: 25px;
       word-wrap:break-word;
+      font-size : $cmtFontSize;
     }
   }
   
@@ -133,6 +142,10 @@ $titleHeight : 50px;
   min-height: $cmtBasicTitleHeight + $cmtBasicContentHeight + $cmtLogHeight;
   position: relative;
   padding-bottom: $cmtLogHeight;
+  
+  margin-bottom: $cmtMargin;
+  
+  border-bottom:  1px dashed #ACDEE2;
 
   .first-row {
     width : $rightColWidth - $scrollWidth - 2*$commentPadding;
@@ -141,20 +154,23 @@ $titleHeight : 50px;
     .title {
       width : $rightColWidth - $overWidth - $scrollWidth - 2*$commentPadding;
       height : $cmtBasicTitleHeight;
-      float:left;
+      float:left;  
+      font-size : $cmtFontSize;
     }
     
     .status {
       //width : $overWidth;
       height : $cmtBasicTitleHeight;
-      float:right;
+      float:right;  
+      font-size : $cmtFontSize;
     }
   }
   
   .context {
     width : $rightColWidth - $scrollWidth - 2*$commentPadding;
     min-height: $cmtBasicContentHeight;
-    word-wrap:break-word;
+    word-wrap:break-word;      
+    font-size : $cmtFontSize;
   }
   
   .over {
@@ -187,6 +203,10 @@ $titleHeight : 50px;
   width : $rightColWidth - $scrollWidth - $indent;
   margin-left: $indent;
   padding-bottom: $cmtLogHeight;
+  
+  margin-bottom: $cmtMargin;
+  
+  border-bottom:  1px dashed #ACDEE2;
 
   .first-row{
     width : $rightColWidth - $scrollWidth - $indent;
@@ -196,25 +216,29 @@ $titleHeight : 50px;
       width : $rightColWidth - $overWidth - $scrollWidth - $indent;
       height : $cmtBasicTitleHeight;
       float:left;
+      font-size : $cmtFontSize;
     }
     
     .status {
       //width : $overWidth;
       height : $cmtBasicTitleHeight;
-      float:right;
+      float:right;  
+      font-size : $cmtFontSize;
     }
   }
 
 
   .context {
     width : $rightColWidth - $scrollWidth - $indent;
-    min-height: $cmtBasicContentHeight;
+    min-height: $cmtBasicReContentHeight;
 
     -moz-hyphens:auto;
     -ms-hyphens:auto;
     -webkit-hyphens:auto;
     hyphens:auto;
-    word-wrap:break-word;
+    word-wrap:break-word;  
+    
+    font-size : $cmtFontSize;
   }
 
   .over {
@@ -248,8 +272,8 @@ $titleHeight : 50px;
   }
 }
 
-.detail-hr hr{
-  border-style:dotted;
-  border-color:#808080; 
-  height:1px;
+.detail-hr {
+  border-top:  1px dashed #929497;
+  height : $cmtMargin;
 }
+//ACDEE2

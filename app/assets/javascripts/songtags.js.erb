@@ -1,6 +1,5 @@
 <% environment.context_class.instance_eval { include SongsHelper } %>
 
-
 $(window).load(function() {
 	$(".detail-rank").mCustomScrollbar({
 		theme : "light",
@@ -17,8 +16,22 @@ function show_add_song () {
 	alert('test')
 }
 
-function change_song (yid, title, user_name , date) {
+function change_song (yid, title, user_name , date, song_id) {
 	$("#detail-song-video").html ( "<iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/"+yid+"\" frameborder=\"0\" allowfullscreen></iframe>" );
-	$("#detail-song-info").html ("<big>"+title+"</big><small>"+user_name  + " | " + date  + "</small>")
-		
+	$("#detail-song-info").html ("<div class='title'>"+title+"</div><div class='small'>"+user_name  + " | " + date  + "</div>")
+	
+	select_rank_elem (song_id);
+}
+
+function select_rank_elem (song_id) {
+	unselect_all_rank ()
+	
+	$('#rank-elem-'+song_id).css("background-color","#E6E7E8")
+}
+
+function unselect_all_rank () {
+	var i;
+	var selector = $(".detail-rank-elem");
+	
+	selector.css("background-color","#F5F5F6")
 }
