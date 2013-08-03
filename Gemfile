@@ -6,8 +6,12 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'mysql2', '0.3.12b5'
 
+group :hyeon do
+  gem 'mysql2', '0.3.12b5'
+  ####Search engine
+  gem 'thinking-sphinx',  '~> 3.0.2'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -32,8 +36,6 @@ gem 'fb_graph'
 #####searching in autocomplete
 #gem 'rails_autocomplete'
 
-####Search engine
-gem 'thinking-sphinx',  '~> 3.0.2'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
