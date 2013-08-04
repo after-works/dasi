@@ -1,7 +1,5 @@
-<h1>songtags</h1>
-
-<div>
+<div id="mint-list">
 	<% @songtags.each do |songtag| %>
-		<%= render partial: "songtags/listelem_songtag", locals: {songtag: songtag, songs:sort_songs(songtag.songs)} %>
+		<%= render "songtags/listelem_songtag", :songtag=>songtag, :songs=>sort_songs(songtag.songs) %>
 	<% end %>
 </div>
