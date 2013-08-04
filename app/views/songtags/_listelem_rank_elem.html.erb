@@ -1,0 +1,61 @@
+<% if index == 0%>
+	<div class="rank1">
+		<div class="thumb">
+			<a href="songtags/<%=songtag.id%>/<%=song.id%>"><img src='<%= youtube_thumb(song) %>'/></a>
+		</div>
+		
+		<div class="img">
+			<%= image_tag "no_1_list_21x18.png"%>
+		</div>
+		
+		<div class="title">
+			<a href="songtags/<%=songtag.id%>/<%=song.id%>"><b><%= song.title %></b></a>
+		</div>
+		
+		
+		<div class="vote">
+			<% if voted?(song) %>
+				<%= image_tag "stamp_on_list_20x20.png"%>
+			<% else %>
+				<%= form_for :vote, remote:true , :html=>{:class=>'form-inline', :id=>"vote-form", :'data-type'=>'script'}, :url=>votes_path do |f|%>
+					<%= f.hidden_field :song_id, :value=>song.id%>
+					<%= f.hidden_field :at_list, :value=>true%>
+					<%= image_submit_tag "stamp_off_list_20x20.png"%>
+					<%= hidden_field :song, :id, :value=>song.id%>
+				<% end %>
+			<% end %>
+		</div>
+		
+		<div class="vote-num">
+			<%= song.votes.count %>표
+		</div>
+	</div>
+<% else %>
+	<div class="rank-elem">
+		<% if songtag.songs.length-1 == index %>
+			<div class="thumb" style="border-bottom-left-radius: 5px;">
+				<img src='<%= youtube_thumb(song) %>' style="border-bottom-left-radius: 5px;"/>
+			</div>
+		<% else %>
+			<div class="thumb">
+					<a href="songtags/<%=songtag.id%>/<%=song.id%>"><img src='<%= youtube_thumb(song) %>'/></a>
+				</div>
+		<% end %>
+		
+		<div class="title">
+			<a href="songtags/<%=songtag.id%>/<%=song.id%>"><b><%= song.title%></b></a>
+		</div>
+		<div class="vote">
+			<% if voted?(song) %>
+				<%= image_tag "stamp_on_list_20x20.png"%>
+			<% else %>
+				<%= form_for :vote, remote:true , :html=>{:class=>'form-inline', :id=>"vote-form", :'data-type'=>'script'}, :url=>votes_path do |f|%>
+					<%= f.hidden_field :song_id, :value=>song.id%>
+					<%= f.hidden_field :at_list, :value=>true%>
+					<%= image_submit_tag "stamp_off_list_20x20.png"%>
+					<%= hidden_field :song, :id, :value=>song.id%>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+<% end %>

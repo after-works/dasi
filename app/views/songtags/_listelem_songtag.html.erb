@@ -1,6 +1,6 @@
 <div class="mint-list-elem">
 	<div class="title">
-		<b><%= songtag.title %></b>
+		<a href="/songtags/<%=songtag.id%>"><b><%= songtag.title %></b></a>
 	</div>
 	
 	<div class="user">
@@ -8,48 +8,9 @@
 	</div>
 	
 	
-	<% songs.each_with_index do |song, index|%>
-		<% if index == 0%>
-			<div class="thumb">
-				<img src='<%= youtube_thumb(song) %>'/>
-			</div>
-			<div class="rank1">
-				<div class="img">
-					<%= image_tag "no_1_list_21x18.png"%>
-				</div>
-				
-				<div class="title">
-					<b><%= song.title %></b>
-				</div>
-				
-				
-				<div class="vote">
-					<%= image_tag "stamp_on_list_20x20.png"%>
-				</div>
-				
-				<div class="vote-num">
-					100표
-				</div>
-			</div>
-		<% else %>
-			<div class="rank-elem">
-				<% if songs.length-1 == index %>
-					<div class="thumb" style="border-bottom-left-radius: 5px;">
-						<img src='<%= youtube_thumb(song) %>' style="border-bottom-left-radius: 5px;"/>
-					</div>
-				<% else %>
-					<div class="thumb">
-							<img src='<%= youtube_thumb(song) %>'/>
-						</div>
-				<% end %>
-				
-				<div class="title">
-					<b><%= song.title%></b>
-				</div>
-				<div class="vote">
-					<%= image_tag "stamp_off_list_20x20.png"%>
-				</div>
-			</div>
+	<div id="mint-list-rank-<%=songtag.id%>">
+		<% songs.each_with_index do |song, index|%>
+			<%= render 'songtags/listelem_rank_elem', :song=>song, :index=>index, :songtag=>songtag%>
 		<% end %>
-	<% end %>
+	</div>
 </div>
