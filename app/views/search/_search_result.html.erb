@@ -1,3 +1,8 @@
-<% @songtags.each do |songtag| %>
-	<%= render partial: "songtags/listelem_songtag", locals: {songtag: songtag, songs:sort_songs(songtag.songs)} %>
-<% end %>
+<div class="container">
+	<h4><%= songtag.title %></h4>
+	<% if song.nil? %>
+		<% song=get_first_song(songtag) %>
+	<% end %>
+	<img src='<%= youtube_thumb(song) %>' />
+	<p><%= song.title %></p>	
+</div>

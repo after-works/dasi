@@ -14,4 +14,8 @@ module SongtagsHelper
   def get_song_updated_date(songtag)
     return songtag.songs.sort_by{|song| -song.updated_at.to_i}[0].updated_at.to_i
   end
+  
+  def get_first_song(songtag)
+    return songtag.songs.sort_by{|song| -song.votes.count}[0]
+  end
 end

@@ -1,7 +1,18 @@
 <div class="container">
+	<h1>주제</h1>
 	<% if @songtags.empty? %>
 		<h1>No results!</h1>
 	<% else %>
-		<%= render(partial: 'search/search_result', locals: {songtags: @songtags}) %>
+		<% @songtags.each do |songtag| %>
+			<%= render partial: "search/search_result", locals: {songtag: songtag, song: nil} %>
+		<% end %>
+	<% end %>
+	<h1>노래</h1>
+	<% if @songs.empty? %>
+		<h1>No results!</h1>
+	<% else %>
+		<% @songs.each do |song| %>
+			<%= render partial: "search/search_result", locals: {songtag: Songtag.find(song.tag_id), song: song}%>
+		<% end %>
 	<% end %>
 </div>
