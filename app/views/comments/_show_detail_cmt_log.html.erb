@@ -1,13 +1,11 @@
-<% log = my_status_choice(comment) %>
+<% log = my_status_choice(comment) if log.nil?%>
 
-<div class="detail-cmt-log">
+<div class="detail-cmt-log" id="detail-cmt-log-<%=comment.id%>">
 	<div class="log-btn">
 		<% if done_like? (log) %>
-			<a href="/comment_logs.<%=log.id%>" data-method="delete" rel="nofollow">
-				<button>좋아요 취소</button>
-			</a>
+			<%= link_to "<button>좋아요 취소</button>".html_safe, comment_logs_path(log), :remote=> true, :method => :delete %> 
 		<% else %>
-			<%= form_for comment_log_form do |f| %>
+			<%= form_for comment_log_form , remote: true do |f| %>
 				<%= f.hidden_field :comment_id, :value=>comment.id%>
 				<%= f.hidden_field :uid, :value=>current_user.id%>
 				<%= f.hidden_field :status, :value=>1%>
@@ -19,11 +17,9 @@
 
 	<div class="log-btn">
 		<% if done_dislike? (log) %>
-			<a href="/comment_logs.<%=log.id%>" data-method="delete" rel="nofollow">
-				<button>좋아요 취소</button>
-			</a>
+			<%= link_to "<button>싫어요취소</button>".html_safe, comment_logs_path(log), :remote=> true ,:method => :delete %>
 		<% else %>
-			<%= form_for comment_log_form do |f| %>
+			<%= form_for comment_log_form , remote: true  do |f| %>
 				<%= f.hidden_field :comment_id, :value=>comment.id%>
 				<%= f.hidden_field :uid, :value=>current_user.id%>
 				<%= f.hidden_field :status, :value=>-1%>
@@ -34,7 +30,7 @@
 	</div>
 	<% if !is_recmt %>
 		<div class="log-btn">
-			<button class="dislike_btn" name="button" onclick="javascript:show_recmt_form(<%=comment.id%>)">댓글달기</button>
+			<button class="dislike_btn" name="button" onclick="javascript:show_recmt_form(<%=comment.id%>)">댓글달기</button>
 		</div>
 	<% end %>
 </div>

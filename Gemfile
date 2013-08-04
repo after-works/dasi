@@ -33,6 +33,7 @@ gem 'omniauth-facebook', "1.4.0"
 #####for facebook graph api
 gem 'fb_graph'
 
+gem 'will_paginate'
 #####searching in autocomplete
 #gem 'rails_autocomplete'
 

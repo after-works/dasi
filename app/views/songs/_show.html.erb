@@ -1,6 +1,13 @@
-<iframe src="//www.youtube.com/embed/<%= song.youtube_id%>" frameborder="0" allowfullscreen></iframe>
+<div id="detail-song-video">
+	<iframe src="//www.youtube.com/embed/<%= song.youtube_id%>" frameborder="0" allowfullscreen></iframe>
+</div>
 
-<div class="info">
-	<big><%= song.title%></big><br>
-	<small><%= song.user%></small>
+
+<div class="info" id="detail-song-info">
+	<div class="title">
+		<%= song.title%>
+	</div>
+	<div class="small">
+		<%= song.user.name%> | <%=convert_time(song.created_at)%>
+	</div>
 </div>

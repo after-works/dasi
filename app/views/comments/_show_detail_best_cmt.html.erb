@@ -7,7 +7,7 @@
 	<% comments.each do |cmt| %>
 		<div class="detail-best-cmt-elem">
 			<div class="img">
-				이미지 60X60
+				<%= image_tag "favorite_on_27x27.png"%>
 			</div>
 			<div class="right">
 				<div class="title">
@@ -24,13 +24,12 @@
 				</div>
 			</div>
 			<div class="over" >
-					over
+				<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>cmt, :cur_songtag_id => cmt.songtag, :is_recmt=>true%>
 			</div>
 		</div>
 			
 		<% if hr_flag %>
 			<div class="detail-hr">
-				<hr>
 			</div>
 			<% hr_flag = false%>
 		<% end %>

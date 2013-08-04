@@ -1,0 +1,11 @@
+<% if @is_last %>
+	$("#more-recmt-<%=@parent_cmt.id%>").html("<%= escape_javascript (render 'comments/detail_more_recmt_last')%>")
+<% else %>
+	$("#more-recmt-<%=@parent_cmt.id%>").html("<%= escape_javascript (render 'comments/detail_more_recmt_form', :parent_cmt=>@parent_cmt, :next_page_num=>@next_page)%>")
+<% end %>
+
+var div
+<% @re_cmts.each do |re_cmt|%>
+	div = $("#re-cmt-<%=@parent_cmt.id%>-div").html()
+	$("#re-cmt-<%=@parent_cmt.id%>-div").html ("<%=escape_javascript (render 'comments/show_detail_re_cmt', :re_cmt=>re_cmt, :comment_log_form=>@comment_log, :cur_songtag_id => @parent_cmt.songtag.id)%>" + div)
+<% end %>

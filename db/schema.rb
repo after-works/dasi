@@ -57,10 +57,10 @@ ActiveRecord::Schema.define(:version => 20130801115458) do
 
   create_table "songtags", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.text     "content"
-    t.integer  "uid"
+    t.integer  "uid",        :limit => 255
   end
 
   create_table "users", :force => true do |t|

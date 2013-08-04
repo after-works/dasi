@@ -1,14 +1,18 @@
 <div>
-	<button class="detail-add-song-sticker" onclick="javascript:show_add_song()">add song</button>
+	<div>
+		<%= image_submit_tag "add_left_88x58.png", :class=>"detail-add-song-sticker", :onclick=>"javascript:show_add_song()"%>
+	</div>
+	
+
 	<div class="detail-left-col">
 		<!--left col-->
 		<div class="detail-video">
 			<!--video-->
 			<%= render 'songs/show', :song=>@current_song %>
 		</div>
-		<div class="detail-rank">
+		<div class="detail-rank" id="detail-rank">
 			<!--rank list |||| enable scroll-->
-			<%= render 'ranks/detail_rank_list', :songs => @songs%>
+			<%= render 'ranks/detail_rank_list', :songs => @songs, :cur_song=> @current_song%>
 		</div>
 	</div>
 	<div style="float:left;" class="detail-comment">
@@ -17,7 +21,7 @@
 			<!--title-->
 			<div class="detail-title">
 				<div class="img">
-					이미지 60 X 50
+					<%= image_tag "favorite_on_27x27.png"%>
 				</div>
 				<div class="text">
 					<big><%= @songtag.title %></big>
@@ -26,19 +30,22 @@
 		</div>
 		<div>
 			<!--best cmt-->
-			<%= render 'comments/show_detail_best_cmt', :comments=>@best_comments%>
+			<%= render 'comments/show_detail_best_cmt', :comments=>@best_comments, :comment_log_form=>@comment_log%>
 		</div>
 		<div class="detail_cmt_form">
 			<!-- cmt enter form-->
 			<%= render 'comments/detail_cmt_form', :comment_form=>@comment_form %>
 		</div>
-		<div style="margin-bottom: 50px;">
+		<div style="margin-bottom: 50px;" id="cmt-div">
 			<!-- cmts... -->
 			<% @comments.each do | comment | %>
 			<div>
 				<%= render 'comments/show_detail_cmt', :comment=>comment, :comment_form=>@comment_form, :comment_log_form=> @comment_log, :cur_songtag_id => @songtag.id%>
 			</div>
 			<% end %>
+		</div>
+		<div class="detail-more-cmt-form" id="more-cmt-btn">
+			<%= render '/comments/detail_more_cmt_form', :songtag=>@songtag, :next_page_num=>2 %>
 		</div>
 	</div>
 </div>

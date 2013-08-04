@@ -11,38 +11,45 @@ $overWidth : 200px;
 $overHeight : 25px;
 $rightColWidth : $rightColWidth - $scrollWidth;
 
-$titleHeight : 25px;
-
 $bestCmtBasicTitleHeight : 20px;
 $bestCmtBasicContentHeight : 50px;
+$commentPadding : 10px;
 
 $cmtBasicTitleHeight : 25px;
 $cmtBasicContentHeight : 25px;
+$cmtBasicReContentHeight : $cmtBasicContentHeight - 5px;
 $cmtLogHeight : 25px;
 
+$cmtMargin : 10px;
+
+$titleHeight : 30px;
+
+$cmtFontSize : 12px;
+
 .detail-comment {
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow : 0 3px 10px 0 rgba(0, 0, 0, 0.5);
   width : $rightColWidth;
-  height : $colHeight + 5px - 2*$cmtPadding;//5px은 그냥 작음;
+  height : $colHeight + $cmtMargin - 2*$cmtPadding;//5px은 그냥 작음;
   background-color : $textBackColor;
   padding : $cmtPadding;
 }
 
 .detail-title {
-  height:50px;
+  height:$titleHeight;
+  line-height:$titleHeight;
   width : $rightColWidth - $scrollWidth;
   background-color : #f9ec31;
-  margin-bottom : 20px;
+  margin-bottom : $cmtMargin;
   .img {
     width : $indent;
-    height : 50px;
+    height : $titleHeight;
     float:left;
   }
   
   .text {
     width : $rightColWidth - $indent; 
     big {
-      font-size : 20px;
+      font-size : 15px;
     }
   }
 }
@@ -59,40 +66,46 @@ $cmtLogHeight : 25px;
   
   position: relative;
 
-  margin-bottom: 20px;
+  margin-bottom: $cmtMargin;
 
   .img {
     width : $indent;
     float : left;
+    height : 60px;
+    //padding : $commentPadding;
   }
   
-  .right {
-    width : $rightColWidth - $indent - $scrollWidth;
+  .right {  
+    padding : $commentPadding;
+    width : $rightColWidth - $indent - $scrollWidth - 2*$commentPadding;
     min-height : $indent;
     margin-left: $indent;
-    padding-bottom: $cmtLogHeight;
+    //padding-bottom: $cmtLogHeight;
 
-    background-color : rgb(254, 252, 224);
+    background-color : #fefce0;
     
     .title {
       //width : $rightColWidth - $scrollWidth - $overWidth - $indent;
       height : $bestCmtBasicTitleHeight;
-      float : left;
+      float : left;  
+      font-size : $cmtFontSize;
     } 
 
     .status {
       //width : $overWidth;
       height : $bestCmtBasicTitleHeight;
-      margin-right: $indent;
-      float : right;
+      //margin-right: $indent;
+      float : right;  
+      font-size : $cmtFontSize;
     }
     
     .context {
-      width : $rightColWidth - $indent - $scrollWidth;
+      width : $rightColWidth - $indent - $scrollWidth - 2*$commentPadding;
       min-height: $indent - $bestCmtBasicTitleHeight;
       
       padding-top: 25px;
       word-wrap:break-word;
+      font-size : $cmtFontSize;
     }
   }
   
@@ -113,7 +126,7 @@ $cmtLogHeight : 25px;
 
 .detail_cmt_form {
   input[type=text]{
-    width : $rightColWidth - $scrollWidth - 35px - 17px;//17은 인풋과 버튼 사이
+    width : $rightColWidth - $scrollWidth - 35px - 18px;//17은 인풋과 버튼 사이
     margin-bottom : 0px;
   }
   input[type=button]{
@@ -124,37 +137,40 @@ $cmtLogHeight : 25px;
 
 
 .detail-cmt-elem {
-  width : $rightColWidth - $scrollWidth;
+  padding : $commentPadding;
+  width : $rightColWidth - $scrollWidth - 2*$commentPadding;
   min-height: $cmtBasicTitleHeight + $cmtBasicContentHeight + $cmtLogHeight;
   position: relative;
   padding-bottom: $cmtLogHeight;
+  
+  margin-bottom: $cmtMargin;
+  
+  border-bottom:  1px dashed #ACDEE2;
 
   .first-row {
-    width : $rightColWidth - $scrollWidth;
+    width : $rightColWidth - $scrollWidth - 2*$commentPadding;
     height : $cmtBasicTitleHeight;
 
     .title {
-      width : $rightColWidth - $overWidth - $scrollWidth;
+      width : $rightColWidth - $overWidth - $scrollWidth - 2*$commentPadding;
       height : $cmtBasicTitleHeight;
-      float:left;
+      float:left;  
+      font-size : $cmtFontSize;
     }
     
     .status {
       //width : $overWidth;
       height : $cmtBasicTitleHeight;
-      float:right;
+      float:right;  
+      font-size : $cmtFontSize;
     }
   }
   
   .context {
-    width : $rightColWidth - $scrollWidth;
+    width : $rightColWidth - $scrollWidth - 2*$commentPadding;
     min-height: $cmtBasicContentHeight;
-
-    -moz-hyphens:auto;
-    -ms-hyphens:auto;
-    -webkit-hyphens:auto;
-    hyphens:auto;
-    word-wrap:break-word;
+    word-wrap:break-word;      
+    font-size : $cmtFontSize;
   }
   
   .over {
@@ -187,6 +203,10 @@ $cmtLogHeight : 25px;
   width : $rightColWidth - $scrollWidth - $indent;
   margin-left: $indent;
   padding-bottom: $cmtLogHeight;
+  
+  margin-bottom: $cmtMargin;
+  
+  border-bottom:  1px dashed #ACDEE2;
 
   .first-row{
     width : $rightColWidth - $scrollWidth - $indent;
@@ -196,25 +216,29 @@ $cmtLogHeight : 25px;
       width : $rightColWidth - $overWidth - $scrollWidth - $indent;
       height : $cmtBasicTitleHeight;
       float:left;
+      font-size : $cmtFontSize;
     }
     
     .status {
       //width : $overWidth;
       height : $cmtBasicTitleHeight;
-      float:right;
+      float:right;  
+      font-size : $cmtFontSize;
     }
   }
 
 
   .context {
     width : $rightColWidth - $scrollWidth - $indent;
-    min-height: $cmtBasicContentHeight;
+    min-height: $cmtBasicReContentHeight;
 
     -moz-hyphens:auto;
     -ms-hyphens:auto;
     -webkit-hyphens:auto;
     hyphens:auto;
-    word-wrap:break-word;
+    word-wrap:break-word;  
+    
+    font-size : $cmtFontSize;
   }
 
   .over {
@@ -238,7 +262,7 @@ $cmtLogHeight : 25px;
 .detail-re-cmt-form {
   display : none;
   input[type=text]{
-    width : $rightColWidth - $scrollWidth - 35px - 17px - $indent;//17은 인풋과 버튼 사이
+    width : $rightColWidth - $scrollWidth - 35px - 18px - $indent;//17은 인풋과 버튼 사이
     margin-left: $indent;
     margin-bottom : 0px;
   }
@@ -248,8 +272,15 @@ $cmtLogHeight : 25px;
   }
 }
 
-.detail-hr hr{
-  border-style:dotted;
-  border-color:#808080; 
-  height:1px;
+.detail-hr {
+  border-top:  1px dashed #929497;
+  height : $cmtMargin;
+}
+
+.detail-more-cmt-form{
+  width : $rightColWidth - $scrollWidth - 2*$commentPadding;
+}
+
+.detail-more-recmt-form{
+  width : $rightColWidth - $scrollWidth - 2*$commentPadding;
 }
