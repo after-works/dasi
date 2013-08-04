@@ -1,8 +1,9 @@
 <% if index == 0%>
+	<div class="thumb">
+		<a href="songtags/<%=songtag.id%>/<%=song.id%>"><img src='<%= youtube_thumb(song) %>'/></a>
+	</div>
+	
 	<div class="rank1">
-		<div class="thumb">
-			<a href="songtags/<%=songtag.id%>/<%=song.id%>"><img src='<%= youtube_thumb(song) %>'/></a>
-		</div>
 		
 		<div class="img">
 			<%= image_tag "no_1_list_21x18.png"%>
