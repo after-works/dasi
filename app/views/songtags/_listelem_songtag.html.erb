@@ -1,18 +1,16 @@
-<div>
-	<h3><%= songtag.title %></h3>
-	<p>
-		<%= get_user_with_uid(songtag.uid).name %>/<%= songtag.created_at %>
-	</p>
-	<div><img src='<%= youtube_thumb(songs[0]) %>' />
+<div class="mint-list-elem">
+	<div class="title">
+		<a href="/songtags/<%=songtag.id%>"><b><%= songtag.title %></b></a>
 	</div>
-	<div>
-		<div>
-			<%= link_to songs[0].title, songtag_path(songs[0].tag_id, :song_id=>songs[0].id)%><%= render_vote_form(songs[0]) %>
-			<% (songs[1..-1]).each do |song| %>
-			<div><img src='<%= youtube_thumb(song) %>' /><%= link_to song.title, songtag_path(song.tag_id, :song_id=>song.id) %><%= render_vote_form(song) %>
-			</div>
-			<% end %>
-		</div>
+	
+	<div class="user">
+		<%= songtag.user.name%> | <%= convert_time(songtag.created_at)%>
+	</div>
+	
+	
+	<div id="mint-list-rank-<%=songtag.id%>">
+		<% songs.each_with_index do |song, index|%>
+			<%= render 'songtags/listelem_rank_elem', :song=>song, :index=>index, :songtag=>songtag%>
+		<% end %>
 	</div>
 </div>
-<hr>
