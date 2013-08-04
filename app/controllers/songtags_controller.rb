@@ -63,10 +63,7 @@ class SongtagsController < ApplicationController
   end
 
   def index
-    @category = nil
-    if (!params[:category].nil?) || !(params[:category] == "")
-      @category = params[:category]
-    end
+    @category = params[:category]
     @songtags = fetch_songtags(@category, 1)
   end
 
@@ -91,10 +88,7 @@ class SongtagsController < ApplicationController
       @page = 2
     end
     
-    @category = nil
-    if !params[:songtag][:category] == ""
-      @category = params[:songtag][:category]
-    end
+    @category = params[:songtag][:category]
     
     @songtags = fetch_songtags(@category, @page)
     
