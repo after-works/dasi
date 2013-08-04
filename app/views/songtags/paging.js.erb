@@ -1,0 +1,11 @@
+<% if @is_last %>
+	$("#more-songtag-btn").html("<%= escape_javascript (render 'songtags/more_songtag_last') %>")
+<% else %>
+	$("#more-songtag-btn").html("<%= escape_javascript (render 'songtags/more_songtag_form', :next_page_num=>@next_page, :category=>@category) %>")
+<% end %>
+
+<% @songtags.each do |songtag| %>
+	$("#mint-list").append("<%= escape_javascript (render 'songtags/listelem_songtag', :songtag=>songtag, :songs=>sort_songs(songtag.songs)) %>").masonry('appended', $("#mint-list-elem-<%=songtag.id%>"));
+<% end %>
+
+$("#mint-list").masonry()

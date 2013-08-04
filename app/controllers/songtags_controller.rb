@@ -58,16 +58,11 @@ class SongtagsController < ApplicationController
   end
 
   def index
-    if !params[:category].nil?
+    @category = nil
+    if (!params[:category].nil?) || !(params[:category] == "")
       @category = params[:category]
-      if params[:category] == "0"
-        @songtags = fetch_popular_songtags()
-      elsif params[:category] == "1"
-        @songtags = fetch_new_songtags()
-      end
-    else
-      @songtags = Songtag.all
     end
+    @songtags = fetch_songtags(@category, 1)
   end
 
   def show_song
@@ -82,6 +77,33 @@ class SongtagsController < ApplicationController
     @comments = Comment.parent_comments @songtag
     @comment_form = Comment.new
     @comment_log = CommentLog.new
+  end
+  
+  def paging
+    @page = params[:songtag][:page]
+    
+    if @page.to_i < 2
+      @page = 2
+    end
+    
+    @category = nil
+    if !params[:songtag][:category] == ""
+      @category = params[:songtag][:category]
+    end
+    
+    @songtags = fetch_songtags(@category, @page)
+    
+    @is_last = false
+    if @songtags.total_pages <= @songtags.current_page
+      @next_page = @page
+      @is_last = true
+    else
+      @next_page = @page.to_i + 1
+    end
+    
+    respond_to do |format|
+      format.js
+    end
   end
   
 end

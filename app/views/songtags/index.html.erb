@@ -3,3 +3,7 @@
 		<%= render "songtags/listelem_songtag", :songtag=>songtag, :songs=>sort_songs(songtag.songs) %>
 	<% end %>
 </div>
+
+<div id='more-songtag-btn'>
+	<%= render 'songtags/more_songtag_form', :next_page_num=>2, :category=>@category %>
+</div>

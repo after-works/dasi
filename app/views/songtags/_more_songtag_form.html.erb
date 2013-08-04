@@ -1,0 +1,5 @@
+<%= form_for :songtag, remote:true, :html=>{:class=>'form-inline', :id=>"more-songtag-form", :'data-type'=>'script'}, :url=>songtags_paging_path do |f| %>
+	<%= f.hidden_field :category, :value=>category %>
+	<%= f.hidden_field :page, :value=>next_page_num %>
+	<%= f.button '더보기' %>
+<% end %>
