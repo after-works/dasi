@@ -2,31 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$leftColWidth : 440px;
+$leftColWidth : 340px;
 
-$marginInside : 20px;
+$marginInside : 10px;
 
-$videoFramHeight : 248px;
-$videoInfoHeight : 52px;
-$videoBottomMargin : 30px;
+$videoFramHeight : 190px;
+$videoInfoHeight : 30px;
+$videoBottomMargin : 15px;
 
-$rankColHeight : 500px;
+$rankColHeight : 350px;
 $rankElemHeight : 75px;
 $scrollWidth : 30px;
+$scrollWidthRank : 15px;
 
 $rankElemMargin : 15px;
 $rankElemInnerMargin : 5px;
+$rankImgWidth : 43px;
+$rankImgHeight : 55px;
+
 $cmtPadding : 15px;
 
 $colHeight : $videoFramHeight + $videoInfoHeight + $videoBottomMargin + $rankColHeight;
-$rightColWidth: 1100px - $leftColWidth - $marginInside - 2*$cmtPadding;
+$rightColWidth: 900px - $leftColWidth - $marginInside;
 $textBackColor : white;
 
 $cmtWidth : $rightColWidth - 2*$cmtPadding;
 
-$addSongStickerWidth : 50px;
-$addSongStickerHeight : 50px;
-$addSongStickerTopMargin : 700px;
+$addSongStickerWidth : 88px;
+$addSongStickerHeight : 58px;
+$addSongStickerTopMargin : 530px;
+
+$rankElemThumbWidth : 75px;
 
 .detail-left-col {
   width : $leftColWidth;
@@ -38,7 +44,7 @@ $addSongStickerTopMargin : 700px;
 .detail-video {
   margin-bottom : $videoBottomMargin;
   background-color : $textBackColor;
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
   
   iframe {
     width : $leftColWidth;
@@ -49,14 +55,33 @@ $addSongStickerTopMargin : 700px;
   
   .info{
     height : $videoInfoHeight;
+    display: block;
+    margin-left : 20px;
+    margin-right: 20px;
+    margin-top : 5px;
     
-    big {//song title
-     font-size : 20px; 
+    .title {//song title
+      font-size : 14px;
+      line-height : 14px;
+      width : $leftColWidth - 200px;
+      
+      display : block;
+      float : left;
+      height : 20px;
+      
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      
     }
     
-    small {//song writer
+    .small{//song writer
+      line-height : 14px;
+      display : block;
+      float:right;
       font-size : 10px;
     }
+    
   }
 }
 
@@ -67,13 +92,14 @@ $addSongStickerTopMargin : 700px;
 }
 
 .detail-rank-elem {
-  width : $leftColWidth  - 2*$rankElemMargin ;
+  width : $leftColWidth  - 2*$rankElemMargin - $scrollWidthRank;
   height : $rankElemHeight;
   margin : $rankElemMargin;
   background-color : #e6e7e8;
+  border-bottom :  1px dashed #929497;
   
   .thumb {
-    width : 125px;
+    width : $rankElemThumbWidth;
     height : $rankElemHeight;
     float : left;
     
@@ -86,27 +112,58 @@ $addSongStickerTopMargin : 700px;
   .vote {
     float : left;
     width : 25px;
-    height : 25px; 
-    vertical-align : center;
+    margin-top : ($rankElemHeight - 22px)/2;
     margin-left : $rankElemInnerMargin;
   }
   
   .name {
-    
-    float : left;
-    width : $leftColWidth  - 2*$rankElemMargin - 125px - 25px - 45px - 3*$rankElemInnerMargin;
+    line-height : $rankElemHeight;
+    width : $leftColWidth  - 2*$rankElemMargin - $rankElemThumbWidth - 25px - $rankImgWidth - 3*$rankElemInnerMargin - $scrollWidthRank;
     height : $rankElemHeight;
     margin-right : $rankElemInnerMargin;
     margin-left : $rankElemInnerMargin;
+    
+    float : left;
+    
+    display : block;
+    
+    -moz-hyphens:auto;
+    -ms-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens:auto;
+    word-wrap:break-word;
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    
+    font-size : 14px;
   }
   
   .ranks {
-    width : 45px;
+    width : $rankImgWidth;
+    margin-top : -10px;
+    height : $rankImgHeight;
+    img {
+      width : 100%;
+      height : 100%;
+    }
   }
   
   .voting-num {
-    width : 45px;
+    width : $rankImgWidth;
+    text-align : center;
   }
+}
+
+.detail-add-song-elem {
+  vertical-align: middle;
+  border-bottom :  1px dashed #929497;
+  border-top :  1px dashed #929497; 
+  width:310px; 
+  height:75px; 
+  margin:15px; 
+  background-color: #e6e7e8
 }
 
 .detail-add-song-sticker {

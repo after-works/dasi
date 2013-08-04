@@ -1,21 +1,31 @@
 <div class="thumb">
 	<!-- thumbnail -->
-	<img src='<%= youtube_thumb(song) %>'/>
+	<a onclick="change_song('<%= song.youtube_id %>' , '<%= song.title %>' , '<%= song.user.name %>' , '<%= convert_time(song.created_at)%>', '<%= song.id%> )">
+		<img src='<%= youtube_thumb(song) %>'/>
+	</a>
 </div>
-<div class="vote">
+<div class="vote" id="vote-<%=song.id%>">
 	<!-- vote btn -->
 	<%= render_vote_form(song) %>
-
 </div>
-<div class="name">
-	<%= song.title %>
-</div>
+<a onclick="change_song('<%= song.youtube_id %>' , '<%= song.title %>' , '<%= song.user.name %>' , '<%= convert_time(song.created_at)%>', '<%= song.id%> ')">
+	<div class="name">
+		<%= song.title %>
+	</div>
+</a>
 <div style="float:left;">
 	<div class="ranks">
-		<!-- rank image-->
+		<% case rank %>
+		<% when 1 %>
+			<%= image_tag "no_1_43x55.png"%>
+		<% when 2 %>
+			<%= image_tag "no_2_43x55.png"%>
+		<% when 3 %>
+			<%= image_tag "no_3_43x55.png"%>
+		<% end %>
 	</div>
 	<div class="voting-num">
 		<!-- vote num-->
-		<%= song.votes.count%>
+		<%= song.votes.count %> 표
 	</div>
 </div>

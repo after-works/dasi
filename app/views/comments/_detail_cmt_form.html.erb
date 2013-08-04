@@ -1,5 +1,5 @@
 <% if signed_in? %>
-	<%= form_for comment_form do |f| %>
+	<%= form_for comment_form, :remote=>true do |f| %>
 		<%= f.text_field( :context)%>
 		<%= f.hidden_field :songtag_id, :value=>@songtag.id%>
 		<%= f.hidden_field :uid, :value=>current_user.id%>

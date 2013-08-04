@@ -6,10 +6,13 @@ class SongtagsController < ApplicationController
     @songtag = Songtag.find(params[:id])
 
     # vote에 따라 소팅 필요
-    @songs = sort_songs(@songtag.songs)
+    @songs = sort_songs(@songtag.songs.order("created_at DESC"))
 
     # 날자순으로 소팅
-    @comments = Comment.parent_comments @songtag
+    @comments = @songtag.comments.
+                paginate(:per_page=>10, :page=>1).
+                find(:all, :conditions=>"parent_cmt_id is null", :order=>'created_at DESC')
+                
     @best_comments = Comment.joins(:comment_logs).
                              select("comments.* , sum(status) as accum").
                              where("comments.songtag_id=#{@songtag.id} and comment_logs.status=1").

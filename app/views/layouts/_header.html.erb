@@ -5,7 +5,9 @@
 			<li><a href="/songtags">카탈리스트</a></li>
 		</ul>    
 		<div class="pull-right">
-			<%= render(partial: 'search/form')%>
+			<div style="float:left;">
+				<%= render(partial: 'search/form')%>				
+			</div>
 			<% if signed_in? %>
 				<strong><%= current_user.name %></strong>
 				<%= link_to "로그아웃", signout_path%>

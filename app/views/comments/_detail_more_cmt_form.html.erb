@@ -1,0 +1,5 @@
+<%= form_for :comment, remote:true , :html=>{:class=>'form-inline', :id=>"vote-form", :'data-type'=>'script'}, :url=>comments_paging_path do |f|%>
+	<%= f.hidden_field :songtag_id, :value=>@songtag.id%>
+	<%= f.hidden_field :page, :value=>next_page_num%>
+	<%= f.button '더보기'%>
+<% end %>
