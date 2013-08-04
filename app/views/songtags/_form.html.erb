@@ -5,17 +5,17 @@
   </div>
   <div class="field">
   	<!-- table에 아이템이 추가되는 부분은 js로 작-->
-  	<ul id="add-song-list">
+  	<ul id="add-song-list-in-new-songtag">
 	  	<%= f.fields_for "song[]", Song.new do |song_form| %>
 	  	<% end %>
   	</ul>
   </div>
   <div class="field">
-  	<input type="text" name="add-mint-name" placeholder="민트 제목">
-  	<input type="text" name="add-mint-youtube-link" placeholder="유튜브 링크">
-  	<a href="#" name="add-song-to-table" onclick="songtag_form_add_song()">추가</a>
+  	<input type="text" name="add-mint-name-in-new-songtag" placeholder="민트 제목">
+  	<input type="text" name="add-mint-youtube-link-in-new-songtag" placeholder="유튜브 링크">
+  	<a href="#" onclick="songtag_form_add_song()">추가</a>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>

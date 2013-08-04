@@ -17,15 +17,15 @@
 //= require jquery.ui.all
 
 function add_songtag() {
+	//열릴 때 초기화 필요
 	$("#add-songtag-modal").dialog({
 									modal: true
 									});
 }
 
 function songtag_form_add_song() {
-	//열릴 때 초기화 필
-	var mint_title = $("input[name='add-mint-name']")[0].value;
-	var mint_youtube_link = $("input[name='add-mint-youtube-link']")[0].value;
+	var mint_title = $("input[name='add-mint-name-in-new-songtag']")[0].value;
+	var mint_youtube_link = $("input[name='add-mint-youtube-link-in-new-songtag']")[0].value;
 	var patt=/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
 	var mint_youtube_id = patt.exec(mint_youtube_link)[1];
 	//잘못된 id를 넣었을 경우도 Validation Check필요할 듯. Youtube id 는 11글자인걸로 알고있음
@@ -36,7 +36,7 @@ function songtag_form_add_song() {
 	} else if(mint_youtube_id == null) {
 		alert("Please type right youtube link");
 	} else {
-		$('#add-song-list').append('<li><img src="http://img.youtube.com/vi/'
+		$('#add-song-list-in-new-songtag').append('<li><img src="http://img.youtube.com/vi/'
 									 + mint_youtube_id + '/0.jpg"/>'
 									 + mint_title 
 									 + '<input id="songtag_song__youtube_id" name="songtag[song][][youtube_id]" type="hidden" value="' + mint_youtube_id + '">' 

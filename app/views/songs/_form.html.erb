@@ -1,17 +1,17 @@
-<%= form_for(song) do |f| %>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field:title %>
-  </div>
-  <div class="field">
-  	<%= f.label :youtube_id %><br />
-  	<%= f.text_field :youtube_id %>
-  </div>
-  
-  <%= f.hidden_field :tag_id, :value=>songtag.id%>
-  <%= f.hidden_field :uid, :value=>current_user.id%>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= form_for :song, :url=>songs_path do |f| %>
+	<%= f.hidden_field :uid, :value=>user.id %>
+	<%= f.hidden_field :tag_id, :value=>songtag.id %>
+
+	제목: <%= songtag.title %>
+	<ul id="add-song-list-in-new-song">
+		<% songs.each do |song| %>
+			<li><img src='<%= youtube_thumb(song) %>'/><%= song.title %></li>
+		<% end %>
+	</ul>
+	<div class="field">
+		<input type="text" name="add-mint-name-in-new-song" placeholder="민트 제목">
+	  	<input type="text" name="add-mint-youtube-link-in-new-song" placeholder="유튜브 링크">
+	  	<a href="#" name="add-song-to-table" onclick="song_form_add_song()">추가</a>
+	</div>
+	<%= f.submit "Submit" %>
 <% end %>

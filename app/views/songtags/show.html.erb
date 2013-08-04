@@ -52,7 +52,7 @@
 
 <div id="add-song-modal" style="display:none;">
 	<!-- new song modal view -->
-	<%= render 'songs/form', :song=>@song_form, :songtag=>@songtag%>
+	<%= render 'songs/form', :songs=>@songs, :songtag=>@songtag, :user=>current_user%>
 </div>
 
 <div>

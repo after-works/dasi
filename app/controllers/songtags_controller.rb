@@ -28,7 +28,7 @@ class SongtagsController < ApplicationController
 
     @current_song = @songs[0]
 
-    @song_form = Song.new
+#    @song_form = Song.new
     
     if !params[:song_id].nil?
       @songs.each do |s|
