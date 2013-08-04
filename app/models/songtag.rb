@@ -1,5 +1,9 @@
 class Songtag < ActiveRecord::Base
   attr_accessible :content, :title, :uid
+  validates :title, presence:true,
+                    length: {minimum: 1}
+  validates :content, presence:true,
+                    length: {minimum: 1}
 
   has_many :songs, foreign_key: "tag_id", dependent: :destroy
   belongs_to :song

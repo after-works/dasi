@@ -24,6 +24,9 @@ Gemfile.lock
 /db/*.sqlite3
 /db/schema.rb
 
+# Ignore the Sphinx core file
+/db/shpinx/
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /log/*.log.*

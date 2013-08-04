@@ -1,5 +1,7 @@
 class Comment < ActiveRecord::Base
   attr_accessible :context, :songtag_id, :uid, :parent_cmt_id
+  validates :context, presence:true,
+                      length: {minimum: 1 } 
   
   belongs_to :users
   has_one :user, foreign_key: "id", primary_key:"uid"
