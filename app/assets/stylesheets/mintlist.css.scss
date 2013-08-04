@@ -1,0 +1,161 @@
+// Place all the styles related to the songtags controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$mintElemWidth : 206px;
+$mintHorizontalMargin : 32px;
+$mintVerticalMargin : 20px;
+
+$titleHeight : 32px;
+$idHeight : 32px;
+$thumbHeight : 115px;
+
+$rankFirstHeight : 35px;
+$rankFirstImgWidth : 21px;
+$rankFirstImgHeight : 18px;
+$rankElemHeight : 30px;
+$rankElemThumbWidth : 53px;
+
+$rankVoteWidth : 20px;
+$rankVoteHeight : 20px;
+
+$elemPadding : 10px;
+
+$titleMaxWidth : 100px;
+
+.mint-list-elem {
+  margin-left : $mintHorizontalMargin/2;
+  margin-right: $mintHorizontalMargin/2;
+  margin-bottom : $mintVerticalMargin;
+  float : left;
+  width : $mintElemWidth;
+  
+  background-color : white;
+  
+  box-shadow : 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+  
+  border-radius: 5px;
+
+  .title {
+    height : $titleHeight;
+    width : $mintElemWidth - $elemPadding;
+    padding-left : $elemPadding;
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height : $titleHeight;
+    
+    font-size:15px;
+    
+    border-bottom : 1px solid #f3f4f4 !important;
+    
+    b{
+      color : #58595b;
+    }
+  }
+  
+  .user {
+    height : $idHeight;
+    width : $mintElemWidth - $elemPadding;
+    padding-left : $elemPadding;
+    
+    line-height : $titleHeight;
+
+    font-size : 9px;
+    width : $mintElemWidth;
+    
+    color : #6d6e70;
+  }
+  
+  .thumb {
+    height : $thumbHeight;
+    img {
+      height : 100%;
+      width : 100%;
+    }
+  }
+  
+  .rank1 {
+    height : $rankFirstHeight;
+    width : $mintElemWidth;
+    .img {
+      width : $rankFirstImgWidth;
+      height : $rankFirstImgHeight ;
+      padding-left : $elemPadding;
+      padding-top : ($rankFirstHeight - $rankFirstImgHeight)/2;
+      
+      float : left;
+    }
+    
+    .title {
+      height : $rankFirstHeight;
+      max-width : $titleMaxWidth;
+      
+      line-height : $rankFirstHeight;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      
+      float : left;
+      
+      font-size : 11px;
+      
+      border-bottom : 0px !important;
+    }
+    
+    .vote-num {
+      max-width : $mintElemWidth - $rankFirstImgWidth - $rankVoteWidth - 3*$elemPadding;
+      height : $rankFirstHeight;
+      line-height : $rankFirstHeight;
+      float : right;
+      font-size : 11px;
+    }
+    
+    .vote {
+      float : right;
+      width : $rankVoteWidth;
+      height : $rankVoteHeight;
+      padding-right : $elemPadding;
+      padding-top : ($rankFirstHeight - $rankVoteHeight)/2;
+    }
+  }
+  
+  .rank-elem {
+    height : $rankElemHeight;
+    width : $mintElemWidth;
+    background-color : #f5f5f6;
+    border-bottom-left-radius: 5px;
+
+    .thumb {
+      height : $rankElemHeight;
+      width : $rankElemThumbWidth;
+      float : left;
+    }
+    
+    .title {
+      float : left;
+      width : $mintElemWidth - $rankElemThumbWidth - $rankVoteWidth - 2*$elemPadding;
+      height : $rankElemHeight;
+      
+      line-height : $rankElemHeight;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      
+      float : left;
+      
+      font-size : 11px;
+      
+      border-bottom : 0px !important;
+    }
+    
+    .vote {
+      float : right;
+      width : $rankVoteWidth;
+      height : $rankVoteHeight;
+      padding-right : $elemPadding;
+      padding-top : ($rankElemHeight - $rankVoteHeight)/2;
+    }
+  }
+}

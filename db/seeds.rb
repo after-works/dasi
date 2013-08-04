@@ -71,3 +71,94 @@ song = Song.new({title:"Just Listen", youtube_id:"lGc4IDrmXA8", tag_id:songtag.i
 song.save
 song = Song.new({title:"One Fine Day", youtube_id:"QFVKsUxiNg4", tag_id:songtag.id, uid:1})
 song.save
+
+songtag = Songtag.new({title:"비와 관련된 노래 중 어떤 노래가 가장 좋을까?", uid:1})
+songtag.save
+song = Song.new({title:"비오는 압구정", youtube_id:"wVvJvc-QNUs", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비오는 거리", youtube_id:"YMc4GUxp1EY", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와당신", youtube_id:"acdAWdnSKmE", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗소리", youtube_id:"XFIvbghWSaQ", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와 당신의 이야기", youtube_id:"DxyMf2jvLLw", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗속에서", youtube_id:"ZZUHHR9XyGc", tag_id:songtag.id, uid:1})
+song.save
+
+songtag = Songtag.new({title:"비와 관련된 노래 중 어떤 노래가 가장 좋을까?", uid:1})
+songtag.save
+song = Song.new({title:"비오는 압구정", youtube_id:"wVvJvc-QNUs", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비오는 거리", youtube_id:"YMc4GUxp1EY", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와당신", youtube_id:"acdAWdnSKmE", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗소리", youtube_id:"XFIvbghWSaQ", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와 당신의 이야기", youtube_id:"DxyMf2jvLLw", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗속에서", youtube_id:"ZZUHHR9XyGc", tag_id:songtag.id, uid:1})
+song.save
+
+songtag = Songtag.new({title:"비와 관련된 노래 중 어떤 노래가 가장 좋을까?", uid:1})
+songtag.save
+song = Song.new({title:"비오는 압구정", youtube_id:"wVvJvc-QNUs", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비오는 거리", youtube_id:"YMc4GUxp1EY", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와당신", youtube_id:"acdAWdnSKmE", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗소리", youtube_id:"XFIvbghWSaQ", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와 당신의 이야기", youtube_id:"DxyMf2jvLLw", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗속에서", youtube_id:"ZZUHHR9XyGc", tag_id:songtag.id, uid:1})
+song.save
+
+songtag = Songtag.new({title:"비와 관련된 노래 중 어떤 노래가 가장 좋을까?", uid:1})
+songtag.save
+song = Song.new({title:"비오는 압구정", youtube_id:"wVvJvc-QNUs", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비오는 거리", youtube_id:"YMc4GUxp1EY", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와당신", youtube_id:"acdAWdnSKmE", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗소리", youtube_id:"XFIvbghWSaQ", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와 당신의 이야기", youtube_id:"DxyMf2jvLLw", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗속에서", youtube_id:"ZZUHHR9XyGc", tag_id:songtag.id, uid:1})
+song.save
+
+songtag = Songtag.new({title:"비와 관련된 노래 중 어떤 노래가 가장 좋을까?", uid:1})
+songtag.save
+song = Song.new({title:"비오는 압구정", youtube_id:"wVvJvc-QNUs", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비오는 거리", youtube_id:"YMc4GUxp1EY", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와당신", youtube_id:"acdAWdnSKmE", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗소리", youtube_id:"XFIvbghWSaQ", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와 당신의 이야기", youtube_id:"DxyMf2jvLLw", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗속에서", youtube_id:"ZZUHHR9XyGc", tag_id:songtag.id, uid:1})
+song.save
+
+songtag = Songtag.new({title:"비와 관련된 노래 중 어떤 노래가 가장 좋을까?", uid:1})
+songtag.save
+song = Song.new({title:"비오는 압구정", youtube_id:"wVvJvc-QNUs", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비오는 거리", youtube_id:"YMc4GUxp1EY", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와당신", youtube_id:"acdAWdnSKmE", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗소리", youtube_id:"XFIvbghWSaQ", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"비와 당신의 이야기", youtube_id:"DxyMf2jvLLw", tag_id:songtag.id, uid:1})
+song.save
+song = Song.new({title:"빗속에서", youtube_id:"ZZUHHR9XyGc", tag_id:songtag.id, uid:1})
+song.save
+

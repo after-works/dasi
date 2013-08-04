@@ -1,9 +1,17 @@
-$("#detail-rank").html("<%= escape_javascript ( render 'ranks/detail_rank_list', :songs => @songs, :cur_song=>nil)%>")
-
-$(".detail-rank").mCustomScrollbar("destroy")
-$(".detail-rank").mCustomScrollbar({
-	theme : "light",
-	mouseWheelPixels: 500
-});
-
-select_rank_elem ( <%= @song.id%>)
+<% if @at_list %>
+	var div = ""
+	<% @songs.each_with_index do |song, index|%>
+		div += "<%= escape_javascript (render 'songtags/listelem_rank_elem', :song=>song, :index=>index, :songtag=>@songtag)%>" 
+	<% end %>
+	$("#mint-list-rank-<%= @songtag.id%>").html(div)
+<% else %>
+	$("#detail-rank").html("<%= escape_javascript ( render 'ranks/detail_rank_list', :songs => @songs, :cur_song=>nil)%>")
+	
+	$(".detail-rank").mCustomScrollbar("destroy")
+	$(".detail-rank").mCustomScrollbar({
+		theme : "light",
+		mouseWheelPixels: 500
+	});
+	
+	select_rank_elem ( <%= @song.id%>)
+<% end %>
