@@ -1,6 +1,9 @@
 $("#detail-rank").html("<%= escape_javascript ( render 'ranks/detail_rank_list', :songs => @songs, :cur_song=>nil)%>")
 
+$(".detail-rank").mCustomScrollbar("destroy")
 $(".detail-rank").mCustomScrollbar({
 	theme : "light",
 	mouseWheelPixels: 500
 });
+
+select_rank_elem ( <%= @song.id%>)

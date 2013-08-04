@@ -276,4 +276,11 @@ $cmtFontSize : 12px;
   border-top:  1px dashed #929497;
   height : $cmtMargin;
 }
-//ACDEE2
+
+.detail-more-cmt-form{
+  width : $rightColWidth - $scrollWidth - 2*$commentPadding;
+}
+
+.detail-more-recmt-form{
+  width : $rightColWidth - $scrollWidth - 2*$commentPadding;
+}

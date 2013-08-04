@@ -5,8 +5,8 @@ class VotesController < ApplicationController
 
 
   def create
-    song = Song.find_by_id params[:vote][:song_id]
-    songtag = song.songtag
+    @song = Song.find_by_id params[:vote][:song_id]
+    songtag = @song.songtag
     user = current_user
 
     if voted?(songtag)
@@ -24,7 +24,7 @@ class VotesController < ApplicationController
     vote = Vote.new
     
     vote.uid = user.id
-    vote.song_id = song.id
+    vote.song_id = @song.id
     vote.songtag_id = songtag.id
 
     vote.save

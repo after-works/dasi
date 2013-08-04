@@ -20,8 +20,14 @@
 	
 </div>
 
-<div id="re-cmt-elem-<%=comment.id%>">
-	<% comment.re_comments.each do |re_cmt| %>
+<div class="detail-more-recmt-form", id="more-recmt-<%=comment.id%>">
+	<% if comment.re_comments.length > 3 %>
+		<%= render '/comments/detail_more_recmt_form', :parent_cmt=>comment, :next_page_num=>2 %>
+	<% end %>
+</div>
+
+<div id="re-cmt-<%=comment.id%>-div">
+	<% comment.re_comments.paginate(:per_page=>3, :page=>@page).order("created_at ASC").each do |re_cmt| %>
 		<%= render 'comments/show_detail_re_cmt', :re_cmt=>re_cmt, :comment_log_form=>comment_log_form, :cur_songtag_id => cur_songtag_id%>
 	<% end %>
 </div>

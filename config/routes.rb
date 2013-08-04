@@ -15,7 +15,7 @@ Dasi::Application.routes.draw do
 
   #for songtags
   resources :songtags, only: [:show, :create, :index]
-  get 'songtags/:id/:songtag_id' => 'songtags#show'
+  get 'songtags/:id/:song_id' => 'songtags#show'
   get 'songtags' => 'songtags#index'
   get 'songs/show/:id' => 'songtags#show_song'
   
@@ -27,6 +27,8 @@ Dasi::Application.routes.draw do
 
   #for comments
   resource :comments, only: [:create] #추후 update, destroy 구현. ajax로  해야할 것 같으므로 패스함
+  match '/comments/paging' => 'comments#paging', :via => :post
+  match '/comments/recmt_paging' => 'comments#recmt_paging', :via => :post
 
   resource :comment_logs, only: [:create, :destroy] #like, dislike create, destroy, 이하 다른 작업은 필요해 보이지 않음.
   
