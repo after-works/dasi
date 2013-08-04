@@ -27,6 +27,7 @@ end
 #end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 #####for facebook authentication
 gem 'omniauth-facebook', "1.4.0"

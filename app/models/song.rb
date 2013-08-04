@@ -1,6 +1,6 @@
 class Song < ActiveRecord::Base
   attr_accessible :title, :tag_id, :youtube_id, :uid
-  validates :text,  presence:true,
+  validates :title,  presence:true,
                     length: {minimum: 1}
   
   belongs_to :songtag

@@ -8,14 +8,26 @@
 		</ul>
 		<div class="pull-right">
 			<div style="float:left;">
+				<%= image_submit_tag "add_left_88x58.png", :id=> "songtag-add-btn", :onclick=>"javascript:add_songtag()"%>
+			</div>
+			<div style="float:left;">
 				<%= render(partial: 'search/form')%>				
 			</div>
 			<% if signed_in? %>
 				<strong><%= current_user.name %></strong>
 				<%= link_to "로그아웃", signout_path%>
 			<% else %>
-					<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+				<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
 			<% end %>
 		</div>
   </div>
 </div>
+
+<div id="add-songtag-modal" style="display:none;">
+	<% if signed_in? %>
+		<%= render 'songtags/form', :user => current_user %>
+	<% else %>
+		Please Sign in first
+	<% end %>
+</div>
+

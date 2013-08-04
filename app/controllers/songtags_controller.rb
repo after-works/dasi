@@ -41,19 +41,24 @@ class SongtagsController < ApplicationController
 
   #need to edit
   def create
-    @songtag = Songtag.new(params[:songtag])
-
-    @origin_song = Song.new
-
-    @origin_song.content = params[:info][:content]
-    @origin_song.youtube_id = params[:info][:youtube_id]
-    @origin_song.singer = params[:info][:original_singer]
-    @origin_song.save
-
-    @songtag.original_song_id = @origin_song.id
+    @songtag = Songtag.new
+    @songtag.uid = params[:songtag][:uid]
+    @songtag.title = params[:songtag][:title]
+    
     @songtag.save
-
-    @origin_song.update_attributes(:tag_id=>@songtag.id)
+    
+    add_songs = params[:songtag][:song]
+    
+    add_songs.each do |s|
+      song = Song.new
+      song.title = s[:title]
+      song.tag_id = @songtag.id
+      song.youtube_id = s[:youtube_id]
+      song.uid = params[:songtag][:uid]
+      song.save
+    end
+    
+    redirect_to @songtag
 
   end
 
