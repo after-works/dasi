@@ -2,11 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$leftColWidth : 340px;
+$leftColWidth : 360px;
 
 $marginInside : 10px;
 
-$videoFramHeight : 190px;
+$videoFramHeight : 210px;
 $videoInfoHeight : 30px;
 $videoBottomMargin : 15px;
 
@@ -23,14 +23,14 @@ $rankImgHeight : 55px;
 $cmtPadding : 15px;
 
 $colHeight : $videoFramHeight + $videoInfoHeight + $videoBottomMargin + $rankColHeight;
-$rightColWidth: 900px - $leftColWidth - $marginInside;
+$rightColWidth: 920px - $leftColWidth - $marginInside;
 $textBackColor : white;
 
 $cmtWidth : $rightColWidth - 2*$cmtPadding;
 
 $addSongStickerWidth : 88px;
 $addSongStickerHeight : 58px;
-$addSongStickerTopMargin : 530px;
+$addSongStickerTopMargin : $colHeight - 70px;
 
 $rankElemThumbWidth : 75px;
 

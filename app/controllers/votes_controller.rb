@@ -6,11 +6,11 @@ class VotesController < ApplicationController
 
   def create
     @song = Song.find_by_id params[:vote][:song_id]
-    songtag = @song.songtag
+    @songtag = @song.songtag
     user = current_user
 
-    if voted?(songtag)
-      old_vote = Vote.find(:all, :conditions=>"uid=#{user.id} and songtag_id=#{songtag.id}")
+    if voted?(@songtag)
+      old_vote = Vote.find(:all, :conditions=>"uid=#{user.id} and songtag_id=#{@songtag.id}")
       
       logger.debug old_vote
       
@@ -25,14 +25,16 @@ class VotesController < ApplicationController
     
     vote.uid = user.id
     vote.song_id = @song.id
-    vote.songtag_id = songtag.id
+    vote.songtag_id = @songtag.id
 
     vote.save
 
     #redirect_to @songtag
     
-    @songs = sort_songs(songtag.songs)
-
+    @songs = sort_songs(@songtag.songs)
+    
+    @at_list = params[:vote][:at_list]
+    
     respond_to do |format|
       format.js
     end
