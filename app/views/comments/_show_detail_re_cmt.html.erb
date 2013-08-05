@@ -10,7 +10,7 @@
 		</div>
 	</div><!-- first-row -->
 	<div class="context"><!-- content -->
-		<%= re_cmt.context %>
+		<%= trunc_recmt ( re_cmt.context ) %>
 	</div>
 	<div class="over"><!-- mouse over-->
 		<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>re_cmt, :cur_songtag_id => cur_songtag_id, :is_recmt=>true%>

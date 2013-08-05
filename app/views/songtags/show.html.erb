@@ -50,11 +50,8 @@
 	</div>
 </div>
 
-<div id="add-song-modal" style="display:none;">
-	<!-- new song modal view -->
-	<%= render 'songs/form', :songs=>@songs, :songtag=>@songtag, :user=>current_user%>
-</div>
+<%= render 'songs/form', :songs=>@songs, :songtag=>@songtag, :user=>current_user%>
 
-<div>
+<div id="cmt-modal" style="display:none;">
 	<!-- comment modal view-->
 </div>

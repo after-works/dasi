@@ -75,6 +75,13 @@ class CommentsController < ApplicationController
     end
   end
   
+  def show_popup
+    @comment = Comment.find_by_id params[:id]
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def update
     
   end

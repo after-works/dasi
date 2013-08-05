@@ -8,8 +8,4 @@
 	$("#cmt-div").append("<%= escape_javascript ( render 'comments/show_detail_cmt', :comment=>cmt, :comment_form=>@comment_form, :comment_log_form=> @comment_log, :cur_songtag_id => @songtag.id)%>")
 <% end %>
 
-$(".detail-comment").mCustomScrollbar("destroy")
-$(".detail-comment").mCustomScrollbar({
-	theme : "light",
-	mouseWheelPixels: 500
-});
+$(".detail-comment").mCustomScrollbar("update")

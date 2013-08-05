@@ -1,0 +1,4 @@
+$("#cmt-modal").html ( " test ")
+$("#cmt-modal").html("<%= escape_javascript (render 'comments/show_cmt_popup', :comment=>@comment)%>")
+
+popup ( $("#cmt-modal"))

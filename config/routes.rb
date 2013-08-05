@@ -30,6 +30,7 @@ Dasi::Application.routes.draw do
   resource :comments, only: [:create] #추후 update, destroy 구현. ajax로  해야할 것 같으므로 패스함
   match '/comments/paging' => 'comments#paging', :via => :post
   match '/comments/recmt_paging' => 'comments#recmt_paging', :via => :post
+  match '/comments/popup/:id' => 'comments#show_popup', :via => :get
 
   resource :comment_logs, only: [:create, :destroy] #like, dislike create, destroy, 이하 다른 작업은 필요해 보이지 않음.
   

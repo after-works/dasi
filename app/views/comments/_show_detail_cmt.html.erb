@@ -11,7 +11,14 @@
 	</div><!--detail-cmt-first-row-->
 
 	<div class="context">
-		<%= comment.context %>
+		<%= trunc_cmt ( comment.context ) %>
+		<div>
+			<% if comment.context.length <= 150 %>
+				<%= link_to "더보기", "/comments/popup/#{comment.id}", :remote=> true %>
+			<% else %>
+				<%= link_to "더보기", "/comments/popup/#{comment.id}", :remote=> true %>
+			<% end %>
+		</div>
 	</div>
 	
 	<div class="over">

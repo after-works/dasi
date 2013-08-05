@@ -1,0 +1,9 @@
+<div>
+	<button onclick="popdown()">
+		닫기
+	</button>
+	<%= comment.context %>
+	<% comment.re_comments.each do |re_cmt| %>
+		<%= render 'comments/show_cmt_popup_recmt', :re_cmt=>re_cmt%>
+	<% end %>
+</div>

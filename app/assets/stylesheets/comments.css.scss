@@ -208,12 +208,14 @@ $cmtFontSize : 12px;
   
   border-bottom:  1px dashed #ACDEE2;
 
+  padding : $commentPadding;
+
   .first-row{
-    width : $rightColWidth - $scrollWidth - $indent;
+    width : $rightColWidth - $scrollWidth - $indent - 2*$commentPadding;
     height : $cmtBasicTitleHeight;
     
     .title {
-      width : $rightColWidth - $overWidth - $scrollWidth - $indent;
+      width : $rightColWidth - $overWidth - $scrollWidth - $indent - 2*$commentPadding;
       height : $cmtBasicTitleHeight;
       float:left;
       font-size : $cmtFontSize;
@@ -229,7 +231,7 @@ $cmtFontSize : 12px;
 
 
   .context {
-    width : $rightColWidth - $scrollWidth - $indent;
+    width : $rightColWidth - $scrollWidth - $indent - 2*$commentPadding;
     min-height: $cmtBasicReContentHeight;
 
     -moz-hyphens:auto;
