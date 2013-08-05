@@ -17,10 +17,7 @@
 //= require jquery.ui.all
 
 function add_songtag() {
-	//열릴 때 초기화 필요
-	$("#add-songtag-modal").dialog({
-									modal: true
-									});
+	popup ( $("#songtag-dialog"))
 }
 
 function songtag_form_add_song() {

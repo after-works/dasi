@@ -15,10 +15,7 @@ $(window).load(function() {
 })
 
 function show_add_song () {
-	//열릴 때 초기화 필요
-	$("#add-song-modal").dialog({
-									modal: true
-									});
+	popup ( $("#song-dialog"))
 }
 
 function song_form_add_song() {
