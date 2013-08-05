@@ -1,19 +1,5 @@
 <% environment.context_class.instance_eval { include SongsHelper } %>
 
-$(window).load(function() {
-	$(".detail-rank").mCustomScrollbar({
-		theme : "light",
-		mouseWheelPixels: 500
-	});
-
-	$(".detail-comment").mCustomScrollbar({
-		theme : "light",
-		mouseWheelPixels: 500
-	});
-	
-	$("#mint-list").masonry()
-})
-
 function show_add_song () {
 	popup ( $("#song-dialog"))
 }

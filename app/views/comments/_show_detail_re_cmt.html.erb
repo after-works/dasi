@@ -11,6 +11,9 @@
 	</div><!-- first-row -->
 	<div class="context"><!-- content -->
 		<%= trunc_recmt ( re_cmt.context ) %>
+		<div>
+			<%= link_to "더보기", "/comments/popup/#{re_cmt.id}", :remote=> true %>
+		</div>
 	</div>
 	<div class="over"><!-- mouse over-->
 		<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>re_cmt, :cur_songtag_id => cur_songtag_id, :is_recmt=>true%>

@@ -77,6 +77,10 @@ class CommentsController < ApplicationController
   
   def show_popup
     @comment = Comment.find_by_id params[:id]
+    @comment_form = Comment.new
+    @comment_log_form = CommentLog.new
+    @cur_songtag_id = @comment.songtag.id
+    
     respond_to do |format|
       format.js
     end

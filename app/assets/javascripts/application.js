@@ -16,6 +16,20 @@
 //= require_tree .
 //= require jquery.ui.all
 
+$(window).load(function() {
+	$(".detail-rank").mCustomScrollbar({
+		theme : "light",
+		mouseWheelPixels: 500
+	});
+
+	$(".detail-comment").mCustomScrollbar({
+		theme : "light",
+		mouseWheelPixels: 500
+	});
+	
+	$("#mint-list").masonry()
+})
+
 function add_songtag() {
 	popup ( $("#songtag-dialog"))
 }

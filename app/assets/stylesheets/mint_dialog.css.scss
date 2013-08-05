@@ -1,5 +1,5 @@
 $dialogWidth : 550px;
-$dialogHeight : 800px;
+$dialogHeight : 400px;
 
 $dialogPadding : 10px;
 $dialogBackgroundColor : white;
@@ -29,7 +29,7 @@ $dialogOpacity : 0.3;
 
 .dialog-box {
 	width : $dialogWidth;
-	height : dialogHeight;
+	height : $dialogHeight;
 
 	padding : $dialogPadding;
 

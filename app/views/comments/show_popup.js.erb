@@ -1,4 +1,4 @@
 $("#cmt-modal").html ( " test ")
-$("#cmt-modal").html("<%= escape_javascript (render 'comments/show_cmt_popup', :comment=>@comment)%>")
+$("#cmt-modal").html("<%= escape_javascript (render 'comments/show_cmt_popup', :comment=>@comment, :comment_form=>@comment_form, :comment_log_form=>@comment_log_form, :cur_songtag_id=>@cur_songtag_id)%>")
 
 popup ( $("#cmt-modal"))
