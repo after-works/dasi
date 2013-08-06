@@ -1,3 +1,48 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+///////////////////////////////////////////////////////
+// 최신, 인기 작은 썸네일 //
+///////////////////////////////////////////////////////
+.simple-songtag-container{
+  width: 206px;
+  height: 200px;  
+  padding-left:11px;
+  padding-right:11px;
+  background: #FFFFFF;
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
+  .title{
+    height: 37px; 
+    
+    .title-text{
+      font-weight:bold;
+      font-size:14pt;
+      color:#585958;
+    }
+  }
+  
+  .thumb{
+    width: 184px;
+    height: 104px; 
+  }
+
+  .mint-title{
+     height: 26px; 
+ 
+  }
+  
+  .mint-height{
+     height: 33px; 
+
+  }
+  
+  .right-float{
+    float:right;
+    width:25%;
+  }
+  .space{
+
+  }
+}
+

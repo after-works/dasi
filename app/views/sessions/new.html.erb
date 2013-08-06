@@ -5,6 +5,52 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+		<div class="signin-container"><!--첫 섹션 -->
+			<div class="inside-container"><!--첫 섹션 가운데 정렬  Container-->
+				<div class="wrap"><!--왼쪽 컬럼-->
+					<div class="left-column">
+						<div class="logo"><%= image_tag "logo1.png", :alt =>"MintList Logo" %></div>
+						<div>
+							<p>우리는 음악을 통해 지금보다 더 많은 것을 이야기 할 수 있다고 믿습니다.<br><br><%= image_tag "logo2.png", :alt =>"MintList Logo2"  %>에서는 사용자들이 함께 만든 리스트를 감상하고 마음에 드는 곡에 투표하고 생각을 나눌 수 있습니다.<br><br><%= image_tag "logo2.png", :alt =>"MintList Logo2"  %>에서 음악을 이야기해보세요.</p>
+						</div>
+						<div class="login-btn"><%= link_to image_tag("btn_login_normal.png", :mouseover => "btn_login_over.png"), "/auth/facebook", id: "sign_in" %></div>
+					</div>
+					<div class="right-column"><div class="img"><%= image_tag("monitor.png") %></div></div><!-- 메인 이미지, 오른쪽 컬럼-->
+				</div>
+			</div>
+		</div>
+		
+		<div class="signin-second-container"><!--두번째 섹션 -->
+			<ul class="inside-container">
+				<li class="wrap">
+					<div class="right-column"><img src="https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=637b32f9a2&view=att&th=14045943c5b7562c&attid=0.1&disp=inline&realattid=f_hjx71gt52&safe=1&zw&saduie=AG9B_P8xIPDY7mhH7rypQZ0fPoF4&sadet=1375569649321&sads=z7GXY7GmbryyGsuNmAS1jGcxwAA"></div> <!-- 오른쪽 이미지 -->
+					<div><%= image_tag "login_bottom_1.png", :alt =>"감상하세요!" %></div>
+					<div>
+						<p>MintList에서만 볼 수 있는 주제에 따라 노래를 감상하고 가장 마음에 드는 민트(노래)에 투표하세요. 그리고 다른 사람들과 댓글로 소통하세요.</p>
+					</div>
+					<div class="divider"></div> <!-- 공간 분리 -->
+				</li>
+				<li class="wrap">
+					<div class="right-column"><img src="https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=637b32f9a2&view=att&th=14045943c5b7562c&attid=0.1&disp=inline&realattid=f_hjx71gt52&safe=1&zw&saduie=AG9B_P8xIPDY7mhH7rypQZ0fPoF4&sadet=1375569649321&sads=z7GXY7GmbryyGsuNmAS1jGcxwAA"></div> <!-- 오른쪽 이미지 -->
+					<div><%= image_tag "login_bottom_2.png", :alt =>"이야깃거리를 던져보세요!" %></div>
+					<div>
+						<p>MintList에서는 함께 음악리스트를 만들어 갑니다. 자신만의 주제를 올리고 리스트를 구성할 수 있습니다. 그리고 다른 사람이 올린 민트리스트에 마음에 드는 곡이 없다면 그 주제에 맞는 민트(노래)를 직접 추가할 수도 있습니다.</p>
+					</div>
+					<div class="divider"></div> <!-- 공간 분리 -->
+				</li>
+				<li class="wrap">
+					<div class="right-column"><img src="https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=637b32f9a2&view=att&th=14045943c5b7562c&attid=0.1&disp=inline&realattid=f_hjx71gt52&safe=1&zw&saduie=AG9B_P8xIPDY7mhH7rypQZ0fPoF4&sadet=1375569649321&sads=z7GXY7GmbryyGsuNmAS1jGcxwAA"></div> <!-- 오른쪽 이미지 -->
+					<div><%= image_tag "login_bottom_3.png", :alt =>"친구와 공유하세요!" %></div> <!-- 타이틀 -->
+					<div>
+						<p>MintList에서 받은 여러분의 감동을 페이스북을 통해 친구들과 나누세요!</p>
+					</div>
+					<div class="divider"></div> <!-- 공간 분리 -->
+				</li>				
+			</ul>
+		</div>
+		
+		<div class="footer"><!-- 푸터 -->
+			<div class="gotologin"><%= link_to image_tag("btn_login_bottom.png", :alt =>"로그인 하세요!"), "/auth/facebook", id: "sign_in" %></div>
+		</div>
 	</body>
 </html>
