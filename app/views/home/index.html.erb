@@ -1,4 +1,12 @@
 <div class="container">
-	<%= render(partial: 'feedbacks/form') %>
-    <%= render(partial: 'home/simple_songtag_form') %>
+	<%= render 'feedbacks/form' %>
+	<% @popular_songtags[0..2].each do |pst| %>
+		<%= render 'home/simple_songtag_form', :songtag=>pst, :song=>get_first_song(pst) %>
+	<% end %>
+	<br>
+	<hr>
+	<br>
+	<% @new_songtags[0..2].each do |nst| %>
+		<%= render 'home/simple_songtag_form', :songtag=>nst, :song=>get_first_song(nst) %>
+	<% end %>
 </div>

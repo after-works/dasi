@@ -7,7 +7,7 @@ module SongsHelper
     "http://img.youtube.com/vi/#{song.youtube_id}/0.jpg"
   end
   
-  
+  #Sorting 해서 가지고 오는 query 작성 필
   def sort_songs(songs)
     songs.sort_by{|song| -song.votes.count}
   end
