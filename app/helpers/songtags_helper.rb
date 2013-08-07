@@ -13,9 +13,9 @@ module SongtagsHelper
                     :joins => :songs,
                     :order => "song_updated_at desc",
                     :group => "#{Songtag.table_name}.id")
-      else
-        return Songtag.paginate(:per_page=>5, :page=>page).find(:all)
       end
+    else
+      return Songtag.paginate(:per_page=>5, :page=>page).find(:all)
     end
   end
   
