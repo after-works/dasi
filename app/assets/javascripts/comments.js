@@ -4,6 +4,7 @@ function show_recmt_form ( cmt_id ) {
 	}
 	hide_all_recmt_form();
 	$("#detail-re-cmt-form-"+cmt_id).show('fast')
+	$("#detail-re-cmt-form-"+cmt_id + " #comment_context").focus()
 }
 
 function hide_all_recmt_form () {
