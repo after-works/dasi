@@ -151,8 +151,10 @@ $rankElemThumbWidth : 75px;
   }
   
   .voting-num {
-    width : $rankImgWidth;
-    text-align : center;
+    margin-left: -170px;
+    position: absolute;
+    width: 200px;
+    text-align: right;
   }
 }
 
