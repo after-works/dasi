@@ -29,3 +29,11 @@
 		<%= song.votes.count %> 표
 	</div>
 </div>
+
+<div class="mint-tooltip" id="rank-elem-tooltip-<%=song.id%>">
+	<div class="text">test</div>
+</div>
+
+<script type="text/javascript">
+	tooltip_init ( $("#rank-elem-<%= song.id %> .name"), "<%=song.title%>", "rank-elem-tooltip-<%=song.id%>")
+</script>

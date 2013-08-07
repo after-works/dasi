@@ -46,11 +46,16 @@ function unselect_all_rank () {
 }
 
 function detail_height_init ( rank_height , comment_height ) {
+
 	$(".detail-rank").css({
 		height:rank_height
 	})
 
 	$(".detail-comment").css({
 		height:comment_height
+	})
+
+	$(".detail-add-song-sticker").css({
+		"margin-top" : comment_height - 80
 	})
 }

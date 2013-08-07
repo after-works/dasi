@@ -22,6 +22,8 @@ $(window).load(function() {
 	var videoHeight = 210 + 30 + 15 ;
 	var padding = 15;
 
+	detail_height_init ( window_height - docMargin - videoHeight -24, window_height - docMargin - 3*padding );//24이 뭔지 모르겠는데 여기저기 패딩, 마진합인듯.... 
+	
 	$(".detail-rank").mCustomScrollbar({
 		theme : "light",
 		mouseWheelPixels: 500
@@ -35,8 +37,6 @@ $(window).load(function() {
 	$("#mint-list").masonry()
 
 	$(".detail_cmt_form #comment_context").focus();
-
-	detail_height_init ( window_height - docMargin - videoHeight -27, window_height - docMargin - 3*padding );//27이 뭔지 모르겠는데 여기저기 패딩, 마진합인듯.... 
 })
 
 function add_songtag() {

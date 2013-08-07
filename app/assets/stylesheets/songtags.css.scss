@@ -30,7 +30,6 @@ $cmtWidth : $rightColWidth - 2*$cmtPadding;
 
 $addSongStickerWidth : 88px;
 $addSongStickerHeight : 58px;
-$addSongStickerTopMargin : $colHeight - 70px;
 
 $rankElemThumbWidth : 75px;
 
@@ -173,5 +172,4 @@ $rankElemThumbWidth : 75px;
   width : $addSongStickerWidth;
   height : $addSongStickerHeight;
   margin-left : - $addSongStickerWidth;
-  margin-top : $addSongStickerTopMargin;
 }
