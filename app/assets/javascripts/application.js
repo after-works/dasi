@@ -28,6 +28,8 @@ $(window).load(function() {
 	});
 	
 	$("#mint-list").masonry()
+
+	$(".detail_cmt_form #comment_context").focus();
 })
 
 function add_songtag() {
