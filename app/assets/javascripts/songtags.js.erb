@@ -44,3 +44,13 @@ function unselect_all_rank () {
 	
 	selector.css("background-color","#F5F5F6")
 }
+
+function detail_height_init ( rank_height , comment_height ) {
+	$(".detail-rank").css({
+		height:rank_height
+	})
+
+	$(".detail-comment").css({
+		height:comment_height
+	})
+}
