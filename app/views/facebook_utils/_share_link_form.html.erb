@@ -1,6 +1,5 @@
 <%= form_for :facebook_util, :remote=>true, :html=>{:class=>'form-inline', :id=>'facebook-share-link-form'}, :url=>facebook_utils_share_link_path do |f| %>
 	<%= f.hidden_field :songtag_id, :value=>songtag.id %>
 	<%= f.hidden_field :song_id, :value=>song.id %>
-	<%= f.hidden_field :user_id, :value=>current_user.id %>
 	<%= image_submit_tag("facebook_logo.png") %>
 <% end %>

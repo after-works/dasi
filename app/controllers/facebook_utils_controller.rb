@@ -4,7 +4,7 @@ class FacebookUtilsController < ApplicationController
   def share_link
     songtag = params[:facebook_util][:songtag_id]
     song = params[:facebook_util][:song_id]
-    user = User.find(params[:facebook_util][:user_id].to_i)
+    user = current_user
     
     me = FbGraph::User.me(user.oauth_token)
  
