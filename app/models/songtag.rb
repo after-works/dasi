@@ -14,5 +14,15 @@ class Songtag < ActiveRecord::Base
   
   belongs_to :user
   has_one :user, foreign_key: "id", primary_key: "uid"
-  
+
+  class << self 
+    def new_songtags_flag
+      @new_songtags_flag = 0
+    end
+
+    def popular_songtags_flag
+      @popular_songtags_flag = 1
+    end
+  end
+
 end

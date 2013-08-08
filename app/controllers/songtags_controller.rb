@@ -2,7 +2,7 @@ class SongtagsController < ApplicationController
   before_filter :user_only
   include SongsHelper
   include SongtagsHelper
-  
+
   def show
     @songtag = Songtag.find(params[:id])
 
@@ -63,7 +63,7 @@ class SongtagsController < ApplicationController
   end
 
   def index
-    @category = params[:category]
+    @category = params[:category].to_i
     @songtags = fetch_songtags(@category, 1)
   end
 

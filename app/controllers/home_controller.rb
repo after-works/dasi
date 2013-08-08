@@ -9,8 +9,8 @@ class HomeController < ApplicationController
       # @ranking
       # @reandom
       
-      @popular_songtags = fetch_songtags("1", 1)
-      @new_songtags = fetch_songtags("2", 1)
+      @popular_songtags = fetch_songtags(Songtag.popular_songtags_flag, 1)
+      @new_songtags = fetch_songtags(Songtag.new_songtags_flag, 1)
     else
       redirect_to signin_path
       return
