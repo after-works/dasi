@@ -8,6 +8,6 @@
 		<%= song.title%>
 	</div>
 	<div class="small">
-		<%= song.user.name%> | <%=convert_time(song.created_at)%>
+		<%= song.user.name%> | <%=convert_time(song.created_at)%> | <%= render 'facebook_utils/share_link_form', :songtag=>@songtag, :song=>song %>
 	</div>
 </div>

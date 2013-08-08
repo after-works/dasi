@@ -9,16 +9,19 @@ Dasi::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
+  
+  #for facebook util
+  match '/facebook_utils/share_link' => 'facebook_utils#share_link'
 
   #for songs
   resources :songs, only: [:create]
+  get '/songs/show/:id' => 'songtags#show_song'
 
   #for songtags
   resources :songtags, only: [:show, :create, :index]
   get '/songtags/:id(/:song_id)' => 'songtags#show'
   get '/songtags(/:category)' => 'songtags#index'
   match '/songtags/paging' => 'songtags#paging', :via => :post
-  get '/songs/show/:id' => 'songtags#show_song'
   
   #for enrolling songs to songtag
   get '/songtags/:tag_id/song/new' =>'songs#new'
