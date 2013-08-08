@@ -14,11 +14,10 @@
 /public/assets
 *.pid
 /db/schema.rb
+/Gemfile.lock
 
 # Users' pictures
 /public/system/users/faces
-
-Gemfile.lock
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -39,3 +38,9 @@ Gemfile.lock
 # For only Production Server (Real World)
 files
 run.sh
+
+# For capistrano, database.yml should be added
+/config/database.yml
+
+# Executable for app
+/bin
