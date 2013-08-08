@@ -1,7 +1,18 @@
+#encoding : utf-8
+
 class CommentsController < ApplicationController
   before_filter :user_only
   
   def create
+
+    if params[:comment][:context].length == 0
+      @error_msg = "댓글을 입력해 주세요"
+      respond_to do |format|
+        format.js
+      end
+      return
+    end
+
     @songtag = Songtag.find(params[:comment][:songtag_id])
     
     @comment = Comment.new(params[:comment])

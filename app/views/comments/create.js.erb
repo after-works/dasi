@@ -1,10 +1,14 @@
-<% if ! @is_recmt %>
-	var div = $("#cmt-div").html()
-	$("#cmt-div").html("<%=escape_javascript(render 'comments/show_detail_cmt', :comment=>@comment, :comment_form=>@comment_form, :comment_log_form=> @comment_log, :cur_songtag_id => @songtag.id)%>" + div)
+<% if @error_msg.nil? %>
+	<% if ! @is_recmt %>
+		var div = $("#cmt-div").html()
+		$("#cmt-div").html("<%=escape_javascript(render 'comments/show_detail_cmt', :comment=>@comment, :comment_form=>@comment_form, :comment_log_form=> @comment_log, :cur_songtag_id => @songtag.id)%>" + div)
+	<% else %>
+		$("#re-cmt-<%=@comment.parent_cmt.id%>-div").append("<%=escape_javascript(render 'comments/show_detail_re_cmt', :re_cmt=>@comment, :comment_form=>@comment_form, :comment_log_form=> @comment_log, :cur_songtag_id => @songtag.id)%>")
+	<% end %>
+
+	$(".detail-comment").mCustomScrollbar("update")
+
+	$(".new_comment #comment_context").val("")
 <% else %>
-	$("#re-cmt-<%=@comment.parent_cmt.id%>-div").append("<%=escape_javascript(render 'comments/show_detail_re_cmt', :re_cmt=>@comment, :comment_form=>@comment_form, :comment_log_form=> @comment_log, :cur_songtag_id => @songtag.id)%>")
+	alert ("<%= @error_msg %>")
 <% end %>
-
-$(".detail-comment").mCustomScrollbar("update")
-
-$(".new_comment #comment_context").val("")
