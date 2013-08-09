@@ -21,10 +21,21 @@ function song_form_preview_song() {
 		$("div.dialog-box ul[name='add-song-list-in-new-song']").append('<li><img src="http://img.youtube.com/vi/'
 									 + mint_youtube_id[1] + '/0.jpg"/>'
 									 + mint_title 
-									 + '<input id="song__youtube_id" name="song[songs][][youtube_id]" type="hidden" value="' + mint_youtube_id[1] + '">' 
-									 + '<input id="song__title" name="song[songs][][title]" type="hidden" value="' + mint_title + '">');
+									 + '<a href="#" onclick="sng_del_song($(this).parent())">제거</a>'
+									 + '<input id="song__youtube_id" name="song[songs][][youtube_id]" type="hidden" value="' + mint_youtube_id[1] + '"/>' 
+									 + '<input id="song__title" name="song[songs][][title]" type="hidden" value="' + mint_title + '"/></li>');
 		$("div.dialog-box a[name='add-song-to-table']").hide();
+		$('.dialog-box').mCustomScrollbar("update");
 		$("div.dialog-box input[name='commit']").removeAttr("disabled");
+	}
+}
+
+function sng_del_song(elem){
+	if(confirm('Delete this element?')){
+		$(elem).remove();
+		$("div.dialog-box input[name='commit']").attr("disabled", "disabled");
+		$('.dialog-box').mCustomScrollbar("update");
+		$("div.dialog-box a[name='add-song-to-table']").show();
 	}
 }
 
