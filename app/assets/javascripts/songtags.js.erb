@@ -35,9 +35,16 @@ function change_song (yid, title, user_name , date, song_id) {
 }
 
 function select_rank_elem (song_id) {
+	
 	unselect_all_rank ()
 	
 	$('#rank-elem-'+song_id).css("background-color","#E6E7E8")
+}
+
+function select_rank_elem_by_id ( id ) {
+	unselect_all_rank ()
+	
+	$("#"+id).css("background-color","#E6E7E8")	
 }
 
 function unselect_all_rank () {
@@ -60,4 +67,19 @@ function detail_height_init ( rank_height , comment_height ) {
 	$(".detail-add-song-sticker").css({
 		"margin-top" : comment_height - 80
 	})
+}
+
+function get_now_playing_song () {
+	var selector = $(".detail-rank-elem")
+	var i
+	
+	for ( i=0 ; i<selector.length ; i++ ){
+		var color = selector.eq(i).css("background-color")
+		
+		if ( color === "rgb(230, 231, 232)" || color==="#E6E7E8") {
+			return selector.eq(i).attr("id")
+		}
+	}
+	
+	return null
 }

@@ -18,6 +18,7 @@ function popup ( div ) {
     $('.dialog-overlay').css({height:maskHeight, width:maskWidth}).show();
     $('.dialog-box').css({top:dialogTop, left:dialogLeft}).show();
 
+	$(".dialog-box").mCustomScrollbar("destroy");
     $(".dialog-box").mCustomScrollbar({
         theme : "light",
         mouseWheelPixels: 500
