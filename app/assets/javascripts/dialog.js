@@ -21,7 +21,7 @@ function popup ( div ) {
     $(".dialog-box").mCustomScrollbar({
         theme : "light",
         mouseWheelPixels: 500
-    })
+    });
 }
 
 function popdown () {

@@ -48,7 +48,6 @@ function songtag_form_add_song() {
 	var mint_youtube_link = $("div.dialog-box input[name='add-mint-youtube-link-in-new-songtag']")[0].value;
 	var patt=/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
 	var mint_youtube_id = patt.exec(mint_youtube_link);
-	//잘못된 id를 넣었을 경우도 Validation Check필요할 듯. Youtube id 는 11글자인걸로 알고있음
 	if(mint_title == "") {
 		alert("Please type mint_title");
 	} else if(mint_youtube_link == "") {
@@ -61,5 +60,10 @@ function songtag_form_add_song() {
 									 + mint_title 
 									 + '<input id="songtag_song__youtube_id" name="songtag[song][][youtube_id]" type="hidden" value="' + mint_youtube_id[1] + '">' 
 									 + '<input id="songtag_song__title" name="songtag[song][][title]" type="hidden" value="' + mint_title + '">');
+		if($("div.dialog-box li").length >= 15) {
+			$("div.dialog-box a[name='add-song-to-table']").hide();
+		}
+		$('.dialog-box').mCustomScrollbar("update");
+
 	}
 }

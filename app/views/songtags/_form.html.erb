@@ -6,7 +6,7 @@
   <%= form_for :songtag, :html =>{:id=>'songtag_add_form'}, :url=>songtags_path do |f| %>
     <%= f.hidden_field :uid, :value=>user.id %>
     <div class="field">
-      제목: <%= f.text_field :title %>
+      제목: <%= f.text_field :title, :value=>"" %>
     </div>
     <div class="field">
       <!-- table에 아이템이 추가되는 부분은 js로 작-->
@@ -18,7 +18,7 @@
     <div class="field">
       <input type="text" name="add-mint-name-in-new-songtag" placeholder="민트 제목">
       <input type="text" name="add-mint-youtube-link-in-new-songtag" placeholder="유튜브 링크">
-      <a href="#" onclick="songtag_form_add_song()">추가</a>
+      <a href="#" name="add-song-to-table" onclick="songtag_form_add_song()">추가</a>
     </div>
     <div class="actions">
       <%= f.submit "Submit" %>
