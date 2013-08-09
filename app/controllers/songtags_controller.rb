@@ -47,7 +47,7 @@ class SongtagsController < ApplicationController
     
     @songtag.save
     
-    add_songs = params[:songtag][:song]
+    add_songs = params[:songtag][:song].slice(0,15)
     
     add_songs.each do |s|
       song = Song.new
