@@ -5,11 +5,12 @@ function show_add_song () {
 }
 
 function song_form_add_song() {
-	var mint_title = $("input[name='add-mint-name-in-new-song']")[0].value;
-	var mint_youtube_link = $("input[name='add-mint-youtube-link-in-new-song']")[0].value;
+	var mint_title = $("div.dialog-box input[name='add-mint-name-in-new-song']")[0].value;
+	var mint_youtube_link = $("div.dialog-box input[name='add-mint-youtube-link-in-new-song']")[0].value;
 	var patt=/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
 	var mint_youtube_id = patt.exec(mint_youtube_link);
 	
+	console.log(mint_youtube_id)
 	if(mint_title == "") {
 		alert("Please type mint_title");
 	} else if(mint_youtube_link == "") {
@@ -17,10 +18,10 @@ function song_form_add_song() {
 	} else if(mint_youtube_id == null) {
 		alert("Please type right youtube link");
 	} else {
-		$('#add-song-list-in-new-song').append('<li><img src="http://img.youtube.com/vi/'
+		$("div.dialog-box ul[name='add-song-list-in-new-song']").append('<li><img src="http://img.youtube.com/vi/'
 									 + mint_youtube_id[1] + '/0.jpg"/>'
 									 + mint_title 
-									 + '<input id="song__youtube_id" name="song[songs][][youtube_id]" type="hidden" value="' + mint_youtube_id + '">' 
+									 + '<input id="song__youtube_id" name="song[songs][][youtube_id]" type="hidden" value="' + mint_youtube_id[1] + '">' 
 									 + '<input id="song__title" name="song[songs][][title]" type="hidden" value="' + mint_title + '">');
 	}
 }

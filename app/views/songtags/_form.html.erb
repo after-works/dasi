@@ -10,7 +10,7 @@
     </div>
     <div class="field">
       <!-- table에 아이템이 추가되는 부분은 js로 작-->
-      <ul id="add-song-list-in-new-songtag">
+      <ul name="add-song-list-in-new-songtag">
         <%= f.fields_for "song[]", Song.new do |song_form| %>
         <% end %>
       </ul>

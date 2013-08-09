@@ -8,7 +8,7 @@
 		<%= f.hidden_field :tag_id, :value=>songtag.id %>
 
 		제목: <%= songtag.title %>
-		<ul id="add-song-list-in-new-song">
+		<ul name="add-song-list-in-new-song">
 			<% songs.each do |song| %>
 				<li><img src='<%= youtube_thumb(song) %>'/><%= song.title %></li>
 			<% end %>
