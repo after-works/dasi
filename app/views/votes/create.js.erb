@@ -5,6 +5,8 @@
 	<% end %>
 	$("#mint-list-rank-<%= @songtag.id%>").html(div)
 <% elsif @page_flag == Vote.at_detail %>
+	var selected_id = get_now_playing_song ()
+
 	$("#detail-rank").html("<%= escape_javascript ( render 'ranks/detail_rank_list', :songs => @songs, :cur_song=>nil)%>")
 	
 	$(".detail-rank").mCustomScrollbar("destroy")
@@ -12,6 +14,7 @@
 		theme : "light",
 		mouseWheelPixels: 500
 	});
-	
-	select_rank_elem ( <%= @song.id%>)
+
+	console.log ( selected_id )
+	select_rank_elem_by_id ( selected_id )
 <% end %>

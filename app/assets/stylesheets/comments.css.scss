@@ -126,7 +126,7 @@ $cmtFontSize : 12px;
 
 .detail_cmt_form {
   input[type=text]{
-    width : $rightColWidth - $scrollWidth - 35px - 18px;//17은 인풋과 버튼 사이
+    width : $rightColWidth - $scrollWidth - 55px;//17은 인풋과 버튼 사이
     margin-bottom : 0px;
   }
   input[type=button]{
@@ -264,7 +264,7 @@ $cmtFontSize : 12px;
 .detail-re-cmt-form {
   display : none;
   input[type=text]{
-    width : $rightColWidth - $scrollWidth - 35px - 18px - $indent;//17은 인풋과 버튼 사이
+    width : $rightColWidth - $scrollWidth - 55px - $indent;//17은 인풋과 버튼 사이
     margin-left: $indent;
     margin-bottom : 0px;
   }

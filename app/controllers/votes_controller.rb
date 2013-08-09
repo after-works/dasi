@@ -41,8 +41,16 @@ class VotesController < ApplicationController
   end
 
   def destroy
-
-    @songtag = Songtag.find(params[:id])
-    @songtag.destroy
+    @vote = Vote.find_by_id(params[:id])
+    
+    @songtag = @vote.songtag
+    @songs = @songtag.songs
+    
+    @vote.destroy if !@vote.nil?
+    @page_flag = params[:page_flag].to_i
+    
+    respond_to do |format|
+      format.js { render :action=>'create'}
+    end
   end
 end

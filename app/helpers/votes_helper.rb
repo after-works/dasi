@@ -9,7 +9,7 @@ module VotesHelper
 
   def voted? (song)
     if !signed_in?
-    return false
+      return false
     end
 
     users = voted_users(song)
@@ -22,6 +22,20 @@ module VotesHelper
     flag
   end
 
+  def my_vote ( song ) 
+    if !signed_in?
+      return nil
+    end
+    
+    song.votes.each do |v|
+      if v.user == current_user
+        return v
+      end
+    end
+    
+    return nil
+  end
+  
   def render_vote_form(song, page_flag)
     render(partial: 'votes/form', locals: {song: song, page_flag: page_flag})
   end
