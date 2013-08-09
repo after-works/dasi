@@ -3,7 +3,7 @@
 	<% if page_flag == Vote.at_detail %>
 		<%= link_to "#{image_tag "stamp_on_25x24.png"}".html_safe, vote_path(vote, 'page_flag'=>Vote.at_detail), :remote=> true, :method => :delete %>
 	<% elsif page_flag == Vote.at_list %>
-		<%= link_to "#{image_tag "stamp_on_list_20x20.png"}".html_safe, vote_path(vote, 'page_flag'=>Vote.at_detail), :remote=> true, :method => :delete %>
+		<%= link_to "#{image_tag "stamp_on_list_20x20.png"}".html_safe, vote_path(vote, 'page_flag'=>Vote.at_list), :remote=> true, :method => :delete %>
 	<% end %>
 	
 <% else %>
