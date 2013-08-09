@@ -64,6 +64,7 @@ function songtag_form_add_song() {
 			$("div.dialog-box a[name='add-song-to-table']").hide();
 		}
 		$('.dialog-box').mCustomScrollbar("update");
+		$("div.dialog-box input[name='commit']").removeAttr("disabled");
 
 	}
 }

@@ -19,7 +19,7 @@
 			  	<input type="text" name="add-mint-youtube-link-in-new-song" placeholder="유튜브 링크">
 			  	<a href="#" name="add-song-to-table" onclick="song_form_preview_song()">미리보기</a>
 			</div>
-			<%= f.submit "Submit" %>
+			<%= f.submit "Submit", :disabled=>"disabled;" %>
 		<% else %>
 			There are too many songs!
 		<% end %>

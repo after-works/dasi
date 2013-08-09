@@ -24,6 +24,7 @@ function song_form_preview_song() {
 									 + '<input id="song__youtube_id" name="song[songs][][youtube_id]" type="hidden" value="' + mint_youtube_id[1] + '">' 
 									 + '<input id="song__title" name="song[songs][][title]" type="hidden" value="' + mint_title + '">');
 		$("div.dialog-box a[name='add-song-to-table']").hide();
+		$("div.dialog-box input[name='commit']").removeAttr("disabled");
 	}
 }
 
