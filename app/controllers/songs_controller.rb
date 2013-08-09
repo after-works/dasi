@@ -5,7 +5,6 @@ class SongsController < ApplicationController
     @songtag = Songtag.find(params[:song][:tag_id])
     
     if @songtag.songs.count >= 15
-      #need some alert message
       redirect_to @songtag
     else
       params[:song][:songs].each do |s|

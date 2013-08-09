@@ -4,7 +4,7 @@ function show_add_song () {
 	popup ( $("#song-dialog"))
 }
 
-function song_form_add_song() {
+function song_form_preview_song() {
 	var mint_title = $("div.dialog-box input[name='add-mint-name-in-new-song']")[0].value;
 	var mint_youtube_link = $("div.dialog-box input[name='add-mint-youtube-link-in-new-song']")[0].value;
 	var patt=/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
@@ -23,6 +23,7 @@ function song_form_add_song() {
 									 + mint_title 
 									 + '<input id="song__youtube_id" name="song[songs][][youtube_id]" type="hidden" value="' + mint_youtube_id[1] + '">' 
 									 + '<input id="song__title" name="song[songs][][title]" type="hidden" value="' + mint_title + '">');
+		$("div.dialog-box a[name='add-song-to-table']").hide();
 	}
 }
 

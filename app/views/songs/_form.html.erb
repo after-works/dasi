@@ -13,11 +13,15 @@
 				<li><img src='<%= youtube_thumb(song) %>'/><%= song.title %></li>
 			<% end %>
 		</ul>
-		<div class="field">
-			<input type="text" name="add-mint-name-in-new-song" placeholder="민트 제목">
-		  	<input type="text" name="add-mint-youtube-link-in-new-song" placeholder="유튜브 링크">
-		  	<a href="#" name="add-song-to-table" onclick="song_form_add_song()">추가</a>
-		</div>
-		<%= f.submit "Submit" %>
+		<% if songtag.songs.count < 15 %>
+			<div class="field">
+				<input type="text" name="add-mint-name-in-new-song" placeholder="민트 제목">
+			  	<input type="text" name="add-mint-youtube-link-in-new-song" placeholder="유튜브 링크">
+			  	<a href="#" name="add-song-to-table" onclick="song_form_preview_song()">미리보기</a>
+			</div>
+			<%= f.submit "Submit" %>
+		<% else %>
+			There are too many songs!
+		<% end %>
 	<% end %>
 </div>
