@@ -1,6 +1,11 @@
 <% if voted?(song) %>
 	<% vote = my_vote ( song ) %>
-	<%= link_to "<button>t</button>".html_safe, vote_path(vote, 'page_flag'=>Vote.at_detail), :remote=> true, :method => :delete %>
+	<% if page_flag == Vote.at_detail %>
+		<%= link_to "#{image_tag "stamp_on_25x24.png"}".html_safe, vote_path(vote, 'page_flag'=>Vote.at_detail), :remote=> true, :method => :delete %>
+	<% elsif page_flag == Vote.at_list %>
+		<%= link_to "#{image_tag "stamp_on_list_20x20.png"}".html_safe, vote_path(vote, 'page_flag'=>Vote.at_detail), :remote=> true, :method => :delete %>
+	<% end %>
+	
 <% else %>
 	<%= form_for :vote, remote:true , :html=>{:class=>'form-inline', :id=>"vote-form", :'data-type'=>'script'}, :url=>votes_path do |f|%>
 		<%= f.hidden_field :song_id, :value=>song.id%>
