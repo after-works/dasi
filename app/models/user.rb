@@ -51,7 +51,11 @@ class User < ActiveRecord::Base
       end
     end
   end
-
+  
+  def facebook
+    @fb_user ||= FbGraph::User.me(self.oauth_token)
+  end
+  
   private
 
   def create_remember_token

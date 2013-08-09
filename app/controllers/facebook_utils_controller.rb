@@ -4,11 +4,8 @@ class FacebookUtilsController < ApplicationController
   def share_link
     songtag = params[:facebook_util][:songtag_id]
     song = params[:facebook_util][:song_id]
-    user = current_user
     
-    me = FbGraph::User.me(user.oauth_token)
- 
-    link = me.link!(
+    current_user.facebook.link!(
       :link => request.host_with_port + "songtags/" + songtag + "/" + song,
       :message => "Test"
     )
