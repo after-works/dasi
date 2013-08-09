@@ -33,7 +33,7 @@ class VotesController < ApplicationController
     
     @songs = sort_songs(@songtag.songs)
     
-    @at_list = params[:vote][:at_list]
+    @page_flag = params[:vote][:page_flag].to_i
     
     respond_to do |format|
       format.js

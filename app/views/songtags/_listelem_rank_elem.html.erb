@@ -15,16 +15,7 @@
 		
 		
 		<div class="vote">
-			<% if voted?(song) %>
-				<%= image_tag "stamp_on_list_20x20.png"%>
-			<% else %>
-				<%= form_for :vote, remote:true , :html=>{:class=>'form-inline', :id=>"vote-form", :'data-type'=>'script'}, :url=>votes_path do |f|%>
-					<%= f.hidden_field :song_id, :value=>song.id%>
-					<%= f.hidden_field :at_list, :value=>true%>
-					<%= image_submit_tag "stamp_off_list_20x20.png"%>
-					<%= hidden_field :song, :id, :value=>song.id%>
-				<% end %>
-			<% end %>
+			<%= render_vote_form(song, Vote.at_list) %>
 		</div>
 		
 		<div class="vote-num">
@@ -47,16 +38,7 @@
 			<a href="songtags/<%=songtag.id%>/<%=song.id%>"><b><%= song.title%></b></a>
 		</div>
 		<div class="vote">
-			<% if voted?(song) %>
-				<%= image_tag "stamp_on_list_20x20.png"%>
-			<% else %>
-				<%= form_for :vote, remote:true , :html=>{:class=>'form-inline', :id=>"vote-form", :'data-type'=>'script'}, :url=>votes_path do |f|%>
-					<%= f.hidden_field :song_id, :value=>song.id%>
-					<%= f.hidden_field :at_list, :value=>true%>
-					<%= image_submit_tag "stamp_off_list_20x20.png"%>
-					<%= hidden_field :song, :id, :value=>song.id%>
-				<% end %>
-			<% end %>
+			<%= render_vote_form(song, Vote.at_list) %>
 		</div>
 	</div>
 <% end %>

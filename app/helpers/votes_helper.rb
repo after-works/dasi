@@ -22,7 +22,7 @@ module VotesHelper
     flag
   end
 
-  def render_vote_form(song)
-    render(partial: 'votes/form', locals: {song: song})
+  def render_vote_form(song, page_flag)
+    render(partial: 'votes/form', locals: {song: song, page_flag: page_flag})
   end
 end

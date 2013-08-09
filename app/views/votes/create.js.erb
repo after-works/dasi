@@ -1,10 +1,10 @@
-<% if @at_list %>
+<% if @page_flag == Vote.at_list %>
 	var div = ""
 	<% @songs.each_with_index do |song, index|%>
 		div += "<%= escape_javascript (render 'songtags/listelem_rank_elem', :song=>song, :index=>index, :songtag=>@songtag)%>" 
 	<% end %>
 	$("#mint-list-rank-<%= @songtag.id%>").html(div)
-<% else %>
+<% elsif @page_flag == Vote.at_detail %>
 	$("#detail-rank").html("<%= escape_javascript ( render 'ranks/detail_rank_list', :songs => @songs, :cur_song=>nil)%>")
 	
 	$(".detail-rank").mCustomScrollbar("destroy")

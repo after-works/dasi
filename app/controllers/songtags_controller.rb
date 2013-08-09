@@ -88,7 +88,7 @@ class SongtagsController < ApplicationController
       @page = 2
     end
     
-    @category = params[:songtag][:category]
+    @category = params[:songtag][:category].to_i
     
     @songtags = fetch_songtags(@category, @page)
     

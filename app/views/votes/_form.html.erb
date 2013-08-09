@@ -1,9 +1,20 @@
 <% if voted?(song) %>
-	<%= image_tag "stamp_on_25x24.png"%>
+	<% if page_flag == Vote.at_detail %>
+		<%= image_tag "stamp_on_25x24.png"%>
+	<% elsif page_flag == Vote.at_list %>
+		<%= image_tag "stamp_on_list_20x20.png"%>
+	<% end %>
 <% else %>
 	<%= form_for :vote, remote:true , :html=>{:class=>'form-inline', :id=>"vote-form", :'data-type'=>'script'}, :url=>votes_path do |f|%>
 		<%= f.hidden_field :song_id, :value=>song.id%>
-		<%= image_submit_tag "stamp_off_25x24.png"%>
+		<%= f.hidden_field :page_flag, :value=>page_flag%>
+
 		<%= hidden_field :song, :id, :value=>song.id%>
+		
+		<% if page_flag == Vote.at_detail%>
+			<%= image_submit_tag "stamp_off_25x24.png"%>
+		<% elsif page_flag == Vote.at_list %>
+			<%= image_submit_tag "stamp_off_list_20x20.png"%>
+		<% end %>
 	<% end %>
 <% end %>
