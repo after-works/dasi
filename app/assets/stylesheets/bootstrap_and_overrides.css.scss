@@ -63,6 +63,9 @@ body {
   font-family:'Malgun Gothic';
 }
 
+$headerLogoWidth : 198px;
+$headerLogoHeight : 32px;
+
 .navbar-inner {
   background-image: none;
   border-top : 0px !important;
@@ -89,3 +92,8 @@ div{
   vertical-align:middle;
 }
 
+.navbar .brand {
+  padding : 0px;
+  padding-top : ($navbarHeight - $headerLogoHeight )/2;
+  padding-right : 50px;
+}
