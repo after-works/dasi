@@ -8,7 +8,7 @@
 	<!-- vote btn -->
 	<%= render_vote_form(song, Vote.at_detail) %>
 </div>
-<a onclick="change_song('<%= song.youtube_id %>' , '<%= song.title %>' , '<%= song.user.name %>' , '<%= convert_time(song.created_at)%>', '<%= song.id%> ')">
+<a onclick="change_song('<%= song.youtube_id %>' , '<%= song.title %>' , '<%= song.user.name %>' , '<%= convert_time(song.created_at)%>', '<%= song.id%> ')" style="cursor:pointer;" >
 	<div class="name">
 		<%= song.title %>
 	</div>

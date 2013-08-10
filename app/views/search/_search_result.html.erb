@@ -1,8 +1,18 @@
 <div class="container">
-	<h4><%= highlight(songtag.title, @search_term.split, highlighter: '<mark>\1</mark>') %></h4>
+	<h4>
+		<a href="/songtags/<%=songtag.id%>">
+			<%= highlight(songtag.title, @search_term.split, highlighter: '<mark>\1</mark>') %>
+		</a>
+	</h4>
 	<% if song.nil? %>
 		<% song=get_first_song(songtag) %>
 	<% end %>
-	<img src='<%= youtube_thumb(song) %>' />
-	<p><%= highlight(song.title, @search_term.split, highlighter: '<mark>\1</mark>') %></p>	
+	<a href="songtags/<%=songtag.id%>/<%=song.id%>">
+		<img src='<%= youtube_thumb(song) %>' />
+	</a>
+	<p>
+		<a href="songtags/<%=songtag.id%>/<%=song.id%>">
+			<%= highlight(song.title, @search_term.split, highlighter: '<mark>\1</mark>') %>
+		</a>
+	</p>	
 </div>
