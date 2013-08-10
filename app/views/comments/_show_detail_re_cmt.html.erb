@@ -5,8 +5,8 @@
 			<small><%= convert_time(re_cmt.created_at) %></small>
 		</div>
 		<div class="status">
-			i1 <%= cmt_likes(re_cmt).count%>
-			i2 <%= cmt_dislikes(re_cmt).count%>
+			<%= image_tag "like_15x14.png"%> <%= cmt_likes(re_cmt).count%>
+			<%= image_tag "unlike_15x14.png"%> <%= cmt_dislikes(re_cmt).count%>
 		</div>
 	</div><!-- first-row -->
 	<div class="context"><!-- content -->

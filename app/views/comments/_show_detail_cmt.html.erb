@@ -3,10 +3,10 @@
 		<div class="title">
 			<big><%= comment.user.name %></big> | <small><%= convert_time(comment.created_at)%></small>
 		</div>
-		<div class="status">
-				i1 <%= cmt_likes(comment).count %>
-				i2 <%= cmt_dislikes(comment).count %>
-				i3 <%= comment.re_comments.count %>
+		<div class="status" >
+				<%= image_tag "like_15x14.png"%> <%= cmt_likes(comment).count %>
+				<%= image_tag "unlike_15x14.png"%> <%= cmt_dislikes(comment).count %>
+				<%= image_tag "reply_15x14.png"%> <%= comment.re_comments.count %>
 		</div>
 	</div><!--detail-cmt-first-row-->
 

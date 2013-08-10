@@ -26,6 +26,9 @@ $titleHeight : 30px;
 
 $cmtFontSize : 12px;
 
+$titleImgWidth : 26px;
+$titleImgHeight : 27px;
+
 .detail-comment {
   box-shadow : 0 3px 10px 0 rgba(0, 0, 0, 0.5);
   width : $rightColWidth;
@@ -40,10 +43,13 @@ $cmtFontSize : 12px;
   width : $rightColWidth - $scrollWidth;
   background-color : #f9ec31;
   margin-bottom : $cmtMargin;
+  
   .img {
     width : $indent;
     height : $titleHeight;
     float:left;
+    padding-left : ($indent - $titleImgWidth)/2;
+    padding-top : ($titleHeight - $titleImgHeight )/2
   }
   
   .text {
@@ -54,11 +60,29 @@ $cmtFontSize : 12px;
   }
 }
 
+$bestCallImgHeight : 19px;
+$bestCallImgWidth : 229px;
+$bestCallPaddingLeft : ($rightColWidth - $scrollWidth - $indent - $bestCallImgWidth )/2;
+
 .detail-best-cmt-notice {
-  height : $indent;
-  width: $rightColWidth - $scrollWidth;
+  height : $indent - ($indent - $bestCallImgHeight )/2;
+  width : $rightColWidth - $indent - $scrollWidth - $bestCallPaddingLeft;
+
+  margin-left : $indent;
   margin-bottom: 20px;
+  padding-left : $bestCallPaddingLeft;
+  padding-top : ($indent - $bestCallImgHeight )/2;
+  
+  background-color : #fefce0;
+  
+  img {
+    width : $bestCallImgWidth;
+    height : $bestCallImgHeight;
+  }
+  
 }
+
+$imgPadding : $commentPadding;
 
 .detail-best-cmt-elem {
   width : $rightColWidth - $scrollWidth;
@@ -68,10 +92,17 @@ $cmtFontSize : 12px;
 
   margin-bottom: $cmtMargin;
 
+  
   .img {
     width : $indent;
     float : left;
-    height : 60px;
+    height : $indent;
+    padding-top : 2*$imgPadding;
+    
+    img {
+      width : $indent - $imgPadding;
+      height : $indent - $imgPadding;
+    }
     //padding : $commentPadding;
   }
   
@@ -107,16 +138,18 @@ $cmtFontSize : 12px;
       word-wrap:break-word;
       font-size : $cmtFontSize;
     }
+    
+    .over {
+      position: absolute;
+      bottom: 0px;
+      right:0px;
+      float:right;
+      height:$cmtLogHeight;
+      visibility : hidden;
+      padding : 8px;
+    }
   }
   
-  .over {
-    position: absolute;
-    bottom: 0px;
-    right:0px;
-    float:right;
-    height:$cmtLogHeight;
-    visibility : hidden;
-  }
 }
 
 .detail-best-cmt-elem:hover  .over {
@@ -163,24 +196,32 @@ $cmtFontSize : 12px;
       height : $cmtBasicTitleHeight;
       float:right;  
       font-size : $cmtFontSize;
+      line-height : $cmtBasicTitleHeight;
     }
   }
   
   .context {
     width : $rightColWidth - $scrollWidth - 2*$commentPadding;
     min-height: $cmtBasicContentHeight;
-    word-wrap:break-word;      
+
+    -moz-hyphens:auto;
+    -ms-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens:auto;
+    word-wrap:break-word; 
+    
     font-size : $cmtFontSize;
   }
   
   .over {
+    padding : 8px;
     position: absolute;
     height:$cmtLogHeight;
-    //width : $overWidth;
     bottom: 0px;
     right:0px;
     float:right;
     visibility : hidden;
+    z-index : 1000;
   }
 }
 
@@ -194,21 +235,24 @@ $cmtFontSize : 12px;
 
 .detail-cmt-log {
   .log-btn {
+    margin-left : 10px;
+    font-size : 12px;
     float : left;
     height : 25px;  
   }
 }
 
 .detail-re-cmt-elem {
-  width : $rightColWidth - $scrollWidth - $indent;
-  margin-left: $indent;
-  padding-bottom: $cmtLogHeight;
-  
+  padding : $commentPadding;
+  width : $rightColWidth - $scrollWidth - $indent - 2*$commentPadding;
+  min-height : $cmtBasicTitleHeight + $cmtBasicReContentHeight + $cmtLogHeight;
+  position : relative;
+ 
   margin-bottom: $cmtMargin;
   
   border-bottom:  1px dashed #ACDEE2;
 
-  padding : $commentPadding;
+  margin-left: $indent;
 
   .first-row{
     width : $rightColWidth - $scrollWidth - $indent - 2*$commentPadding;
@@ -245,11 +289,11 @@ $cmtFontSize : 12px;
 
   .over {
     height:$cmtLogHeight;
-    //width : $overWidth;
     bottom: 0px;
     right:0px;
     float:right;
     visibility : hidden;
+    z-index : 1000;
   }
 }
 
@@ -275,7 +319,8 @@ $cmtFontSize : 12px;
 }
 
 .detail-hr {
-  border-top:  1px dashed #929497;
+  width : $rightColWidth - $scrollWidth;
+  border-top:  1px dashed #F9EC31;
   height : $cmtMargin;
 }
 

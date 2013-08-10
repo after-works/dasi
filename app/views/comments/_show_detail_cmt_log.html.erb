@@ -3,34 +3,39 @@
 <div class="detail-cmt-log" id="detail-cmt-log-<%=comment.id%>">
 	<div class="log-btn">
 		<% if done_like? (log) %>
-			<%= link_to "<button>좋아요 취소</button>".html_safe, comment_logs_path(log), :remote=> true, :method => :delete %> 
+			<%= image_tag "like_2_15x14.png"%> 
+			<%= link_to "좋아요 취소".html_safe, comment_logs_path(log), :remote=> true, :method => :delete %> 
 		<% else %>
-			<%= form_for comment_log_form , remote: true do |f| %>
+			<%= form_for comment_log_form , remote: true , :html => {:id=>"cmt-like-form-#{comment.id}"} do |f| %>
 				<%= f.hidden_field :comment_id, :value=>comment.id%>
 				<%= f.hidden_field :uid, :value=>current_user.id%>
 				<%= f.hidden_field :status, :value=>1%>
 				<%= hidden_field_tag :songtag_id, cur_songtag_id%>
-				<%= f.button "좋아요" , :class=>'like_btn'%>
+				<%= image_tag "like_2_15x14.png"%>
+				<%= link_to '좋아요', "#", :onclick=>"$('#cmt-like-form-#{comment.id}').submit()"%>
 			<% end %>
 		<% end %>
 	</div>
 
 	<div class="log-btn">
 		<% if done_dislike? (log) %>
-			<%= link_to "<button>싫어요취소</button>".html_safe, comment_logs_path(log), :remote=> true ,:method => :delete %>
+			<%= image_tag "unlike_2_15x14.png"%>
+			<%= link_to "싫어요취소".html_safe, comment_logs_path(log), :remote=> true ,:method => :delete %>
 		<% else %>
-			<%= form_for comment_log_form , remote: true  do |f| %>
+			<%= form_for comment_log_form , remote: true , :html => {:id=>"cmt-dislike-form-#{comment.id}"}  do |f| %>
 				<%= f.hidden_field :comment_id, :value=>comment.id%>
 				<%= f.hidden_field :uid, :value=>current_user.id%>
 				<%= f.hidden_field :status, :value=>-1%>
 				<%= hidden_field_tag :songtag_id, cur_songtag_id%>
-				<%= f.button "싫어요" , :class=>'dislike_btn'%>
+				<%= image_tag "unlike_2_15x14.png"%>
+				<%= link_to '싫어요', "#", :onclick=>"$('#cmt-dislike-form-#{comment.id}').submit()"%>
 			<% end %>
 		<% end %>
 	</div>
 	<% if !is_recmt %>
 		<div class="log-btn">
-			<button class="dislike_btn" name="button" onclick="javascript:show_recmt_form(<%=comment.id%>)">댓글달기</button>
+			<%= image_tag "reply_2_15x14.png"%>
+			<%= link_to '댓글달기', "#", :onclick=>"javascript:show_recmt_form(#{comment.id})"%>
 		</div>
 	<% end %>
 </div>

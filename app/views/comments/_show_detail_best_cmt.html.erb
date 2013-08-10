@@ -1,30 +1,31 @@
 <% hr_flag = true%>
 <% if comments.length == 0 %>
 	<div class="detail-best-cmt-notice">
-		도전해라 이미지. 550 X 60
+		<%= image_tag "best_2_229x19.png"%>
 	</div>
 <% else %>
 	<% comments.each do |cmt| %>
 		<div class="detail-best-cmt-elem">
 			<div class="img">
-				<%= image_tag "favorite_on_27x27.png"%>
+				<%= image_tag "best_35x35.png"%>
 			</div>
 			<div class="right">
 				<div class="title">
 					<big><%= cmt.user.name%></big> | <small><%=convert_time(cmt.created_at)%></small>
 				</div>
 				<div class="status">
-					i1 <%= cmt_likes(cmt).count%>
-					i2 <%= cmt_dislikes(cmt).count%>
-					i3 <%= cmt.re_comments.count%>
+					<%= image_tag "like_15x14.png"%> <%= cmt_likes(cmt).count%>
+					<%= image_tag "unlike_15x14.png"%> <%= cmt_dislikes(cmt).count%>
+					<%= image_tag "reply_15x14.png"%> <%= cmt.re_comments.count%>
 				</div>
 
 				<div class="context">
 					<%= cmt.context%>
 				</div>
-			</div>
-			<div class="over" >
-				<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>cmt, :cur_songtag_id => cmt.songtag, :is_recmt=>true%>
+				
+				<div class="over" >
+					<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>cmt, :cur_songtag_id => cmt.songtag, :is_recmt=>true%>
+				</div>
 			</div>
 		</div>
 			
@@ -37,7 +38,7 @@
 	
 	<% if comments.length == 1 %>
 		<div class="detail-best-cmt-notice">
-			도전해라 이미지. 550 X 60
+			<%= image_tag "best_2_229x19.png"%>
 		</div>
 	<% end %>
 <% end %>

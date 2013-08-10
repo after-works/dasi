@@ -1,6 +1,6 @@
 <div class="thumb">
 	<!-- thumbnail -->
-	<a onclick="change_song('<%= song.youtube_id %>' , '<%= song.title %>' , '<%= song.user.name %>' , '<%= convert_time(song.created_at)%>', '<%= song.id%> )">
+	<a onclick="change_song('<%= song.youtube_id %>' , '<%= song.title %>' , '<%= song.user.name %>' , '<%= convert_time(song.created_at)%>', '<%= song.id%> ')">
 		<img src='<%= youtube_thumb(song) %>'/>
 	</a>
 </div>
