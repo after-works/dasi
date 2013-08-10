@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
   def index
-    @songtags = Songtag.search params[:search]
-    @songs = Song.search params[:search]
+    @search_term = params[:search]
+    @songtags = Songtag.search @search_term
+    @songs = Song.search @search_term
   end
 end
