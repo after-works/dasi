@@ -49,7 +49,7 @@ gem 'will_paginate'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano', '~>3.0.0'
+gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'

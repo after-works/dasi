@@ -58,5 +58,8 @@ module Dasi
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    # For developing error handling page
+    config.exceptions_app = self.routes
   end
 end
