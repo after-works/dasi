@@ -53,3 +53,6 @@ gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
+
+#temp
+gem 'rename'

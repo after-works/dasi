@@ -39,7 +39,7 @@
 files
 run.sh
 
-# For capistrano, database.yml should be added
+# For capistrano, database.yml should be added in .gitignore
 /config/database.yml
 
 # Executable for app

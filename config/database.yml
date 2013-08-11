@@ -27,7 +27,7 @@ production:
 hyeon:
   adapter: mysql2
   encoding: utf8
-  database: catalist
+  database: mintlist
   pool: 5
   username: root
   password:
