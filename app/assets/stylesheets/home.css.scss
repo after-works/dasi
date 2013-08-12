@@ -91,22 +91,25 @@ $labelTextColor:#404041;
         width:$bestReplyWrapWidth - $bestReplyPadding;
         
         font-weight: bold;
-        font-size:12pt;
-        color: #58595B;
+        font-size:11pt;
         line-height:19px;
         
         overflow:hidden;
         white-space:nowrap;
         text-overflow: ellipsis;
         
+        margin-bottom:5px;
         border-bottom: 1px solid #EAEAEA; 
+        a {
+          color: #58595B;
+        }
       }
       .best-reply-subject {
         height:19px;
         width:$bestReplyWrapWidth - $bestReplyPadding;
         
         font-weight: bold;
-        font-size:12pt;
+        font-size:11pt;
         color: #BBBDBF;
         line-height:19px;
         

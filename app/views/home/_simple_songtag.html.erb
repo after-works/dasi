@@ -1,20 +1,20 @@
 <div id="main-content-elem-<%= songtag.id %>" class="simple-songtag-container">
 	<div class="simple-songtag-title">	
 		<!--<%= link_to "#{songtag.title}", "/songtags/#{songtag.id}", class:"simple-title-link" %>-->
-		<a href="/songtags/<%= songtag.id %>" class="atag" ><span class="simple-title-link"><%= songtag.title %></span></a>
+		<a href="/songtags/<%= songtag.id %>"><span class="simple-title-link"><%= songtag.title %></span></a>
 	</div>
-	<div class="thumb"><img src=<%= youtube_thumb(song) %>></div>
-	<div class="mint-title"><span class="rank-span">1등</span> 제목 <% song.title %></div>
+	<div class="thumb"><a href="/songtags/<%= songtag.id %>"><img src=<%= youtube_thumb(song) %>></a></div>
+	<div class="mint-title"><span class="rank-span">1등</span><% song.title %></div>
 	<div class="mint-info">
 		<div class="space"></div>
 		<div class="info-detail">
-			<%= image_tag "stamp_main_15x15.png" %> <span class="info-num">왜왜왜<% song.votes.count %></span>
+			<%= image_tag "stamp_main_15x15.png" %> <div class="info-num"><% song.votes.count %></div>
 		</div>
 		<div class="info-detail">
-			<%= image_tag "music_main_13x15.png" %> <span> 123<% songtag.songs.count %></span>
+			<%= image_tag "music_main_13x15.png" %> <div class="info-num"><% songtag.songs.count %></div>
 		</div>
 		<div class="info-detail">
-			<%= image_tag "reply_main_15x15.png" %> <span> 232<% songtag.comments.count %></span>
+			<%= image_tag "reply_main_15x15.png" %> <div class="info-num"><% songtag.comments.count %></div>
 		</div>
 
 	</div>
