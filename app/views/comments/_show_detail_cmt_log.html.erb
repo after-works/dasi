@@ -1,16 +1,23 @@
 <% log = my_status_choice(comment) if log.nil?%>
 
-<div class="detail-cmt-log" id="detail-cmt-log-<%=comment.id%>">
+<% if is_best %>
+	<div class="detail-cmt-log" id="detail-best-cmt-log-<%=comment.id%>">
+<% else %>
+	<div class="detail-cmt-log" id="detail-cmt-log-<%=comment.id%>">
+<% end %>
 	<div class="log-btn">
 		<% if done_like? (log) %>
 			<%= image_tag "like_2_15x14.png"%> 
-			<%= link_to "좋아요 취소".html_safe, comment_logs_path(log), :remote=> true, :method => :delete %> 
+			<%= link_to "좋아요 취소".html_safe, comment_logs_path(log, 'is_best'=>is_best), :remote=> true, :method => :delete %> 
 		<% else %>
 			<%= form_for comment_log_form , remote: true , :html => {:id=>"cmt-like-form-#{comment.id}"} do |f| %>
 				<%= f.hidden_field :comment_id, :value=>comment.id%>
 				<%= f.hidden_field :uid, :value=>current_user.id%>
 				<%= f.hidden_field :status, :value=>1%>
+
+				<%= hidden_field_tag :is_best, nil, :value=>is_best%>
 				<%= hidden_field_tag :songtag_id, cur_songtag_id%>
+
 				<%= image_tag "like_2_15x14.png"%>
 				<%= link_to '좋아요', "#", :onclick=>"$('#cmt-like-form-#{comment.id}').submit()"%>
 			<% end %>
@@ -20,22 +27,27 @@
 	<div class="log-btn">
 		<% if done_dislike? (log) %>
 			<%= image_tag "unlike_2_15x14.png"%>
-			<%= link_to "싫어요취소".html_safe, comment_logs_path(log), :remote=> true ,:method => :delete %>
+			<%= link_to "싫어요취소".html_safe, comment_logs_path(log, 'is_best'=>is_best), :remote=> true ,:method => :delete %>
 		<% else %>
 			<%= form_for comment_log_form , remote: true , :html => {:id=>"cmt-dislike-form-#{comment.id}"}  do |f| %>
 				<%= f.hidden_field :comment_id, :value=>comment.id%>
 				<%= f.hidden_field :uid, :value=>current_user.id%>
 				<%= f.hidden_field :status, :value=>-1%>
+
+				<%= hidden_field_tag :is_best, nil, :value=>is_best%>
 				<%= hidden_field_tag :songtag_id, cur_songtag_id%>
+
 				<%= image_tag "unlike_2_15x14.png"%>
 				<%= link_to '싫어요', "#", :onclick=>"$('#cmt-dislike-form-#{comment.id}').submit()"%>
 			<% end %>
 		<% end %>
 	</div>
-	<% if !is_recmt %>
-		<div class="log-btn">
-			<%= image_tag "reply_2_15x14.png"%>
-			<%= link_to '댓글달기', "#", :onclick=>"javascript:show_recmt_form(#{comment.id})"%>
-		</div>
+	<% if !is_recmt%>
+		<% if !is_best %>
+			<div class="log-btn">
+				<%= image_tag "reply_2_15x14.png"%>
+				<%= link_to '댓글달기', "#", :onclick=>"javascript:show_recmt_form(#{comment.id})"%>
+			</div>
+		<% end %>
 	<% end %>
 </div>

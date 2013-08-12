@@ -16,6 +16,7 @@ class CommentLogsController < ApplicationController
     end
 
     @log_form = CommentLog.new
+    @is_best = params[:is_best]
   end
 
   def destroy
@@ -30,5 +31,6 @@ class CommentLogsController < ApplicationController
     end
     
     @log_form = CommentLog.new
+    @is_best = params[:is_best]
   end
 end
