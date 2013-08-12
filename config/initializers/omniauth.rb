@@ -1,7 +1,7 @@
 OmniAuth.config.logger = Rails.logger
 
 ENV['FACEBOOK_APP_ID'] = "189320791228733"
-ENV['FACEBOOK_SECRET'] =  "e53928ea46af09f70b7aeac76409bc77"
+ENV['FACEBOOK_SECRET'] = "6954df39a979b956b3bb2a7ac885cc15"
 
 require "omniauth-facebook"
 
