@@ -5,12 +5,11 @@ function show_add_song () {
 }
 
 function song_form_preview_song() {
-	var mint_title = $("div.dialog-box input[name='add-mint-name-in-new-song']")[0].value;
-	var mint_youtube_link = $("div.dialog-box input[name='add-mint-youtube-link-in-new-song']")[0].value;
+	var mint_title = $('#song-dialog input[name=mint-name]')[0].value;
+	var mint_youtube_link = $('#song-dialog input[name=mint-youtube-link]')[0].value;
 	var patt=/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
 	var mint_youtube_id = patt.exec(mint_youtube_link);
 	
-	console.log(mint_youtube_id)
 	if(mint_title == "") {
 		alert("민트 제목을 입력해 주세요");
 	} else if(mint_youtube_link == "") {
@@ -18,24 +17,36 @@ function song_form_preview_song() {
 	} else if(mint_youtube_id == null) {
 		alert("올바른 Youtube 링크를 입력해 주세요");
 	} else {
-		$("div.dialog-box ul[name='add-song-list-in-new-song']").append('<li><img src="http://img.youtube.com/vi/'
-									 + mint_youtube_id[1] + '/0.jpg"/>'
-									 + mint_title 
-									 + '<a href="#" onclick="sng_del_song($(this).parent())">제거</a>'
-									 + '<input id="song__youtube_id" name="song[songs][][youtube_id]" type="hidden" value="' + mint_youtube_id[1] + '"/>' 
-									 + '<input id="song__title" name="song[songs][][title]" type="hidden" value="' + mint_title + '"/></li>');
-		$("div.dialog-box a[name='add-song-to-table']").hide();
-		$('.dialog-box').mCustomScrollbar("update");
-		$("div.dialog-box input[name='commit']").removeAttr("disabled");
+		$("#song-dialog .song-list").append( '<div class="elem">'
+										+ '<div class="thumb">'
+											+ '<img src="http://img.youtube.com/vi/' + mint_youtube_id[1] + '/0.jpg"/>'
+										+ '</div>'
+										+ '<div class="title">'
+											+ mint_title 
+										+ '</div>'
+										+ '<div class="etc">'
+											+ '<a href="#" onclick="sng_del_song($(this).parent().parent())">제거</a>'
+										+ '</div>'
+										+ '<input id="song__youtube_id" name="song[songs][][youtube_id]" type="hidden" value="' + mint_youtube_id[1] + '"/>' 
+										+ '<input id="song__title" name="song[songs][][title]" type="hidden" value="' + mint_title + '"/>');
+									+ "</div>"
+
+		$("div.dialog-box a[name='add-link']").hide();
+
+		$("div.song-submit input[name='commit']").removeAttr("disabled");
+
+		$("#song-dialog").mCustomScrollbar("update");
+		
 	}
 }
 
 function sng_del_song(elem){
-	if(confirm('Delete this element?')){
-		$(elem).remove();
-		$("div.dialog-box input[name='commit']").attr("disabled", "disabled");
-		$('.dialog-box').mCustomScrollbar("update");
-		$("div.dialog-box a[name='add-song-to-table']").show();
+	if(confirm('삭제하시겠습니까?')){
+		console.log( elem )
+		elem.remove();
+		$("div.song-submit input[name='commit']").attr("disabled", "disabled");
+		$("#song-dialog").mCustomScrollbar("update");
+		$("div.dialog-box a[name='add-link']").show();
 	}
 }
 

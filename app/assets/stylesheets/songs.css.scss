@@ -2,7 +2,140 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$dialogPadding : 10px;
+
+$elemHeight : 60px;
+$elemMarginBottom : 5px;
+$elemBackgroundColor : #fff;
+$elemTitleLeftPadding : 20px;
+
+$dialogWidth : 570px - 2*$dialogPadding;
+
+$titleHeight : 30px;
+$titlePadding : 7px;
+$titleBackgroundColor : #000;
+$titleFontColor : #fff;
+
+$thumbWidth : 80px;
+$etcWidth : $elemHeight;
+
+$listPadding : 2px;
+$listMarginTop : 10px;
+$listBackgroundColor : #f9ec31;
+$listPaddingTop : 17px;
+
+$inputHeight : 33px;
+$inputPadding : 10px;
+$inputButtonWidth : 34px;
+$inputTitleWidth : 150px;
+
+$submitBtnWidth : 50px;
+$submitBtnHeight : 35px;
+
 .song-add-dialog {
+	padding : $dialogPadding;
+
 	.title-bar {
+		height : $titleHeight;
+		padding : $titlePadding;
+		font-size : $titleHeight - 2*$titlePadding;
+		line-height : $titleHeight;
+		width : $dialogWidth - 2*$titlePadding;
+		background-color : $titleBackgroundColor;
+		color : $titleFontColor;
+	}
+
+	.song-list {
+		width : $dialogWidth;
+
+		margin-top : $listMarginTop;
+		padding-top : $listPaddingTop;
+		padding-bottom : $listPaddingTop;
+
+		background-color : $listBackgroundColor;
+
+		.elem {
+			height : $elemHeight;
+			width : $dialogWidth - 2*$listPadding;
+
+			margin-left : $listPadding;
+			margin-bottom : $listPadding;
+			background-color : $elemBackgroundColor;
+
+			.thumb {
+				height : $elemHeight;
+				width : $thumbWidth;
+
+				float : left;
+
+				img {
+					height : 100%;
+					width : 100%;
+				}
+			}
+
+			.title {
+				height : $elemHeight;
+				width : $dialogWidth - $thumbWidth - $etcWidth - 2*$listPadding - $elemTitleLeftPadding;
+				max-width : $dialogWidth - $thumbWidth - $etcWidth;
+				float:left;
+				line-height : $elemHeight;
+				padding-left : $elemTitleLeftPadding;
+			}
+
+			.etc {
+				height : $elemHeight;
+				width : $etcWidth;
+				float : left;
+			}
+		}
+	}
+
+	.song-input {
+		height : $inputHeight;
+		width : $dialogWidth;
+		margin-top : $listMarginTop;
+
+
+		input {
+			-webkit-border-radius: 0px;
+			-moz-border-radius: 0px;
+			border-radius: 0px;
+
+			float : left;
+
+			margin : 0px;
+			padding : $inputPadding;
+
+			height : $inputHeight - 2*$inputPadding - 2px;//2px의 원인은 모르겠으나 이게 딱 보기 좋게 떨어짐.
+		}
+
+		input[name=mint-name]{
+			width : $inputTitleWidth;
+		}
+
+		input[name=mint-youtube-link]{
+			width : $dialogWidth - $inputTitleWidth - $inputButtonWidth - 44px;
+		}
+	}
+
+	.song-submit {
+		width : $dialogWidth;
+		margin-top : $listMarginTop;
+
+		input {
+			-webkit-box-flex: 1;
+            display: block;
+            border : 0px;
+            -webkit-appearance: none;
+            -webkit-border-radius: 0px;
+            text-align: center;
+
+			width : $submitBtnWidth;
+			height : $submitBtnHeight;
+			background-color : $listBackgroundColor;
+
+			margin-left : ($dialogWidth - $submitBtnWidth ) /2;
+		}
 	}
 }

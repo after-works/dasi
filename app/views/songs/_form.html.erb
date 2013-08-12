@@ -8,28 +8,35 @@
 			<%= f.hidden_field :uid, :value=>user.id %>
 			<%= f.hidden_field :tag_id, :value=>songtag.id %>
 
-			<ul name="add-song-list-in-new-song">
-				<div class="song-list">
-					<% songs.each do |song| %>
+			<div class="song-list">
+				<% songs.each do |song| %>
+					<div class="elem">
 						<div class="thumb">
-							<li><img src='<%= youtube_thumb(song) %>'/><%= song.title %></li>
+							<img src='<%= youtube_thumb(song) %>'/>
 						</div>
-					<% end %>
-				</div>
-			</ul>
+						<div class="title">
+							<%= song.title %>
+						</div>
+						<div class="etc">
+						</div>
+					</div>
+				<% end %>
+			</div>
 
 			<div class="song-input">
 				<% if songtag.songs.count < 15 %>
-					<input type="text" name="add-mint-name-in-new-song" placeholder="민트 제목">
-				  	<input type="text" name="add-mint-youtube-link-in-new-song" placeholder="유튜브 링크">
-				  	<a href="#" name="add-song-to-table" onclick="song_form_preview_song()">미리보기</a>					
+					<input type="text" name="mint-name" placeholder="민트 제목">
+				  	<input type="text" name="mint-youtube-link" placeholder="유튜브 링크">
+				  	<div class="preview-link">
+				  		<%= link_to "#{image_tag 'btn_addmusic_normal_34x33.png'}".html_safe, "#", :onclick=>"song_form_preview_song()" %>
+					</div>
 				<% else %>
-					There are too many songs!
+					최대 민트 수가 초과했습니다.
 				<% end %>
 			</div>
 
 			<div class="song-submit">
-				<%= f.submit "Submit", :disabled=>"disabled;" %>
+				<%= f.submit "확인", :disabled=>"disabled;" %>
 			</div>
 		<% end %>
 	</div>
