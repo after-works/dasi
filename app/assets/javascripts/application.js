@@ -58,7 +58,7 @@ function songtag_form_add_song() {
 		$("div.dialog-box ul[name='add-song-list-in-new-songtag']").append('<li><img src="http://img.youtube.com/vi/'
 									 + mint_youtube_id[1] + '/0.jpg"/>'
 									 + mint_title 
-									 + '<a href="#" onclick="sngtg_del_song($(this).parent())">제거</a>'
+									 + '<a href="#" onclick="sngtag_del_song($(this).parent())">제거</a>'
 									 + '<input id="songtag_song__youtube_id" name="songtag[song][][youtube_id]" type="hidden" value="' + mint_youtube_id[1] + '"/>' 
 									 + '<input id="songtag_song__title" name="songtag[song][][title]" type="hidden" value="' + mint_title + '"/></li>');
 		if($("div.dialog-box li").length >= 15) {
@@ -71,7 +71,7 @@ function songtag_form_add_song() {
 	}
 }
 
-function sngtg_del_song(elem){
+function sngtag_del_song(elem){
 	if(confirm('Delete this element?')){
 		$(elem).remove();
 		console.log($("div.dialog-box li").length)
