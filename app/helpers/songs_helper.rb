@@ -1,6 +1,6 @@
 module SongsHelper
   def youtube_video(song)
-    "<iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/#{song.youtube_id}\" frameborder=\"0\" allowfullscreen></iframe>"
+    "<iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/#{song.youtube_id}&autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>"
   end
   
   def youtube_thumb(song)

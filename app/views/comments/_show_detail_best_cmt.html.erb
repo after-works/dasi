@@ -24,7 +24,7 @@
 				</div>
 				
 				<div class="over" >
-					<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>cmt, :cur_songtag_id => cmt.songtag, :is_recmt=>true%>
+					<%= render 'comments/show_detail_cmt_log', :comment_log_form=>comment_log_form, :comment=>cmt, :cur_songtag_id => cmt.songtag.id, :is_recmt=>true, :is_best=>true%>
 				</div>
 			</div>
 		</div>
