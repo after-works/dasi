@@ -4,7 +4,7 @@
 
 $dialogPadding : 10px;
 
-$elemHeight : 60px;
+$elemHeight : 50px;
 $elemMarginBottom : 5px;
 $elemBackgroundColor : #fff;
 $elemTitleLeftPadding : 20px;
@@ -13,15 +13,15 @@ $dialogWidth : 570px - 2*$dialogPadding;
 
 $titleHeight : 30px;
 $titlePadding : 7px;
-$titleBackgroundColor : #000;
-$titleFontColor : #fff;
+$titleBackgroundColor : rgb(241,241,242);
+$titleFontColor : rgb(127,127,127);
 
 $thumbWidth : 80px;
 $etcWidth : $elemHeight;
 
 $listPadding : 2px;
-$listMarginTop : 10px;
-$listBackgroundColor : #f9ec31;
+$listMarginTop : 30px;
+$listBackgroundColor : rgb(249,236,49);
 $listPaddingTop : 17px;
 
 $inputHeight : 33px;
@@ -31,6 +31,7 @@ $inputTitleWidth : 150px;
 
 $submitBtnWidth : 50px;
 $submitBtnHeight : 35px;
+$submitBtnColor : rgb(54,193,215);
 
 .song-add-dialog {
 	padding : $dialogPadding;
@@ -38,9 +39,10 @@ $submitBtnHeight : 35px;
 	.title-bar {
 		height : $titleHeight;
 		padding : $titlePadding;
+		padding-left : $titleHeight - 2*$titlePadding;
 		font-size : $titleHeight - 2*$titlePadding;
 		line-height : $titleHeight;
-		width : $dialogWidth - 2*$titlePadding;
+		width : $dialogWidth - $titlePadding - $titleHeight + 2*$titlePadding;
 		background-color : $titleBackgroundColor;
 		color : $titleFontColor;
 	}
@@ -123,19 +125,21 @@ $submitBtnHeight : 35px;
 		width : $dialogWidth;
 		margin-top : $listMarginTop;
 
-		input {
+		button {
 			-webkit-box-flex: 1;
-            display: block;
-            border : 0px;
-            -webkit-appearance: none;
-            -webkit-border-radius: 0px;
-            text-align: center;
+      display: block;
+      border : 0px;
+      -webkit-appearance: none;
+      -webkit-border-radius: 0px;
+      text-align: center;
 
 			width : $submitBtnWidth;
 			height : $submitBtnHeight;
-			background-color : $listBackgroundColor;
+			background-color : $submitBtnColor;
 
 			margin-left : ($dialogWidth - $submitBtnWidth ) /2;
+			
+			color : white;
 		}
 	}
 }

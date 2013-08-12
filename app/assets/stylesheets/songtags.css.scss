@@ -11,7 +11,7 @@ $videoInfoHeight : 30px;
 $videoBottomMargin : 15px;
 
 $rankColHeight : 350px;
-$rankElemHeight : 75px;
+$rankElemHeight : 65px;
 $scrollWidth : 30px;
 $scrollWidthRank : 15px;
 
@@ -166,9 +166,9 @@ $rankElemThumbWidth : 75px;
   vertical-align: middle;
   border-bottom :  1px dashed #929497;
   border-top :  1px dashed #929497; 
-  width:310px; 
-  height:75px; 
-  margin:15px; 
+  width : $leftColWidth  - 2*$rankElemMargin - $scrollWidthRank;; 
+  height:$rankElemHeight; 
+  margin:$rankElemMargin; 
   background-color: #e6e7e8
 }
 
