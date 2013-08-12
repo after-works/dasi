@@ -30,7 +30,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 #####for facebook authentication
-gem 'omniauth-facebook', "1.4.0"
+gem 'omniauth-facebook', '1.4.0'
 #####for facebook graph api
 gem 'fb_graph'
 
