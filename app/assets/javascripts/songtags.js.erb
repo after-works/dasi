@@ -12,11 +12,11 @@ function song_form_preview_song() {
 	
 	console.log(mint_youtube_id)
 	if(mint_title == "") {
-		alert("Please type mint_title");
+		alert("민트 제목을 입력해 주세요");
 	} else if(mint_youtube_link == "") {
-		alert("Please type mint_youtube_link");
+		alert("Youtube 링크를 입력해 주세요");
 	} else if(mint_youtube_id == null) {
-		alert("Please type right youtube link");
+		alert("올바른 Youtube 링크를 입력해 주세요");
 	} else {
 		$("div.dialog-box ul[name='add-song-list-in-new-song']").append('<li><img src="http://img.youtube.com/vi/'
 									 + mint_youtube_id[1] + '/0.jpg"/>'
@@ -40,8 +40,21 @@ function sng_del_song(elem){
 }
 
 function change_song (yid, title, user_name , date, song_id) {
-	$("#detail-song-video").html ( "<iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/"+yid+"\" frameborder=\"0\" allowfullscreen></iframe>" );
-	$("#detail-song-info").html ("<div class='title'>"+title+"</div><div class='small'>"+user_name  + " | " + date  + "</div>")
+	var div_html = 	"	<div class='title pull-left'>" +
+						title +
+					"</div>" +
+					"<div class='pull-right'>" +
+						"<div class='small'>"+
+							user_name + " | " +  date + " | "+
+						"</div>"+
+						"<div class='facebook-btn'>"+
+
+						"</div>"+
+					"</div>";
+
+	$("#detail-song-video").html ( "<iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/"+yid+"?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>" );
+	$("#detail-song-info").html (div_html)
+	//$("#detail-song-info").html ("<div class='title'>"+title+"</div><div class='small'>"+user_name  + " | " + date  + "</div>")
 	
 	select_rank_elem (song_id);
 }

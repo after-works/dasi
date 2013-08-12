@@ -1,27 +1,36 @@
-<div id="song-dialog" style="display:none;">
-	song add
-	<button onclick="popdown()">
-		닫기
-	</button>
-	<%= form_for :song, :url=>songs_path do |f| %>
-		<%= f.hidden_field :uid, :value=>user.id %>
-		<%= f.hidden_field :tag_id, :value=>songtag.id %>
+<div id="song-dialog" class="dialog-box">
+	<div class="song-add-dialog">
+		<div class="title-bar">
+			<%= songtag.title %>
+		</div>
+		
+		<%= form_for :song, :url=>songs_path do |f| %>
+			<%= f.hidden_field :uid, :value=>user.id %>
+			<%= f.hidden_field :tag_id, :value=>songtag.id %>
 
-		제목: <%= songtag.title %>
-		<ul name="add-song-list-in-new-song">
-			<% songs.each do |song| %>
-				<li><img src='<%= youtube_thumb(song) %>'/><%= song.title %></li>
-			<% end %>
-		</ul>
-		<% if songtag.songs.count < 15 %>
-			<div class="field">
-				<input type="text" name="add-mint-name-in-new-song" placeholder="민트 제목">
-			  	<input type="text" name="add-mint-youtube-link-in-new-song" placeholder="유튜브 링크">
-			  	<a href="#" name="add-song-to-table" onclick="song_form_preview_song()">미리보기</a>
+			<ul name="add-song-list-in-new-song">
+				<div class="song-list">
+					<% songs.each do |song| %>
+						<div class="thumb">
+							<li><img src='<%= youtube_thumb(song) %>'/><%= song.title %></li>
+						</div>
+					<% end %>
+				</div>
+			</ul>
+
+			<div class="song-input">
+				<% if songtag.songs.count < 15 %>
+					<input type="text" name="add-mint-name-in-new-song" placeholder="민트 제목">
+				  	<input type="text" name="add-mint-youtube-link-in-new-song" placeholder="유튜브 링크">
+				  	<a href="#" name="add-song-to-table" onclick="song_form_preview_song()">미리보기</a>					
+				<% else %>
+					There are too many songs!
+				<% end %>
 			</div>
-			<%= f.submit "Submit", :disabled=>"disabled;" %>
-		<% else %>
-			There are too many songs!
+
+			<div class="song-submit">
+				<%= f.submit "Submit", :disabled=>"disabled;" %>
+			</div>
 		<% end %>
-	<% end %>
+	</div>
 </div>

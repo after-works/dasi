@@ -24,4 +24,11 @@ module SongtagsHelper
   end
 
   
+  def get_song_by_id ( id )
+    Song.find_by_id ( id )
+  end
+
+  def get_songtag_by_song_id ( id )
+    Song.find_by_id ( id ).sontags
+  end
 end

@@ -1,6 +1,28 @@
 function popup ( div ) {
-	var maskHeight  = $(document).height();
-	var maskWidth = $(document).width();
+    var maskHeight  = $(document).height();
+    var maskWidth = $(document).width();
+
+    var dialogTop;  
+    var dialogLeft; 
+
+    dialogTop =  $(document).scrollTop() + 100;
+    dialogLeft = (maskWidth/2) - ($('.dialog-box').width()/2); 
+
+    $('.dialog-overlay').css({height:maskHeight, width:maskWidth}).show();
+
+    div.css({top:dialogTop, left:dialogLeft}).show()
+
+    $(".dialog-box").mCustomScrollbar("destroy");
+    $(".dialog-box").mCustomScrollbar({
+        theme : "light",
+        mouseWheelPixels: 500
+    });
+
+}
+
+function _popup ( div ) {
+    var maskHeight  = $(document).height();
+    var maskWidth = $(document).width();
 
     var dialogTop;  
     var dialogLeft; 
@@ -9,16 +31,16 @@ function popup ( div ) {
     
     $(".dialog-box").mCustomScrollbar("update")
 
-    dialogTop =  (maskHeight/2) - ($('.dialog-box').height()/2);
-	dialogLeft = (maskWidth/2) - ($('.dialog-box').width()/2); 
+    dialogTop =  $(document).scrollTop() + 100;
+    dialogLeft = (maskWidth/2) - ($('.dialog-box').width()/2); 
 
-	if ( dialogTop <0 )
-		dialogTop = 0
+    if ( dialogTop <0 )
+        dialogTop = 0
 
     $('.dialog-overlay').css({height:maskHeight, width:maskWidth}).show();
     $('.dialog-box').css({top:dialogTop, left:dialogLeft}).show();
 
-	$(".dialog-box").mCustomScrollbar("destroy");
+    $(".dialog-box").mCustomScrollbar("destroy");
     $(".dialog-box").mCustomScrollbar({
         theme : "light",
         mouseWheelPixels: 500
