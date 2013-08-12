@@ -16,7 +16,7 @@
 			</ul>
 			<ul class="pull-right">
 				<li class="dropdown" style="float:left;">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= image_tag "favorite_off_27x27.png"%> </a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= image_tag "btn_login_normal_16x21.png" , :class=>"header-item"%> </a>
 
 					<ul class="dropdown-menu">
 						<li>
@@ -30,7 +30,7 @@
 				</li>
 
 				<li style="float:left;">
-					<%= image_submit_tag "favorite_on_27x27.png", :id=> "songtag-add-btn", :onclick=>"javascript:add_songtag()"%>
+					<%= image_submit_tag "btn_write_normal_22x21.png", :id=> "songtag-add-btn", :onclick=>"javascript:add_songtag()", :class=>"header-item"%>
 				</li>
 				<li style="float:left;">
 					<%= render 'search/form'%>

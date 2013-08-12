@@ -97,3 +97,13 @@ div{
   padding-top : ($navbarHeight - $headerLogoHeight )/2;
   padding-right : 50px;
 }
+
+
+$headerTextSize : 16px;
+$headerTextHorizontalPadding : 20px;
+.navbar .nav > li > a {
+  padding : 0px;
+  font-size : $headerTextSize;
+  padding-top : (44px-$headerTextSize)/2 ;
+  padding-right : $headerTextHorizontalPadding ;
+}

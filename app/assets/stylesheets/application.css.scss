@@ -12,3 +12,14 @@
  *= require_tree .
  */
  
+$headerItemHeight : 21px;
+$headerItemMarginTop : ( 44px - $headerItemHeight ) / 2 ;
+$headerItemRightMargin : 20px;
+
+.header-item {
+	float : left;
+
+	height : $headerItemHeight ;
+	margin-top : $headerItemMarginTop;
+	margin-right : $headerItemRightMargin;
+}
