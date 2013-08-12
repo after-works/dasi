@@ -53,7 +53,7 @@ $rankElemThumbWidth : 75px;
   }
   
   .info{
-    height : $videoInfoHeight;
+    height : $videoInfoHeight + 15px;
     display: block;
     margin-left : 20px;
     margin-right: 20px;
@@ -61,8 +61,8 @@ $rankElemThumbWidth : 75px;
     
     .title {//song title
       font-size : 14px;
-      line-height : 14px;
-      width : $leftColWidth - 200px;
+      line-height : 20px;
+      width : $leftColWidth - 40px;
       
       display : block;
       float : left;
@@ -75,12 +75,17 @@ $rankElemThumbWidth : 75px;
     }
     
     .small{//song writer
+      max-width : 200px - 40px;
       line-height : 14px;
       display : block;
-      float:right;
+      float:left;
       font-size : 10px;
+      height : 15px;
     }
     
+    .facebook-btn {
+      float:left;
+    }
   }
 }
 
