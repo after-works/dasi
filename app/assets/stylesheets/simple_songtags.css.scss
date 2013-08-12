@@ -1,0 +1,137 @@
+$simpleSongTagContainerWidth: 184px;
+$simpleSongTagContainerHeight: 200px;
+$simpleSongTagBackgroundColor: #FFFFFF;
+
+$betweenSongtagContainer: 32px;
+
+$simpleSongTagTitleHeight: 28px;
+
+.simple-songtag-container{
+  padding-left:11px;
+  padding-right:11px;
+  padding-top:4px;
+  
+  float:left;
+  width: $simpleSongTagContainerWidth;
+  height: $simpleSongTagContainerHeight - 4px;  
+  
+  background-color: $simpleSongTagBackgroundColor;
+  
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+ 
+  margin-right:$betweenSongtagContainer;
+  
+  .simple-sontag-title{
+    width: $simpleSongTagContainerWidth;
+    height: 15px; 
+    
+     overflow:hidden;
+     white-space:nowrap;
+     text-overflow: ellipsis;
+     line-height:15px;
+     
+    font-size:15px;
+    font-weight:bold;
+    //.simple-title-link{
+    //  width: $simpleSongTagContainerWidth;
+    //  height: $simpleSongTagTitleHeight; 
+    //  color:#58595B !important;
+    //}
+    .atag{
+          width: $simpleSongTagContainerWidth;
+    height: 15px; 
+    
+     overflow:hidden;
+     white-space:nowrap;
+     text-overflow: ellipsis;
+     line-height:15px;
+     color:#58595B !important;
+    }
+
+  }
+  
+  .thumb{
+    width: $simpleSongTagContainerWidth;
+    height: 104px;
+    overflow:hidden;
+  }
+
+  .mint-title{
+     height: 25px; 
+     width: $simpleSongTagContainerWidth;
+     font-size:10pt;
+    
+     color: #6D6E70;
+     
+     border-bottom: 1px solid #EAEAEA; 
+     
+     font-weight:bold;
+     font-size:13px;
+     color: #6D6E70;
+     line-height:25px;
+     
+     overflow:hidden;
+     white-space:nowrap;
+     text-overflow: ellipsis;
+     
+     .rank-span {
+       padding:0px 0px 0px 0px;
+       margin: 0px 5px 0px 0px;
+       
+       height: 25px;
+       
+       font-weight:bold;
+       font-size:11pt;
+       color: #FCB415;
+       line-height:25px;
+     }
+  }
+  
+  .mint-info{
+     width: 184px;
+     height: 25px; 
+
+     padding: 3px 0px 3px 0px;
+
+
+     .info-detail{
+       margin:0 0 0 0;
+       display: inline-block;
+       width:46px;
+       height:33px;
+       float:left;
+       img{
+         height:15px;
+         width:15px;
+         padding-top:9px;
+         padding-bottom:9px;
+       }
+       .info-num{
+        height:25px;
+        width:30px;
+        font-size:11px;
+        color: #6D6E70;
+        line-height:25px;
+        
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow: ellipsis;
+     
+       }
+       
+     }
+     .space{
+       float:left;
+       display: inline-block;
+       width:30px;
+       height:33px;
+       visibility:none;
+     }
+      
+  }
+  
+
+}
+
+

@@ -1,5 +1,5 @@
-<%= form_for :feedback, :html=>{:'data-type'=>'json'}, :url=>feedbacks_path do |f| %>
+<%= form_for :feedback, :html=>{:'data-type'=>'json', :class=>"issue-submit"}, :url=>feedbacks_path do |f| %>
 	<%= f.hidden_field :uid, :value=>current_user.id %>
 	<%= f.text_field :text %>
-	<%= f.button "Submit" %>
+	<%= f.button "제출하기" %>
 <% end %>

@@ -2,47 +2,159 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-///////////////////////////////////////////////////////
-// 최신, 인기 작은 썸네일 //
-///////////////////////////////////////////////////////
-.simple-songtag-container{
-  width: 206px;
-  height: 200px;  
-  padding-left:11px;
-  padding-right:11px;
-  background: #FFFFFF;
+
+$issueContainerWidth: 960px;
+$issueContainerheight: 325px;
+
+$issueBacgroundColor:#FFFFFF;
+
+
+
+$bestReplyWrapWidth: 206px;
+$bestReplyWrapHeight: 478px;
+$bestReplyPadding: 22px;
+$bestReplyContainerWidth: ($bestReplyWrapWidth - $bestReplyPadding);
+$bestReplyContainerheight: 448px - $bestReplyPadding;
+
+$bestReplyHeight:38px;
+
+
+$labelTextColor:#404041;
+
+.issue-container {
+  margin-top:40px;
+  width:$issueContainerWidth;
+  height:$issueContainerheight;
+  
+  background:$issueBacgroundColor;
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
-  .title{
-    height: 37px; 
-    
-    .title-text{
-      font-weight:bold;
-      font-size:14pt;
-      color:#585958;
+  border-radius: 5px;
+
+  position:relative; top:0 auto;
+
+
+
+  .issue-submit{ 
+    position:absolute; 
+    top:270px;
+    left:130px;
+  
+    input{
+      width:600px;
+      height:30px;
+      
+      margin-bottom:0px;
+    }
+    button{
+      width:80px;
+      height:40px;
     }
   }
   
-  .thumb{
-    width: 184px;
-    height: 104px; 
-  }
+}
 
-  .mint-title{
-     height: 26px; 
- 
+.best-reply-wrap{
+  float:right;
+  
+  width:$bestReplyWrapWidth;
+  height:$bestReplyWrapHeight;
+  
+  margin-top:30px;
+  
+  .img{
+    width:$bestReplyWrapWidth;
+    height:22px;
+    margin-bottom:10px;
   }
   
-  .mint-height{
-     height: 33px; 
-
+  .best-reply-container{
+    width:$bestReplyWrapWidth - $bestReplyPadding;
+    height:$bestReplyContainerheight;
+    
+    background:#ffffff; 
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;  
+    
+    position:relative;
+  
+    padding: 11px 11px 11px 11px;
+    
+    
+    .best-reply {
+      height: $bestReplyHeight;
+      width:$bestReplyWrapWidth - $bestReplyPadding;
+      
+      margin-bottom: 17px;
+      
+      .best-reply-content{
+        height:19px;
+        width:$bestReplyWrapWidth - $bestReplyPadding;
+        
+        font-weight: bold;
+        font-size:12pt;
+        color: #58595B;
+        line-height:19px;
+        
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow: ellipsis;
+        
+        border-bottom: 1px solid #EAEAEA; 
+      }
+      .best-reply-subject {
+        height:19px;
+        width:$bestReplyWrapWidth - $bestReplyPadding;
+        
+        font-weight: bold;
+        font-size:12pt;
+        color: #BBBDBF;
+        line-height:19px;
+        
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    
   }
   
-  .right-float{
+  
+}
+
+.summary-container{
+  width:714px;
+  height:230px;
+  
+  margin-top:30px;
+  .summary-label{
+    padding-left:10px;
+    padding-right:40px;
+    margin-bottom:10px;
+    
+    height:22px;
+
+    .img {
+      float:left;
+    }
+    .first{
+      padding-top:2px;
+    }
+    .summary-label {
+      float:left;
+      font-weight:bold;
+      font-size:15px;
+      color: $labelTextColor;
+      line-height:22px;
+    }
+  }
+  .more_btn{
     float:right;
-    width:25%;
+    padding-top:5px;
   }
-  .space{
 
-  }
+
+}
+.second{
+    margin-top:17px;
 }
 

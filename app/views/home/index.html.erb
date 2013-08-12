@@ -1,12 +1,111 @@
 <div class="container">
-	<%= render 'feedbacks/form' %>
-	<% @popular_songtags[0..2].each do |pst| %>
-		<%= render 'home/simple_songtag', :songtag=>pst, :song=>get_first_song(pst) %>
-	<% end %>
-	<br>
-	<hr>
-	<br>
-	<% @new_songtags[0..2].each do |nst| %>
-		<%= render 'home/simple_songtag', :songtag=>nst, :song=>get_first_song(nst) %>
-	<% end %>
+	<div class="issue-container">
+		<div>
+			아직 완성중인 사이트
+		</div>
+		<div>
+			피드백을 주세용 굽신굽신 
+		</div>
+		<%= render 'feedbacks/form' %>
+	</div>
+	
+	<div class="best-reply-wrap">
+		<div class="img"> <%= image_tag "best_main_60x14.png", :alt =>"Best Reply"  %></div>
+		<div class="best-reply-container"> 
+			<div class="best-reply">
+				<div class="best-reply-content">
+					asdfsadfffsadfsdafssadfsadfsadfsadfsadfsadfsadfsadfsdsadfafsdfsad <span>adsf</span>
+				</div>
+				<div class="best-reply-subject">
+					dsaffsadfsadfsadfsadfsadfsadfsadfsadfsadfsadfsadfsadfsadfsadfsadfsadfsadfsadfsadfsad
+				</div>	
+			</div>
+
+			<div class="best-reply">
+				<div class="best-reply-content">
+					sadf
+				</div>
+				<div class="best-reply-subject">
+					sadf
+				</div>	
+			</div>
+			<div class="best-reply">
+				<div class="best-reply-content">
+					sadf
+				</div>
+				<div class="best-reply-subject">
+					sadf
+				</div>	
+			</div>
+			<div class="best-reply">
+				<div class="best-reply-content">
+					sadf
+				</div>
+				<div class="best-reply-subject">
+					sadf
+				</div>	
+			</div>
+			<div class="best-reply">
+				<div class="best-reply-content">
+					sadf
+				</div>
+				<div class="best-reply-subject">
+					sadf
+				</div>	
+			</div>
+			<div class="best-reply">
+				<div class="best-reply-content">
+					sadf
+				</div>
+				<div class="best-reply-subject">
+					sadf
+				</div>	
+			</div>
+			<div class="best-reply">
+				<div class="best-reply-content">
+					sadf
+				</div>
+				<div class="best-reply-subject">
+					sadf
+				</div>	
+			</div>
+			
+			<div class="best-reply">
+				<div class="best-reply-content">
+					sadf
+				</div>
+				<div class="best-reply-subject">
+					sadf <span>adsf</span>
+				</div>	
+			</div>
+			
+		</div>
+	</div>
+		
+	
+	<div class="summary-container">
+		<div class="summary-label">
+			<div class="img first">
+				<%= image_tag "pop_main_23x17.png", :alt =>"popular Mintlist" %> 
+			</div>
+			<div class="summary-label">인기</div>
+			<%= link_to image_tag("more_main_45x17.png", :alt =>"popular more"), "/songtags?category=#{Songtag.popular_songtags_flag}", class: "more_btn" %> 
+		</div>
+		<% @popular_songtags[0..2].each do |pst| %>
+			<%= render 'home/simple_songtag', :songtag=>pst, :song=>get_first_song(pst) %>
+		<% end %>
+	</div>
+
+	<div class="summary-container second">
+		<div class="summary-label">
+			<div class="img">
+				<%= image_tag "new_main_18x22.png", :alt =>"New Mintlist" %>
+			</div>
+			<div class="summary-label">최신</div>
+			<%= link_to image_tag("more_main_45x17.png", :alt =>"popular more"), "/songtags?category=#{Songtag.new_songtags_flag}", class: "more_btn" %> 
+		</div>
+		<% @new_songtags[0..2].each do |nst| %>
+			<%= render 'home/simple_songtag', :songtag=>nst, :song=>get_first_song(nst) %>
+		<% end %>
+	</div>
 </div>
